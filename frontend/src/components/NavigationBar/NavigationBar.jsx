@@ -3,9 +3,9 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 
 const NavigationBar = () => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar className="nav-color" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+        <Navbar.Brand href="#home">Skin Burn</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

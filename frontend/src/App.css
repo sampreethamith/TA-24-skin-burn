@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+:root {
+  --primary-color: #5d5d8c;
+  --color-white: #fff;
+  --color-black: #000;
+  width: 100vw;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Typography */
+h1,
+h2,
+h3 {
+  color: var(--color-white);
+  margin-bottom: 1rem;
+  line-height: 1.1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1 {
+  font-size: 7rem;
 }
 
-.App-link {
-  color: #61dafb;
+h2 {
+  font-size: 4rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h3 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+/* NavBar */
+.nav-color {
+  background-color: var(--primary-color);
+}
+
+/* Blocks */
+.block {
+  --padding-vertical: 6rem;
+  padding: var(--padding-vertical) 2rem;
+}
+
+.block--dark {
+  background-color: var(--primary-color);
+  color: var(--color-white);
+}
+
+.block--light {
+  background-color: var(--color-white);
+  color: var(--primary-color);
+}
+
+.block--skewed-right {
+  padding-bottom: cal(var(--padding-vertical) + 4rem);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
+}
+
+.block--skewed-left {
+  padding-bottom: calc(var(--padding-vertical) + 4rem);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
+}
+
+/* Image */
+img {
+  max-width: 100%;
 }

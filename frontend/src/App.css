@@ -64,7 +64,18 @@ h3 {
   clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
 }
 
+.block--content {
+  display: flex;
+  flex-direction: row;
+}
+
 /* Image */
-img {
+.img-doc {
   max-width: 100%;
+}
+
+.img-stat {
+  max-width: 50%;
+  justify-content: center;
+  align-items: center;
 }

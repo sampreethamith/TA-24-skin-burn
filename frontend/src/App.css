@@ -55,18 +55,18 @@ h3 {
 }
 
 .block--skewed-right {
-  padding-bottom: cal(var(--padding-vertical) + 4rem);
+  /* padding-bottom: cal(var(--padding-vertical) + 4rem); */
   clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
 }
 
 .block--skewed-left {
-  padding-bottom: calc(var(--padding-vertical) + 4rem);
+  /* padding-bottom: calc(var(--padding-vertical) + 4rem); */
   clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
 }
 
 .block--content {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
 }
 
 /* Image */
@@ -76,6 +76,11 @@ h3 {
 
 .img-stat {
   max-width: 50%;
-  justify-content: center;
-  align-items: center;
+}
+
+/* Card */
+.card-counter {
+  color: var(--color-black);
+  font-weight: 800;
+  font-size: xx-large;
 }

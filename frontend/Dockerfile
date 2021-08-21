@@ -7,18 +7,21 @@ COPY package*.json .
 RUN npm install
 #copy all the code
 COPY . .
-# build react app
-RUN npm run build
+#EXPOSE PORT
+EXPOSE 3000
+# Run server
+CMD ["npm", "start"]
 
 # Nginx server
-FROM nginx:1.16.0-alpine
-# Copying the react build to nginx server
-COPY --from=build /app/build /usr/share/nginx/html
-# remove the default nginx configuration file
-RUN rm /etc/nginx/conf.d/default.conf
-# Copy nginx configuration to nginx server
-COPY nginx/nginx.conf /etc/nginx/conf.d
+# FROM nginx:1.16.0-alpine
+# # Copying the react build to nginx server
+# COPY --from=build /app/build /usr/share/nginx/html
+# # remove the default nginx configuration file
+# RUN rm /etc/nginx/conf.d/default.conf
+# # Copy nginx configuration to nginx server
+# COPY nginx/nginx.conf /etc/nginx/conf.d
 
-# Fire up nginx
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# # Fire up nginx
+# EXPOSE 80
+# CMD ["nginx", "-g", "daemon off;"]
+

@@ -2,11 +2,11 @@ FROM node:14.2.0-alpine as build
 # Working Directory
 WORKDIR /app
 #Copying package.json file to working directory
-COPY package*.json .
+COPY package*.json /app/
 #Installing app dependency
 RUN npm install
 #copy all the code
-COPY . .
+COPY . /app/
 #EXPOSE PORT
 EXPOSE 3000
 # Run server

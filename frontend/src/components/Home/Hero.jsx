@@ -5,7 +5,7 @@ import { Animated } from "react-animated-css";
 
 const Hero = () => {
   return (
-    <section className="block block--dark block--skewed-right">
+    <section className="block img-hero-background">
       <Container>
         <Row>
           <Col>
@@ -17,7 +17,7 @@ const Hero = () => {
               <h3>Hello, Welcome to Skin dermatology information center</h3>
             </Animated>
           </Col>
-          <Col>
+          {/* <Col>
             <Animated
               animationIn="bounceInRight"
               animationOut="fadeOut"
@@ -25,7 +25,7 @@ const Hero = () => {
             >
               <img src={doctor} alt="Doctorimage" className="img-doc" />
             </Animated>
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </section>

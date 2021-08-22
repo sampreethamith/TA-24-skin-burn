@@ -11,7 +11,7 @@ function App() {
         <NavigationBar />
       </header>
       <Home />
-      <DataInformatiom />
+      {/* <DataInformatiom /> */}
     </React.Fragment>
   );
 }

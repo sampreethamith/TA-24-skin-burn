@@ -1,7 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import doctor from "../../images/doctor.png";
+
 import { Animated } from "react-animated-css";
+import LearnMore from "../Common/LearnMore";
 
 const Hero = () => {
   return (
@@ -14,18 +15,15 @@ const Hero = () => {
               animationOut="fadeOut"
               isVisible={true}
             >
-              <h3>Hello, Welcome to Skin dermatology information center</h3>
+              <div className="hero-card">
+                <h1 className="primary-text text-opacity">
+                  One in ten adults aged 20-35 report sunburnt in the Summer.
+                </h1>
+                <LearnMore position={"learn-more-hero-position"} />
+              </div>
             </Animated>
           </Col>
-          {/* <Col>
-            <Animated
-              animationIn="bounceInRight"
-              animationOut="fadeOut"
-              isVisible={true}
-            >
-              <img src={doctor} alt="Doctorimage" className="img-doc" />
-            </Animated>
-          </Col> */}
+          <Col></Col>
         </Row>
       </Container>
     </section>

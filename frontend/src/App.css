@@ -19,6 +19,7 @@
 body {
   font-family: "Roboto", sans-serif !important;
   background-color: var(--secondary-color) !important;
+  overflow-x: hidden;
 }
 
 /* Typography */
@@ -115,12 +116,6 @@ h3 {
 }
 
 /* Card */
-.card-counter {
-  color: var(--color-black);
-  font-weight: 800;
-  font-size: xx-large;
-}
-
 .card-title-body-learn-more {
   display: flex;
   flex-direction: column;
@@ -128,6 +123,19 @@ h3 {
 
 .card-learn-more-end-position {
   align-self: flex-end;
+}
+
+.card-small-counter {
+  height: 150px;
+  width: 250px;
+  background: var(--primary-color) !important;
+  margin: 1rem;
+  font-size: x-large;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Home Hero Component */
@@ -162,13 +170,18 @@ h3 {
   margin-left: 0.8rem;
 }
 
-/* Home Page Data Information */
 .data-information {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.data-infromation-right-border {
-  border-right: 3px solid #fff;
+@media screen and (min-width: 768px) {
+  .data-information {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .card-small-counter {
+    width: 350px;
+  }
 }

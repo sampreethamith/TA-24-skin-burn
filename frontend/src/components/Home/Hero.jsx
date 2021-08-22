@@ -15,11 +15,11 @@ const Hero = () => {
               animationOut="fadeOut"
               isVisible={true}
             >
-              <div className="hero-card">
-                <h1 className="primary-text text-opacity">
+              <div className="card-title-body-learn-more hero-card">
+                <h1 className="primary-text">
                   One in ten adults aged 20-35 report sunburnt in the Summer.
                 </h1>
-                <LearnMore position={"learn-more-hero-position"} />
+                <LearnMore position={"card-learn-more-end-position"} />
               </div>
             </Animated>
           </Col>

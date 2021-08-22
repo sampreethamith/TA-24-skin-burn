@@ -15,13 +15,21 @@ const DataInformatiom = () => {
         >
           <Row>
             <Col>
-              <CardWithCounter />
+              <CardWithCounter
+                border="data-infromation-right-border"
+                data="66.67%"
+                body="Diagnosed with skin cancer"
+              />
             </Col>
             <Col>
-              <CardWithCounter />
+              <CardWithCounter
+                border="data-infromation-right-border"
+                data="2072"
+                body="Deaths due to sunburn"
+              />
             </Col>
             <Col>
-              <CardWithCounter />
+              <CardWithCounter data="92%" body="Melanoma survival rate" />
             </Col>
           </Row>
         </Animated>

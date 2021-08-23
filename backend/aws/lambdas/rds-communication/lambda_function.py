@@ -58,3 +58,5 @@ def lambda_handler(event, context):
     response_obj['statusCode'] = 200
     response_obj = safe_execute(response_obj)
     return response_obj
+
+lambda_handler(None, None)

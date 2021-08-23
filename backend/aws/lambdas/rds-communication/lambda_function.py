@@ -5,8 +5,8 @@ import logging
 
 #Configuration environment values
 endpoint = 'aws-rds-db.cfrwh9mf3ygt.us-east-2.rds.amazonaws.com'
-username = 'admin'
-pwd = 'adminadmin'
+username = ''
+pwd = ''
 database_name = 'TEST'
 
 #Connection string build

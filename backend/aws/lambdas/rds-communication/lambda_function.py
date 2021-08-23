@@ -18,21 +18,43 @@ def print_table(cursor: Cursor, table_name: str):
     for row in rows:
         print(row)
         
-def safe_execute():
+def get_all_rows(cursor: Cursor, table_name: str):
+    cursor.execute(f"SELECT * FROM {table_name}")
+    return cursor.fetchall()
+        
+def safe_execute(response_obj):
     try:
-        cursor = connection.cursor()
+        # cursor = connection.cursor()
+        cursor = connection.cursor(pymysql.cursors.DictCursor)
+        # print_table(cursor, "TBL1")
+        # cursor.execute('INSERT INTO `TEST`.`TBL1` (`uid`, `name`, `count`) VALUES ("6", "test", "60")')
         print_table(cursor, "TBL1")
-        cursor.execute('INSERT INTO `TEST`.`TBL1` (`uid`, `name`, `count`) VALUES ("7", "test2", "70");')
-        print_table(cursor, "TBL1")
+        response_obj['body'] = get_all_rows(cursor, "TBL1")
     except Exception as e:
+        response_obj['statusCode'] = 500
+        response_obj['body'] = {
+            "msg": "There was an exception while executing lambda..."
+        }
         print("There was an exception while executing lambda...")
         print ("EXCEPTION INFO:")
         logging.error(traceback.format_exc())
     finally:
         print("Closing lambda...")
+        return response_obj
     
 
 def lambda_handler(event, context):
-    safe_execute()
-
-lambda_handler(None, None)
+    response_obj = {
+        'statusCode': 200,
+        'headers': {},
+        'body': {}
+    }
+    # response_obj['headers'] = {
+    #     'Access-Control-Allow-Headers': 'Content-Type',
+    #     'Access-Control-Allow-Origin': '*',
+    #     'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+    # }
+    response_obj['headers']['Content-Type'] = 'application/json'
+    response_obj['statusCode'] = 200
+    response_obj = safe_execute(response_obj)
+    return response_obj

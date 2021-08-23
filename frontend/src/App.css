@@ -52,6 +52,15 @@ h3 {
   color: var(--secondary-color);
 }
 
+/* Loader */
+.loader-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* NavBar */
 .nav-color {
   background-color: var(--primary-color);

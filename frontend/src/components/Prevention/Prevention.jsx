@@ -3,6 +3,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import LeftInformationCard from "../Common/LeftInformationCard";
 import RightInformationCard from "../Common/RightInformationCard";
+import SunCalculator from "../SunCalculator/SunCalculator";
 import sunscreen_level from "./../../images/sunscreen_level.png";
 import cloths_to_Wear from "./../../images/cloths_to_wear.png";
 
@@ -18,10 +19,16 @@ const Prevention = () => {
     description: `Clothing absorbs or blocks harmful UV radiation and is one of the simplest ways to protect your skin. However, choosing the right clothing for maximum protection is important.`,
     imgP: cloths_to_Wear
   };
+  const sunCalcData = {
+    header: `Going out?`,
+    QueOne: `Which Sunscreen you should apply?`,
+    QueTwo: `What clothing are better to wear?`
+  }
   return (
     <Container>
-      <LeftInformationCard data={left_cardData} />
-      <RightInformationCard data={right_cardData}/>
+      {/* <LeftInformationCard data={left_cardData} />
+      <RightInformationCard data={right_cardData}/> */}
+      <SunCalculator data={sunCalcData}/>
     </Container>
   );
 };

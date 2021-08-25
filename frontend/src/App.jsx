@@ -9,9 +9,11 @@ import SkinCancer from "./components/SkinCancer/SkinCancer";
 import Prevention from "./components/Prevention/Prevention";
 import Treatment from "./components/Treatment/Treatment";
 import UVassist from "./components/UV-Assist/UVassist";
+import VerticallyCenteredModal from "./components/Common/VerticallyCenteredModal";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [modalShow, setModalShow] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
@@ -21,6 +23,10 @@ function App() {
 
   return (
     <React.Fragment>
+      {/* <VerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      /> */}
       {loading ? (
         <Loader />
       ) : (

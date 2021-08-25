@@ -166,10 +166,40 @@ h3 {
 }
 
 /* Home Hero Component */
+.hero-relative {
+  position: relative;
+}
+
 .hero-card {
   background-color: var(--secondary-light);
   opacity: 0.85;
   padding: 2rem;
+}
+
+.hero-current-uv-radiation-box {
+  background-color: var(--secondary-light);
+  opacity: 0.85;
+  padding: 0.7rem;
+  height: 100px;
+  width: 200px;
+  position: absolute;
+  right: 0;
+  top: 1rem;
+}
+
+.hero-inline {
+  display: inline;
+  margin: 0.3rem;
+}
+
+.hero-current-uv-radiation-font {
+  font-size: large;
+  font-weight: 500;
+}
+
+.hero-current-uv-radiation-number-font {
+  font-size: xx-large;
+  font-weight: 900;
 }
 
 /* Learn More */

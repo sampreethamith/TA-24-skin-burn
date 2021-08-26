@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-
 import { Animated } from "react-animated-css";
 import LearnMore from "../Common/LearnMore";
+import { useSelector } from "react-redux";
 
 const Hero = () => {
+  const state = useSelector((state) => state.location);
+
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
+
   return (
     <React.Fragment>
       <section className="block img-hero-background hero-relative">
@@ -31,7 +37,10 @@ const Hero = () => {
                   <h1 className="primary-text">
                     One in ten adults aged 20-35 report sunburnt in the Summer.
                   </h1>
-                  <LearnMore position={"card-learn-more-end-position"} />
+                  <LearnMore
+                    position={"card-learn-more-end-position"}
+                    path="/home/information"
+                  />
                 </div>
               </Animated>
             </Col>

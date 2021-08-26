@@ -163,6 +163,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 2rem;
 }
 
 /* Home Hero Component */
@@ -226,6 +227,14 @@ h3 {
 .learn-more:hover > img {
   margin-left: 0.8rem;
 }
+
+/* .learn-more-button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+} */
 
 .data-information {
   display: flex;

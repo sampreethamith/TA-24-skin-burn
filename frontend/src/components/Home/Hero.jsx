@@ -1,21 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Animated } from "react-animated-css";
 import LearnMore from "../Common/LearnMore";
 import { useSelector } from "react-redux";
 
-const Hero = () => {
+const Hero = ({ locationName, uvi }) => {
   const state = useSelector((state) => state.location);
-  const [locationName, setLocationName] = useState("");
-  const [uvi, setUvi] = useState(0);
-
-  useEffect(() => {
-    if (!state.isLocationEnabled) setLocationName("Location Not Available");
-    else {
-      setLocationName(state.locationName);
-      setUvi(state.uvi);
-    }
-  }, [state]);
 
   return (
     <React.Fragment>

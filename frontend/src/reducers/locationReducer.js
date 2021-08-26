@@ -13,7 +13,9 @@ export const locationReducer = (state = initialState, action) => {
       return { ...state, isLocationEnabled: true, latitude, longitude };
     case "LOCATION_NOT_AVAILABLE":
       return { ...state, isLocationEnabled: false };
-
+    case "LOCATION_UV_NAME":
+      const { uvi, locationName } = action.payload;
+      return { ...state, uvi, locationName };
     default:
       return state;
   }

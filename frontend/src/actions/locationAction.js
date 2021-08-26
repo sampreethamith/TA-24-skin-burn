@@ -10,3 +10,10 @@ export const latlongNotAvailable = () => {
     type: "LOCATION_NOT_AVAILABLE",
   };
 };
+
+export const locationUVName = (uvi, locationName) => {
+  return {
+    type: "LOCATION_UV_NAME",
+    payload: { uvi, locationName },
+  };
+};

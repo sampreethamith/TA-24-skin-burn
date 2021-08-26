@@ -375,3 +375,7 @@ select {
     width: 30%;
   }
 }
+
+.skin-cancer-symptoms-white-text {
+  color: var(--color-white);
+}

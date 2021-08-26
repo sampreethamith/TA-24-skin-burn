@@ -40,13 +40,13 @@ const cards_data = [
 
 const SkinCancerSympotms = () => {
   return (
-    <div>
-      <h1>Skin cancer sympotms</h1>
-      <p>
-      Please try to check all parts of your body including the part that not exposed to the sun such as the skin be tween the 
-foot finger. If you are not sure whether the black sign is normal mole or me melanoma, please have a talk with your GP.
-      </p>
+    <div className="block">
       <Container>
+        <h1>Skin cancer sympotms</h1>
+        <p className="skin-cancer-symptoms-white-text">
+          Please try to check all parts of your body including the part that not exposed to the sun such as the skin be tween the
+          foot finger. If you are not sure whether the black sign is normal mole or me melanoma, please have a talk with your GP.
+        </p>
         <RightInformationCard data={cards_data[0]} />
         <RightInformationCard data={cards_data[1]} />
         <RightInformationCard data={cards_data[2]} />

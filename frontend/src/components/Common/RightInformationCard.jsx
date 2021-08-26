@@ -4,7 +4,7 @@ import LearnMore from "../Common/LearnMore";
 
 const RightInformationCard = ({ data, learnmoreroute }) => {
   return (
-    <div className="block right-information-block">
+    <div className="right-information-block">
       <Animated
         animationIn="bounceInLeft"
         animationOut="fadeOut"

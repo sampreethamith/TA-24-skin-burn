@@ -155,7 +155,8 @@ h3 {
 .card-small-counter {
   height: 150px;
   width: 250px;
-  background: var(--primary-color) !important;
+  color: var(--color-white) !important;
+  background: var(--secondary-color) !important;
   margin: 1rem;
   font-size: x-large;
   font-weight: 500;
@@ -164,6 +165,22 @@ h3 {
   justify-content: center;
   align-items: center;
   border-radius: 2rem;
+}
+
+.card-small-counter-number-font {
+  font-size: 4rem;
+}
+
+.primary-card {
+  background-color: #ffcc33;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin: 1rem 0;
+}
+
+.primary-card-large {
+  /* height: 12rem; */
+  max-width: 100%;
 }
 
 /* Home Hero Component */
@@ -227,14 +244,6 @@ h3 {
 .learn-more:hover > img {
   margin-left: 0.8rem;
 }
-
-/* .learn-more-button {
-  background: none;
-  border: none;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-} */
 
 .data-information {
   display: flex;
@@ -312,5 +321,57 @@ h3 {
 @media screen and (min-width: 1024px) {
   .image-background {
     width: 30rem;
+  }
+}
+
+/* Select Going Out Page */
+/* The container must be positioned relative: */
+select {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.select-selected {
+  background-color: var(--primary-color);
+}
+
+/* style the items (options), including the selected item: */
+.select-selected {
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+/* Button */
+.primary-button {
+  background-color: var(--primary-color) !important;
+  color: var(--secondary-color);
+  margin: 1rem 0;
+}
+
+/* Sun Calculator */
+.uv-index-skin-type-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sun-calculator-button {
+  align-self: center;
+}
+
+.sun-calculator-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .sun-calculator-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .uv-index-skin-type-container {
+    width: 30%;
   }
 }

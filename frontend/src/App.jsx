@@ -10,9 +10,10 @@ import SkinCancer from "./components/SkinCancer/SkinCancer";
 import Prevention from "./components/Prevention/Prevention";
 import UVassist from "./components/UV-Assist/UVassist";
 // import VerticallyCenteredModal from "./components/Common/VerticallyCenteredModal";
-import SunCalculator from "./components/SunCalculator/SunCalculator";
 import { getLocation } from "./services/getLocation";
 // import { getLocationName } from "./services/getLocationName";
+import SunCalculator from "./components/Prevention/SunCalculator";
+
 import {
   latlongAvailable,
   latlongNotAvailable,
@@ -86,8 +87,7 @@ function App() {
             <Route path="/home" component={Home} />
             <Route path="/skincancer" component={SkinCancer} />
             <Route path="/prevention" component={Prevention} />
-            <Route path="/suncalculator" component={SunCalculator} />
-            <Route path="/uv-assist" component={UVassist} />
+            <Route path="/skin-burn-calculator" component={SunCalculator} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />

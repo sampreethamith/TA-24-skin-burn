@@ -379,6 +379,9 @@ select {
   }
 }
 
+.skin-cancer-symptoms-white-text {
+  color: var(--color-white);
+}
 /* Skin Cancer Information */
 .skin-cancer-informaton-text {
   color: var(--color-white);

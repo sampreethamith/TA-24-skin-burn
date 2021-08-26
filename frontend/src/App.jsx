@@ -90,7 +90,7 @@ function App() {
             <Route path="/uv-assist" component={UVassist} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
-            {/* <Redirect to="not-found" /> */}
+            <Redirect to="not-found" />
           </Switch>
         </div>
       )}

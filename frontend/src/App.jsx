@@ -8,12 +8,11 @@ import Loader from "./components/Common/Loader";
 import NotFound from "./components/Common/NotFound";
 import SkinCancer from "./components/SkinCancer/SkinCancer";
 import Prevention from "./components/Prevention/Prevention";
-// import UVassist from "./components/UV-Assist/UVassist";
-// import VerticallyCenteredModal from "./components/Common/VerticallyCenteredModal";
 import { getLocation } from "./services/getLocation";
 import SunCalculator from "./components/Prevention/SunCalculator";
 import SkinCancerSympotms from "./components/SkinCancer/SkinCancerSympotms";
 import { getLocationUVName } from "./services/getLocationUVName";
+import SkinCancerInformation from "./components/SkinCancer/SkinCancerInformation";
 import {
   latlongAvailable,
   latlongNotAvailable,
@@ -63,13 +62,6 @@ function App() {
     };
 
     getLocation(showPosition, showError);
-
-    const getLocationUVNameDetails = async (latitude, longitude) => {
-      const { data } = await getLocationUVName(latitude, longitude);
-      dispatch(locationUVName(data.uvi, data.loc_name));
-    };
-
-    getLocationUVNameDetails(latitude, longitude);
   }, [dispatch, latitude, longitude]);
 
   useEffect(() => {
@@ -77,6 +69,14 @@ function App() {
       setLoading(false);
     }, 1500);
   }, []);
+
+  useEffect(() => {
+    const getLocationUVNameDetails = async (latitude, longitude) => {
+      const { data } = await getLocationUVName(latitude, longitude);
+      dispatch(locationUVName(data.uvi, data.loc_name));
+    };
+    getLocationUVNameDetails(latitude, longitude);
+  }, [latitude, longitude]);
 
   return (
     <React.Fragment>
@@ -96,6 +96,10 @@ function App() {
             <Route
               path="/skincancer/skincancer-symptom"
               component={SkinCancerSympotms}
+            />
+            <Route
+              path="/skincancer/skincancer-information"
+              component={SkinCancerInformation}
             />
             <Route path="/skincancer" component={SkinCancer} />
             <Route path="/prevention" component={Prevention} />

@@ -25,7 +25,7 @@ const SkinCancer = () => {
       />
       <RightInformationCard
         data={right_cardData}
-        learnmoreroute="/skincancer/types-of-cloths-to-wear"
+        learnmoreroute="/skincancer/skincancer-information"
       />
     </Container>
   );

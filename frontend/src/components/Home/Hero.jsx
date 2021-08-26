@@ -41,7 +41,8 @@ const Hero = () => {
               >
                 <div className="card-title-body-learn-more hero-card">
                   <h1 className="primary-text">
-                    One in ten adults aged 20-35 report sunburnt in the Summer.
+                    Australia has reported the highest number of skin cancers
+                    from sunburn, but it could be avoided.
                   </h1>
                   <LearnMore
                     position={"card-learn-more-end-position"}

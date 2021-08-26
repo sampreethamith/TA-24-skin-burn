@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Animated } from "react-animated-css";
 import LearnMore from "../Common/LearnMore";
@@ -6,9 +6,15 @@ import { useSelector } from "react-redux";
 
 const Hero = () => {
   const state = useSelector((state) => state.location);
+  const [locationName, setLocationName] = useState("");
+  const [uvi, setUvi] = useState(0);
 
   useEffect(() => {
-    console.log(state);
+    if (!state.isLocationEnabled) setLocationName("Location Not Available");
+    else {
+      setLocationName(state.locationName);
+      setUvi(state.uvi);
+    }
   }, [state]);
 
   return (
@@ -17,13 +23,13 @@ const Hero = () => {
         <div className="hero-current-uv-radiation-box">
           <div className="text-center">
             <p className="primary-text hero-inline hero-current-uv-radiation-font">
-              UV
+              {state.isLocationEnabled ? "UV" : ""}
             </p>
             <p className="primary-text hero-inline hero-current-uv-radiation-number-font">
-              10
+              {state.isLocationEnabled ? uvi : ""}
             </p>
           </div>
-          <p className="primary-text text-center">Melbourne</p>
+          <p className="primary-text text-center">{locationName}</p>
         </div>
         <Container>
           <Row>

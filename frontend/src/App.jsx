@@ -8,20 +8,23 @@ import Loader from "./components/Common/Loader";
 import NotFound from "./components/Common/NotFound";
 import SkinCancer from "./components/SkinCancer/SkinCancer";
 import Prevention from "./components/Prevention/Prevention";
-import UVassist from "./components/UV-Assist/UVassist";
+// import UVassist from "./components/UV-Assist/UVassist";
 // import VerticallyCenteredModal from "./components/Common/VerticallyCenteredModal";
 import { getLocation } from "./services/getLocation";
-// import { getLocationName } from "./services/getLocationName";
 import SunCalculator from "./components/Prevention/SunCalculator";
-
+import SkinCancerSympotms from "./components/SkinCancer/SkinCancerSympotms";
+import { getLocationUVName } from "./services/getLocationUVName";
 import {
   latlongAvailable,
   latlongNotAvailable,
+  locationUVName,
 } from "./actions/locationAction";
 
 function App() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
+  const [latitude, setLatitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
   // const [modalShow, setModalShow] = useState(true);
 
   useEffect(() => {
@@ -55,14 +58,19 @@ function App() {
 
     const handleLatLongAvailable = (coords) => {
       dispatch(latlongAvailable(coords.latitude, coords.longitude));
-
-      // getLocationName()
-      //   .then((res) => console.log(res))
-      //   .catch((err) => console.log(err));
+      setLatitude(coords.latitude);
+      setLongitude(coords.longitude);
     };
 
     getLocation(showPosition, showError);
-  }, [dispatch]);
+
+    const getLocationUVNameDetails = async (latitude, longitude) => {
+      const { data } = await getLocationUVName(latitude, longitude);
+      dispatch(locationUVName(data.uvi, data.loc_name));
+    };
+
+    getLocationUVNameDetails(latitude, longitude);
+  }, [dispatch, latitude, longitude]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -85,6 +93,10 @@ function App() {
           </header>
           <Switch>
             <Route path="/home" component={Home} />
+            <Route
+              path="/skincancer/skincancer-symptom"
+              component={SkinCancerSympotms}
+            />
             <Route path="/skincancer" component={SkinCancer} />
             <Route path="/prevention" component={Prevention} />
             <Route path="/skin-burn-calculator" component={SunCalculator} />

@@ -11,12 +11,10 @@ import Prevention from "./components/Prevention/Prevention";
 import { getLocation } from "./services/getLocation";
 import SunCalculator from "./components/Prevention/SunCalculator";
 import SkinCancerSympotms from "./components/SkinCancer/SkinCancerSympotms";
-import { getLocationUVName } from "./services/getLocationUVName";
 import SkinCancerInformation from "./components/SkinCancer/SkinCancerInformation";
 import {
   latlongAvailable,
   latlongNotAvailable,
-  locationUVName,
 } from "./actions/locationAction";
 
 function App() {
@@ -70,13 +68,13 @@ function App() {
     }, 1500);
   }, []);
 
-  useEffect(() => {
-    const getLocationUVNameDetails = async (latitude, longitude) => {
-      const { data } = await getLocationUVName(latitude, longitude);
-      dispatch(locationUVName(data.uvi, data.loc_name));
-    };
-    getLocationUVNameDetails(latitude, longitude);
-  }, [latitude, longitude]);
+  // useEffect(() => {
+  //   const getLocationUVNameDetails = async (latitude, longitude) => {
+  //     const { data } = await getLocationUVName(latitude, longitude);
+  //     dispatch(locationUVName(data.uvi, data.loc_name));
+  //   };
+  //   getLocationUVNameDetails(latitude, longitude);
+  // }, [latitude, longitude]);
 
   return (
     <React.Fragment>

@@ -51,6 +51,10 @@ h6 {
   color: var(--secondary-color);
 }
 
+.white-text {
+  color: var(--color-white);
+}
+
 /* Loader */
 .loader-container {
   height: 100vh;
@@ -109,6 +113,12 @@ h6 {
 .block--content {
   display: flex;
   justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .block {
+    --padding-vertical: 3rem;
+  }
 }
 
 /* Local Container */
@@ -175,7 +185,7 @@ h6 {
 }
 
 .primary-card {
-  background-color: #ffcc33;
+  background-color: var(--primary-color);
   padding: 1rem;
   border-radius: 1rem;
   margin: 1rem 0;
@@ -331,7 +341,7 @@ h6 {
 /* The container must be positioned relative: */
 select {
   width: 100%;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
 }
 
 .select-selected {
@@ -379,10 +389,10 @@ select {
   }
 }
 
-.skin-cancer-symptoms-white-text {
+/* .skin-cancer-symptoms-white-text {
   color: var(--color-white);
-}
+} */
 /* Skin Cancer Information */
-.skin-cancer-informaton-text {
+/* .skin-cancer-informaton-text {
   color: var(--color-white);
-}
+} */

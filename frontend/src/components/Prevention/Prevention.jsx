@@ -24,14 +24,18 @@ const Prevention = () => {
   // };
   return (
     <Container>
-      <LeftInformationCard
-        data={left_cardData}
-        learnmoreroute="/prevention/sunscreen-level-to-apply"
-      />
-      <RightInformationCard
-        data={right_cardData}
-        learnmoreroute="/prevention/types-of-cloths-to-wear"
-      />
+      <div className="block">
+        <LeftInformationCard
+          data={left_cardData}
+          learnmoreroute="/prevention/sunscreen-level-to-apply"
+        />
+      </div>
+      <div className="block">
+        <RightInformationCard
+          data={right_cardData}
+          learnmoreroute="/prevention/types-of-cloths-to-wear"
+        />
+      </div>
     </Container>
   );
 };

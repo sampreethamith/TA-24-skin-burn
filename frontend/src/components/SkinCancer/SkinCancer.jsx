@@ -21,7 +21,7 @@ const SkinCancer = () => {
     <Container>
       <LeftInformationCard
         data={left_cardData}
-        learnmoreroute="/skincancer/sunscreen-level-to-apply"
+        learnmoreroute="/skincancer/skincancer-symptom"
       />
       <RightInformationCard
         data={right_cardData}

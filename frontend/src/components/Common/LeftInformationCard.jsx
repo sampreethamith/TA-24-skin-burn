@@ -3,7 +3,7 @@ import { Animated } from "react-animated-css";
 import LearnMore from "./LearnMore";
 // import sunscreen_level from "./../../images/sunscreen_level.png";
 
-const LeftInformationCard = ({data}) => {
+const LeftInformationCard = ({ data, learnmoreroute }) => {
   return (
     <div className="block left-information-block">
       <Animated
@@ -13,10 +13,8 @@ const LeftInformationCard = ({data}) => {
       >
         <div className="information-block">
           <h2>{data.header}</h2>
-          <p>
-            {data.description}
-          </p>
-          <LearnMore />
+          <p>{data.description}</p>
+          <LearnMore path={learnmoreroute} />
         </div>
       </Animated>
       <Animated
@@ -26,7 +24,7 @@ const LeftInformationCard = ({data}) => {
       >
         <div className="image-block">
           <div className="image-background">
-            <img src={data.imgP} alt="Information Picture" />
+            <img src={data.imgP} alt="Information" />
           </div>
         </div>
       </Animated>

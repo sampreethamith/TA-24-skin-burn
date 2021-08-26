@@ -1,9 +1,8 @@
 import React from "react";
 import { Animated } from "react-animated-css";
-import information from "./../../images/information-picture.jpeg";
 import LearnMore from "../Common/LearnMore";
 
-const RightInformationCard = ({data}) => {
+const RightInformationCard = ({ data, learnmoreroute }) => {
   return (
     <div className="block right-information-block">
       <Animated
@@ -24,10 +23,8 @@ const RightInformationCard = ({data}) => {
       >
         <div className="information-block">
           <h2>{data.header}</h2>
-          <p>
-            {data.description}
-          </p>
-          <LearnMore />
+          <p>{data.description}</p>
+          <LearnMore path={learnmoreroute} />
         </div>
       </Animated>
     </div>

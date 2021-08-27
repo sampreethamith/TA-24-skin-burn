@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import Calculator from "./Calculator";
 import CalculatedInformation from "./CalculatedInformation";
@@ -68,12 +68,30 @@ function get_spf_by_uvi(skin_tone, uv_index) {
 // }
 
 const SunCalculator = () => {
+  const [skinType] = useState([
+    "Very Pale Skin",
+    "Fair Skin",
+    "Medium Skin",
+    "Light Brown skin",
+    "Dark Brown Skin",
+    "Black Skin",
+  ]);
+
+  const handleSkinTypeChange = (e) => {
+    console.log(skinType[e.target.value], "Skin Type Selected");
+
+    // setSkinType(e.target.value);
+  };
+
   console.log(get_spf_by_uvi("Fair skin", 4.0));
   return (
     <div className="block">
       <Container>
         <div className="sun-calculator-container">
-          <Calculator />
+          <Calculator
+            skinType={skinType}
+            onSkinTypeChange={(e) => handleSkinTypeChange(e)}
+          />
           <CalculatedInformation />
         </div>
       </Container>

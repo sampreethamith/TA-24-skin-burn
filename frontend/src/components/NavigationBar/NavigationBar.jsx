@@ -24,7 +24,7 @@ const NavigationBar = () => {
             <NavLink className="nav-link" to="/prevention">
               Prevention
             </NavLink>
-            <NavLink className="nav-link" to="/skin-burn-calculator">
+            <NavLink className="nav-link" to="/prevention/skin-burn-calculator">
               Skin-Burn Calculator
             </NavLink>
           </Nav>

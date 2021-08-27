@@ -68,7 +68,7 @@ function get_spf_by_uvi(skin_tone, uv_index) {
 // }
 
 const SunCalculator = () => {
-  const [skinType] = useState([
+  const [skinType, setSkinType] = useState([
     "Very Pale Skin",
     "Fair Skin",
     "Medium Skin",
@@ -76,11 +76,13 @@ const SunCalculator = () => {
     "Dark Brown Skin",
     "Black Skin",
   ]);
+  const SkinTypeMap = skinType.map(type => type);
 
   const handleSkinTypeChange = (e) => {
     console.log(skinType[e.target.value], "Skin Type Selected");
-
+    // console.log(e);
     // setSkinType(e.target.value);
+    //console.log(e.target.value);
   };
 
   console.log(get_spf_by_uvi("Fair skin", 4.0));
@@ -89,8 +91,8 @@ const SunCalculator = () => {
       <Container>
         <div className="sun-calculator-container">
           <Calculator
-            skinType={skinType}
-            onSkinTypeChange={(e) => handleSkinTypeChange(e)}
+            // skinType={SkinTypeMap}
+            // onSkinTypeChange={e => console.log(skinType[e.target.value])}
           />
           <CalculatedInformation />
         </div>

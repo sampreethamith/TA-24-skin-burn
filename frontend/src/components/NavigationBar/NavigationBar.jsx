@@ -5,12 +5,7 @@ import skinburn_logo from "./../../images/skinburn_logo.svg";
 
 const NavigationBar = () => {
   return (
-    <Navbar
-      className="nav-color"
-      variant="light"
-      expand="lg"
-      collapseOnSelect
-    >
+    <Navbar className="nav-color" variant="light" expand="lg" collapseOnSelect>
       <Container>
         <Link className="navbar-brand" to="/">
           {/* Skin Burn */}
@@ -25,9 +20,6 @@ const NavigationBar = () => {
             </NavLink>
             <NavLink className="nav-link" to="/prevention">
               Prevention
-            </NavLink>
-            <NavLink className="nav-link" to="/prevention/skin-burn-calculator">
-              Skin-Burn Calculator
             </NavLink>
           </Nav>
         </Navbar.Collapse>

@@ -34,10 +34,10 @@ const Hero = ({ locationName, uvi }) => {
                     Australia has reported the highest number of skin cancers
                     from sunburn, but it could be avoided.
                   </h1>
-                  <LearnMore
+                  {/* <LearnMore
                     position={"card-learn-more-end-position"}
                     path="/home/information"
-                  />
+                  /> */}
                 </div>
               </Animated>
             </Col>

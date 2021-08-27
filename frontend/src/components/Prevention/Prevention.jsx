@@ -27,13 +27,13 @@ const Prevention = () => {
       <div className="block">
         <LeftInformationCard
           data={left_cardData}
-          learnmoreroute="/prevention/sunscreen-level-to-apply"
+          learnmoreroute="/prevention/skin-burn-calculator"
         />
       </div>
       <div className="block">
         <RightInformationCard
           data={right_cardData}
-          learnmoreroute="/prevention/types-of-cloths-to-wear"
+          learnmoreroute="/prevention/skin-burn-calculator"
         />
       </div>
     </Container>

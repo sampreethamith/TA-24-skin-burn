@@ -35,6 +35,7 @@ const Home = () => {
   useEffect(() => {
     const getLocationUVNameDetails = async (latitude, longitude) => {
       const { data } = await getLocationUVName(latitude, longitude);
+      data.uvi = Math.round(data.uvi * 10) / 10;
       dispatch(locationUVName(data.uvi, data.loc_name));
       setLocationName(data.loc_name);
       setUvi(data.uvi);

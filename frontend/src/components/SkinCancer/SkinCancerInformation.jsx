@@ -42,7 +42,7 @@ const SkinCancerInformation = () => {
                 skin cancer.
               </p>
               <h4>Skin Cancer Spread</h4>
-              <p className="skin-cancer-informaton-text">
+              <p className="white-text">
                 Whether and how skin cancers spread depends on the type of skin
                 cancer. Basal cell carcinomas and squamous cell cancers rarely
                 spread. Melanomas are the most likely type of skin cancer to

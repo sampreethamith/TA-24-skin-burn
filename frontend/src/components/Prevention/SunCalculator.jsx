@@ -1,16 +1,32 @@
-import React, { useState } from "react";
-import { Container, Button } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Container } from "react-bootstrap";
 // import Calculator from "./Calculator";
 import CalculatedInformation from "./CalculatedInformation";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import getSPFByUvi from "../../services/getSPFByUvi";
 import getClothing from "../../services/getClothing";
+import { getLocationUVName } from "../../services/getLocationUVName";
+import { locationUVName } from "../../actions/locationAction";
 
 const SunCalculator = () => {
+  const dispatch = useDispatch();
   const location = useSelector((state) => state.location);
   const [spfLevel, setSpfLevel] = useState(0);
   const [clothing, setClothing] = useState([]);
   const [showInformation, setShowInformation] = useState(false);
+
+  useEffect(() => {
+    if (location.isLocationEnabled && !location.locationName) {
+      const getLocationUVNameDetails = async (latitude, longitude) => {
+        const { data } = await getLocationUVName(latitude, longitude);
+        data.uvi = Math.round(data.uvi * 10) / 10;
+        dispatch(locationUVName(data.uvi, data.loc_name));
+      };
+      getLocationUVNameDetails(location.latitude, location.longitude);
+    }
+
+    // else if ()
+  }, [dispatch, location]);
 
   const [skinType] = useState([
     "Very Pale Skin",
@@ -29,7 +45,7 @@ const SunCalculator = () => {
     valueOfSkinTypeSelected = skinType[e.target.value];
     setSpfLevel(getSPFByUvi(valueOfSkinTypeSelected, location.uvi));
     setClothing(getClothing(3));
-    setShowInformation(true);
+    if (location.isLocationEnabled) setShowInformation(true);
   };
 
   return (
@@ -40,7 +56,11 @@ const SunCalculator = () => {
             <h1>Going Out?</h1>
             <div className="primary-card primary-card-large">
               <p>Current UV Index Level</p>
-              <p>{location.uvi}</p>
+              <p>
+                {location.isLocationEnabled
+                  ? location.uvi
+                  : "Location Not Available"}
+              </p>
               <p>Your area UV Light</p>
               <p>UVA</p>
               <p>{location.locationName}</p>

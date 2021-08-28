@@ -1,9 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const CalculatedInformation = ({ spfLevel, clothing }) => {
-  useEffect(() => {
-    console.log(clothing);
-  }, []);
   return (
     <div>
       <h2>Which Sunscreen you should apply?</h2>
@@ -16,7 +13,7 @@ const CalculatedInformation = ({ spfLevel, clothing }) => {
       <h2>What clothing are better to wear?</h2>
       <div className="primary-card primary-card-large">
         {clothing.map((item, index) => {
-          return <p>{item}</p>;
+          return <p key={index}>{item}</p>;
         })}
       </div>
     </div>

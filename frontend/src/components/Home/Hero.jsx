@@ -19,7 +19,9 @@ const Hero = ({ locationName, uvi }) => {
               {state.isLocationEnabled ? uvi : ""}
             </p>
           </div>
-          <p className="primary-text text-center">{locationName}</p>
+          <p className="primary-text text-center">
+            {state.isLocationEnabled ? locationName : "Location Not Available"}
+          </p>
         </div>
         <Container>
           <Row>
@@ -36,7 +38,7 @@ const Hero = ({ locationName, uvi }) => {
                   </h1>
                   <LearnMore
                     position={"card-learn-more-end-position"}
-                    path="/home/information"
+                    path=""
                   />
                 </div>
               </Animated>

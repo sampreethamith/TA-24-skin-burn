@@ -1,6 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import RightInformationCard from "../Common/RightInformationCard";
+import LeftInformationCard from "../Common/LeftInformationCard";
 import s1 from "./../../images/sympotms/s1.png";
 import s2 from "./../../images/sympotms/s2.png";
 import s3 from "./../../images/sympotms/s3.png";
@@ -50,9 +51,9 @@ const SkinCancerSympotms = () => {
           please have a talk with your GP.
         </p>
         <RightInformationCard data={cards_data[0]} />
-        <RightInformationCard data={cards_data[1]} />
+        <LeftInformationCard data={cards_data[1]} />
         <RightInformationCard data={cards_data[2]} />
-        <RightInformationCard data={cards_data[3]} />
+        <LeftInformationCard data={cards_data[3]} />
         <RightInformationCard data={cards_data[4]} />
       </Container>
     </div>

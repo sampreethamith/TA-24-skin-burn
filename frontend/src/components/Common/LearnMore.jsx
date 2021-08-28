@@ -7,6 +7,8 @@ const LearnMore = ({ position, path }) => {
 
   if (position != null) classname = classname.concat(" " + position);
 
+  if (!path) return <></>;
+
   return (
     <div className={classname}>
       <Link to={path}>Learn More</Link>

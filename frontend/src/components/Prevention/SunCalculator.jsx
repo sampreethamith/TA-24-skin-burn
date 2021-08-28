@@ -36,6 +36,7 @@ const SunCalculator = () => {
     "Dark Brown Skin",
     "Black Skin",
   ]);
+  const SkinTypeMap = skinType.map((type) => type);
 
   let valueOfSkinTypeSelected = "";
 

@@ -100,8 +100,11 @@ function App() {
               component={SkinCancerInformation}
             />
             <Route path="/skincancer" component={SkinCancer} />
+            <Route
+              path="/prevention/skin-burn-calculator"
+              component={SunCalculator}
+            />
             <Route path="/prevention" component={Prevention} />
-            <Route path="/skin-burn-calculator" component={SunCalculator} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />

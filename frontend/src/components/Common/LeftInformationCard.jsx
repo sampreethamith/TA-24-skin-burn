@@ -14,7 +14,7 @@ const LeftInformationCard = ({ data, learnmoreroute }) => {
         <div className="information-block">
           <h2>{data.header}</h2>
           <p>{data.description}</p>
-          <LearnMore path={learnmoreroute} />
+          {learnmoreroute && <LearnMore path={learnmoreroute} />}
         </div>
       </Animated>
       <Animated

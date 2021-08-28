@@ -1,4 +1,4 @@
-export default function getClothing(num_of_items) {
+export default function get_clothing(num_of_items) {
   const clothMetaData = [
     "Long body coverage",
     "White or pastel colours",
@@ -6,5 +6,11 @@ export default function getClothing(num_of_items) {
     "Moisture content",
     "More layering Fabric",
   ];
-  return [clothMetaData[1], clothMetaData[3], clothMetaData[2]];
+  num_of_items =
+    num_of_items >= clothMetaData.length
+      ? clothMetaData.length - 1
+      : num_of_items;
+  return clothMetaData
+    .sort(() => Math.random() - Math.random())
+    .slice(0, num_of_items);
 }

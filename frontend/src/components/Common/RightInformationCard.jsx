@@ -12,7 +12,7 @@ const RightInformationCard = ({ data, learnmoreroute }) => {
       >
         <div className="image-block">
           <div className="image-background">
-            <img src={data.imgP} alt="Information idea" />
+            <img src={data.imgP} alt="Information" />
           </div>
         </div>
       </Animated>

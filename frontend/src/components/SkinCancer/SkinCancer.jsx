@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import LeftInformationCard from "../Common/LeftInformationCard";
 import RightInformationCard from "../Common/RightInformationCard";
 import skin from "./../../images/skin-cancer-symptoms.jpeg";
-import information from "./../../images/skincancer_info.jpeg";
+import skinInfo from "./../../images/skincancer_info.jpeg";
 
 const SkinCancer = () => {
   const left_cardData = {
@@ -18,20 +18,20 @@ const SkinCancer = () => {
     description: `Get some basic theory of skin cancer.
     Know what will be caused by skin cancer and how people deal with skin cancer.
     Also take action if you get the skin cancer.`,
-    imgP: information,
+    imgP: skinInfo,
   };
   return (
     <Container>
       <div className="block">
-        <LeftInformationCard
-          data={left_cardData}
-          learnmoreroute="/skincancer/skincancer-symptom"
-        />
-      </div>
-      <div className="block">
         <RightInformationCard
           data={right_cardData}
           learnmoreroute="/skincancer/skincancer-information"
+        />
+      </div>
+      <div className="block">
+        <LeftInformationCard
+          data={left_cardData}
+          learnmoreroute="/skincancer/skincancer-symptom"
         />
       </div>
     </Container>

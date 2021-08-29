@@ -20,37 +20,24 @@ const SkinCancerInformation = () => {
             >
               <h1>Skin Cancer Information</h1>
               <p className="white-text">
-                Skin Cancer is a disease in which cancer cells form in the
-                tissues of the skin. The skin has several layers, but the two
-                main layers are the upper layer, called the epidermis, and the
-                lower or inner layer, called the dermis.
+                Skin Cancer is a disease in which cancer cells form in the tissues of the skin.
+                The skin has several layers, different skin cancer will affect different layers.
               </p>
               <h4>Skin Cancer devlop</h4>
               <p className="white-text">
-                Skin Cancer develops when the cells of the skin are damaged.
-                This causes cells to mutate, reproduce abnormally and form a
-                mass of cancerous cells. The type of skin cancer that develops
-                depends on the type of cells that are involved.
+                Skin cancer developed from Damaged skin cells.
+                This causes cells to mutate, reproduce abnormally and form a mass of cancerous cells.
+                The type of skin cancer that develops depends on the type of cells that are involved.
               </p>
               <h4>Causes of skin cancer </h4>
               <p className="white-text">
-                Damage to the skin cells’ DNA leads to the cells mutating. This
-                damage can be caused by ultraviolet radiation from sunlight and
-                from tanning beds. Other factors may also contribute to the
-                development of Skin Cancer since it can develop on parts of the
-                body that are not normally exposed to these sources of
-                ultraviolet light. Exposure to toxic substances or having a
-                weakened immune system may also contribute to the development of
-                skin cancer.
+              Damage to the skin cells’ DNA leads to the cells mutating. This damage can be caused by ultraviolet radiation from sunlight and from tanning beds. 
+              Many body parts that are not normally exposed to ultraviolet light are also prone to skin cancer by exposure to toxic substances or having a weakened immune system.
               </p>
               <h4>Skin Cancer Spread</h4>
               <p className="white-text">
-                Whether and how skin cancers spread depends on the type of skin
-                cancer. Basal cell carcinomas and squamous cell cancers rarely
-                spread. Melanomas are the most likely type of skin cancer to
-                spread and metastasise. Melanoma can spread to any part of the
-                body, but the most common areas it spreads to are the lungs,
-                liver, bones, brain, abdomen and lymph nodes.
+                Skin cancers spread directly related to the type of your skin.
+                Melanomas are the most likely type of skin cancer that can spread to any part of the body, commonly to the areas like lungs, liver, bones, brain, abdomen and lymph nodes.
               </p>
             </Animated>
           </Col>

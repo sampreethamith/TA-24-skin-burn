@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import LeftInformationCard from "../Common/LeftInformationCard";
 import RightInformationCard from "../Common/RightInformationCard";
 import skin from "./../../images/skin-cancer-symptoms.jpeg";
-import skinInfo from "./../../images/skincancer_info.jpeg";
+import skinInfo from "./../../images/sk_info.jpeg";
 
 const SkinCancer = () => {
   const left_cardData = {

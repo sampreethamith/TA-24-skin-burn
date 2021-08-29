@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
-import skintype from "../../images/skincancer.jpeg";
+import skintype from "../../images/about_sk.jpeg";
 import { Animated } from "react-animated-css";
 
 const SkinCancerInformation = () => {

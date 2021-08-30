@@ -11,30 +11,27 @@ import s5 from "./../../images/sympotms/s5.png";
 const cards_data = [
   {
     header: `Asymmetrical spots`,
-    description: `The sopt that is not symmetrical could be the potential sign of skin cancer. 
-    Which means the left half has a different shape than the right half if you draw
-    a line to split the spot to two part from its middle.`,
+    description: `A spot that is not symmetrical could be a potential sign of skin cancer. This means the left half has a different shape than the right half if you draw a line to split the spot into two-part from its middle.`,
     imgP: s1,
   },
   {
     header: `Irregularly shaped Border `,
-    description: `Becareful for the sopt that do not have a regular shap board. Such as the
-    changing of colour depth or notch in the shape at board.`,
+    description: `Be careful about the spot that does not have a regular shape board. Such as the changing of color depth or notch in the shape at the board.`,
     imgP: s2,
   },
   {
     header: `Multiple color in one spot`,
-    description: `If a spot appers more than one color such as blck, blue, red, white. Then it possibly be a sign of skin cancer.`,
+    description: `If a spot appears more than one color such as black, blue, red, white. Then it might be a sign of skin cancer.`,
     imgP: s3,
   },
   {
     header: `Growing spots`,
-    description: `The sopt that getting bigger during the day will possibly become skin cancer.`,
+    description: `The spot that getting bigger during the day will possibly become skin cancer.`,
     imgP: s4,
   },
   {
     header: `Evolving spots`,
-    description: `Changing sopts and Growing spots are the sign of skin cancer. Please becareful if you feel a spot is growing or changing.`,
+    description: `Changing spots and Growing spots are the sign of skin cancer. Please be careful if you feel a spot is growing or changing.`,
     imgP: s5,
   },
 ];
@@ -43,12 +40,12 @@ const SkinCancerSympotms = () => {
   return (
     <div className="block">
       <Container>
-        <h1>Skin cancer sympotms</h1>
+        <h1>Skin Cancer Symptoms</h1>
         <p className="white-text">
-          Please try to check all parts of your body including the part that not
-          exposed to the sun such as the skin be tween the foot finger. If you
-          are not sure whether the black sign is normal mole or me melanoma,
-          please have a talk with your GP.
+          Please try to check all parts of your body including the part that is
+          not exposed to the sun such as the skin between the foot fingers. If
+          you are not sure whether the black sign is a normal mole or melanoma,
+          please talk with your GP.
         </p>
         <RightInformationCard data={cards_data[0]} />
         <LeftInformationCard data={cards_data[1]} />

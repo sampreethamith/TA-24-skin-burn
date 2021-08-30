@@ -23,7 +23,7 @@ const SkinCancerInformation = () => {
                 main layers are the upper layer, called the epidermis, and the
                 lower or inner layer, called the dermis.
               </p>
-              <h4>Skin Cancer devlop</h4>
+              <h4>Skin Cancer develops</h4>
               <p className="white-text">
                 Skin Cancer develops when the cells of the skin are damaged.
                 This causes cells to mutate, reproduce abnormally and form a

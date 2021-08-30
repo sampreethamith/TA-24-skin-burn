@@ -8,16 +8,12 @@ import information from "./../../images/skincancer_info.jpeg";
 const SkinCancer = () => {
   const left_cardData = {
     header: `Skin Cancer Symptoms`,
-    description: `Know the sympotms of skin cancer, have a check on yourself. 
-    Avoid the early cancer to protect yourself.
-    Remind your firiend and your family.`,
+    description: `Know the symptoms of skin cancer, have a check on yourself. Avoid early cancer to protect yourself. Remind your friends and your family.`,
     imgP: skin,
   };
   const right_cardData = {
     header: `Skin Cancer Information`,
-    description: `Get some basic theory of skin cancer.
-    Know what will be caused by skin cancer and how people deal with skin cancer.
-    Also take action if you get the skin cancer.`,
+    description: `Get some basic theory of skin cancer. Know what will be caused by skin cancer and how people deal with skin cancer. Also, take action if you get skin cancer.`,
     imgP: information,
   };
   return (

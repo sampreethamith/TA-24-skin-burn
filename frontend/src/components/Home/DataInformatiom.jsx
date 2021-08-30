@@ -17,7 +17,10 @@ const DataInformatiom = ({ deathCount, survivalRate, diagnosedCount }) => {
               data={diagnosedCount}
               body="Diagnosed with skin cancer"
             />
-            <CardWithCounter data={survivalRate} body="Melanoma survial rate" />
+            <CardWithCounter
+              data={survivalRate}
+              body="Melanoma survival rate"
+            />
             <CardWithCounter data={deathCount} body="Deaths due to sunburn" />
           </div>
         </Animated>

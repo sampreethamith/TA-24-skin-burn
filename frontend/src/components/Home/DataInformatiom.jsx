@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import CardWithCounter from "../Common/CardWithCounter";
 import { Animated } from "react-animated-css";
 
-const DataInformatiom = () => {
+const DataInformatiom = ({ deathCount, survivalRate, diagnosedCount }) => {
   return (
     <section className="block block--light">
       <Container>
@@ -13,9 +13,15 @@ const DataInformatiom = () => {
           isVisible={true}
         >
           <div className="data-information">
-            <CardWithCounter data="66.67%" body="Diagnosed with skin cancer" />
-            <CardWithCounter data="2072" body="Deaths due to sunburn" />
-            <CardWithCounter data="92%" body="Melanoma survial rate" />
+            <CardWithCounter
+              data={diagnosedCount}
+              body="Diagnosed with skin cancer"
+            />
+            <CardWithCounter
+              data={survivalRate}
+              body="Melanoma survival rate"
+            />
+            <CardWithCounter data={deathCount} body="Deaths due to sunburn" />
           </div>
         </Animated>
       </Container>

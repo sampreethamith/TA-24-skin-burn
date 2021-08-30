@@ -1,25 +1,20 @@
 import React from "react";
 import { Animated } from "react-animated-css";
 import LearnMore from "./LearnMore";
-import symptoms from "./../../images/skin-cancer-symptoms.jpeg";
+// import sunscreen_level from "./../../images/sunscreen_level.png";
 
-const LeftInformationCard = () => {
+const LeftInformationCard = ({ data, learnmoreroute }) => {
   return (
-    <div className="block left-information-block">
+    <div className="left-information-block">
       <Animated
         animationIn="bounceInLeft"
         animationOut="fadeOut"
         isVisible={true}
       >
         <div className="information-block">
-          <h2>Skin Cancer Symptoms</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
-            libero labore odio esse? Aliquam veritatis dignissimos accusamus
-            nobis voluptatem, architecto error optio sit hic? Dolor totam modi
-            officia amet expedita.
-          </p>
-          <LearnMore />
+          <h2>{data.header}</h2>
+          <p>{data.description}</p>
+          {learnmoreroute && <LearnMore path={learnmoreroute} />}
         </div>
       </Animated>
       <Animated
@@ -29,7 +24,7 @@ const LeftInformationCard = () => {
       >
         <div className="image-block">
           <div className="image-background">
-            <img src={symptoms} alt="Information Picture" />
+            <img src={data.imgP} alt="Information" />
           </div>
         </div>
       </Animated>

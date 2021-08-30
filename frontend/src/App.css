@@ -34,7 +34,10 @@ body {
 /* Typography */
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5,
+h6 {
   color: var(--color-white);
   margin-bottom: 1rem;
   line-height: 1.1;
@@ -46,6 +49,10 @@ h3 {
 
 .secondary-text {
   color: var(--secondary-color);
+}
+
+.white-text {
+  color: var(--color-white);
 }
 
 /* Loader */
@@ -73,7 +80,7 @@ h3 {
 
 /* Logo */
 .web-logo {
-  height: 100px;
+  height: 70px;
   width: 200px;
 }
 
@@ -106,6 +113,12 @@ h3 {
 .block--content {
   display: flex;
   justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .block {
+    --padding-vertical: 3rem;
+  }
 }
 
 /* Local Container */
@@ -155,7 +168,8 @@ h3 {
 .card-small-counter {
   height: 150px;
   width: 250px;
-  background: var(--primary-color) !important;
+  color: var(--color-white) !important;
+  background: var(--secondary-color) !important;
   margin: 1rem;
   font-size: x-large;
   font-weight: 500;
@@ -163,13 +177,60 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 2rem;
+}
+
+.card-small-counter-number-font {
+  font-size: 4rem;
+}
+
+.primary-card {
+  background-color: var(--primary-color);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin: 1rem 0;
+}
+
+.primary-card-large {
+  /* height: 12rem; */
+  max-width: 100%;
 }
 
 /* Home Hero Component */
+.hero-relative {
+  position: relative;
+}
+
 .hero-card {
   background-color: var(--secondary-light);
   opacity: 0.85;
   padding: 2rem;
+}
+
+.hero-current-uv-radiation-box {
+  background-color: var(--secondary-light);
+  opacity: 0.85;
+  padding: 0.7rem;
+  height: 100px;
+  width: 200px;
+  position: absolute;
+  right: 0;
+  top: 1rem;
+}
+
+.hero-inline {
+  display: inline;
+  margin: 0.3rem;
+}
+
+.hero-current-uv-radiation-font {
+  font-size: large;
+  font-weight: 500;
+}
+
+.hero-current-uv-radiation-number-font {
+  font-size: xx-large;
+  font-weight: 900;
 }
 
 /* Learn More */
@@ -275,3 +336,63 @@ h3 {
     width: 30rem;
   }
 }
+
+/* Select Going Out Page */
+/* The container must be positioned relative: */
+select {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.select-selected {
+  background-color: var(--primary-color);
+}
+
+/* style the items (options), including the selected item: */
+.select-selected {
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+/* Button */
+.primary-button {
+  background-color: var(--primary-color) !important;
+  color: var(--secondary-color);
+  margin: 1rem 0;
+}
+
+/* Sun Calculator */
+.uv-index-skin-type-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sun-calculator-button {
+  align-self: center;
+}
+
+.sun-calculator-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .sun-calculator-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .uv-index-skin-type-container {
+    width: 30%;
+  }
+}
+
+/* .skin-cancer-symptoms-white-text {
+  color: var(--color-white);
+} */
+/* Skin Cancer Information */
+/* .skin-cancer-informaton-text {
+  color: var(--color-white);
+} */

@@ -22,6 +22,11 @@ body {
   overflow-x: hidden;
 }
 
+::selection {
+  background-color: var(--primary-color);
+  color: var(--color-black);
+}
+
 /* Not-found and Page Under Construction */
 .not-found {
   display: flex;

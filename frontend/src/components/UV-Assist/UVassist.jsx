@@ -1,14 +1,10 @@
 import React from "react";
-import construction from "./../../images/underconstruction.png";
+import Iframe from "./Iframe";
 
 const UVassist = () => {
   return (
-    <div className="not-found">
-      <img
-        src={construction}
-        alt="Page Under Construction"
-        className="img-page-construction"
-      />
+    <div>
+      <Iframe />
     </div>
   );
 };

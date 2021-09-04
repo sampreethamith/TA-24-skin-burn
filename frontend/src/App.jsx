@@ -12,6 +12,7 @@ import { getLocation } from "./services/getLocation";
 import SunCalculator from "./components/Prevention/SunCalculator";
 import SkinCancerSympotms from "./components/SkinCancer/SkinCancerSympotms";
 import SkinCancerInformation from "./components/SkinCancer/SkinCancerInformation";
+import UVassist from "./components/UV-Assist/UVassist";
 import {
   latlongAvailable,
   latlongNotAvailable,
@@ -22,7 +23,6 @@ function App() {
   const dispatch = useDispatch();
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
-  // const [modalShow, setModalShow] = useState(true);
 
   useEffect(() => {
     const showPosition = (position) => {
@@ -68,20 +68,8 @@ function App() {
     }, 1500);
   }, []);
 
-  // useEffect(() => {
-  //   const getLocationUVNameDetails = async (latitude, longitude) => {
-  //     const { data } = await getLocationUVName(latitude, longitude);
-  //     dispatch(locationUVName(data.uvi, data.loc_name));
-  //   };
-  //   getLocationUVNameDetails(latitude, longitude);
-  // }, [latitude, longitude]);
-
   return (
     <React.Fragment>
-      {/* <VerticallyCenteredModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      /> */}
       {loading ? (
         <Loader />
       ) : (
@@ -105,6 +93,7 @@ function App() {
               component={SunCalculator}
             />
             <Route path="/prevention" component={Prevention} />
+            <Route path="/uv-assist" component={UVassist} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />

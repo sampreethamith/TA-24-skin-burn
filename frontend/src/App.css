@@ -492,7 +492,7 @@ select {
 
 .search-box input {
   border: none;
-  background-color: transparent;
+  background-color: transparent !important;
   width: 95%;
   margin: 0;
   padding: 0;
@@ -503,4 +503,8 @@ select {
 
 .search-box ::placeholder {
   color: rgba(255, 183, 0, 0.5);
+}
+
+.search-chip-box {
+  background-color: none !important;
 }

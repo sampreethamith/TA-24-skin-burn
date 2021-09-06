@@ -3,7 +3,7 @@ import React from "react";
 const MapLegend = () => {
   return (
     <div className="legend">
-      <h6 className="primary-text">Legend</h6>
+      <h6 className="primary-text">UV Index</h6>
       <div className="legend-color-pallet-container">
         <div className="legend-individual-color-pallet">
           <div className="legend-individual-color-pallet-1"></div>

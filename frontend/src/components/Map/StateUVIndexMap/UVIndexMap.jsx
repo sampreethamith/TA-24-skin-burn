@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import ReactMapGL, { Source, Layer } from "react-map-gl";
-import { Container } from "react-bootstrap";
+import { Container, Spinner } from "react-bootstrap";
 import { dataLayer } from "./map-style.js";
 import MapLegend from "./MapLegend";
 import SearchBox from "./SearchBox";
@@ -9,6 +9,7 @@ import getStateGeoJson from "../../../services/getStateGeoJson";
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
 const UVIndexMap = () => {
+  const [loading, setLoading] = useState(true);
   const [viewport, setViewport] = useState({
     latitude: -28.539960029117317,
     longitude: 133.1102061296636,
@@ -28,10 +29,13 @@ const UVIndexMap = () => {
 
   useEffect(() => {
     const getStateGeoJsonDataUV = async () => {
-      const { data } = await getStateGeoJson();
-
-      console.log(data);
-      setData(data);
+      try {
+        const { data } = await getStateGeoJson();
+        setData(data);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
     };
 
     getStateGeoJsonDataUV();
@@ -94,6 +98,22 @@ const UVIndexMap = () => {
           )}
           <MapLegend />
           <SearchBox />
+          {loading && (
+            <Spinner
+              animation="border"
+              role="status"
+              style={{
+                width: "100px",
+                height: "100px",
+                display: "block",
+
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+              }}
+              variant="warning"
+            ></Spinner>
+          )}
         </ReactMapGL>
       </Container>
     </section>

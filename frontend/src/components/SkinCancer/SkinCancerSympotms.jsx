@@ -1,5 +1,5 @@
-import React from "react";
-import { Container } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Button } from "react-bootstrap";
 import RightInformationCard from "../Common/RightInformationCard";
 import LeftInformationCard from "../Common/LeftInformationCard";
 import s1 from "./../../images/sympotms/s1.png";
@@ -37,6 +37,12 @@ const cards_data = [
 ];
 
 const SkinCancerSympotms = () => {
+  const [showImage, setShowImage] = useState(false);
+
+  const onShowImageClick = () => {
+    setShowImage(!showImage);
+  };
+
   return (
     <div className="block">
       <Container>
@@ -47,11 +53,35 @@ const SkinCancerSympotms = () => {
           you are not sure whether the black sign is a normal mole or melanoma,
           please talk with your GP.
         </p>
-        <RightInformationCard data={cards_data[0]} />
-        <LeftInformationCard data={cards_data[1]} />
-        <RightInformationCard data={cards_data[2]} />
-        <LeftInformationCard data={cards_data[3]} />
-        <RightInformationCard data={cards_data[4]} />
+
+        {!showImage && (
+          <div>
+            <h2>Sensitive Content</h2>
+            <p className="white-text">
+              Below Images contains sensitive content which could be disturbing
+              to some people.
+            </p>
+            <Button className="primary-button" onClick={onShowImageClick}>
+              See Images
+            </Button>
+          </div>
+        )}
+
+        {showImage && (
+          <div>
+            <RightInformationCard data={cards_data[0]} />
+            <LeftInformationCard data={cards_data[1]} />
+            <RightInformationCard data={cards_data[2]} />
+            <LeftInformationCard data={cards_data[3]} />
+            <RightInformationCard data={cards_data[4]} />
+            <div className="text-center">
+              <Button className="primary-button" onClick={onShowImageClick}>
+                {" "}
+                Hide Images
+              </Button>
+            </div>
+          </div>
+        )}
       </Container>
     </div>
   );

@@ -13,6 +13,7 @@ import SunCalculator from "./components/Prevention/SunCalculator";
 import SkinCancerSympotms from "./components/SkinCancer/SkinCancerSympotms";
 import SkinCancerInformation from "./components/SkinCancer/SkinCancerInformation";
 import UVassist from "./components/UV-Assist/UVassist";
+import MapPage from "./components/Map/MapPage";
 import {
   latlongAvailable,
   latlongNotAvailable,
@@ -73,7 +74,7 @@ function App() {
       {loading ? (
         <Loader />
       ) : (
-        <div>
+        <>
           <header>
             <NavigationBar />
           </header>
@@ -94,11 +95,12 @@ function App() {
             />
             <Route path="/prevention" component={Prevention} />
             <Route path="/uv-assist" component={UVassist} />
+            <Route path="/map" component={MapPage} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />
           </Switch>
-        </div>
+        </>
       )}
     </React.Fragment>
   );

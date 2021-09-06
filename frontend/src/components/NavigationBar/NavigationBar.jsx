@@ -21,6 +21,9 @@ const NavigationBar = () => {
             <NavLink className="nav-link" to="/prevention">
               Prevention
             </NavLink>
+            <NavLink className="nav-link" to="/uvchart">
+              UVChart
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

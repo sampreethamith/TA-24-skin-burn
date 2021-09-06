@@ -16,6 +16,7 @@ import {
   latlongAvailable,
   latlongNotAvailable,
 } from "./actions/locationAction";
+import UVChart from "./components/UVChart/UVChart";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -105,6 +106,7 @@ function App() {
               component={SunCalculator}
             />
             <Route path="/prevention" component={Prevention} />
+            <Route path="/uvchart" component={UVChart} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />

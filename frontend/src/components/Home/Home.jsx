@@ -5,7 +5,6 @@ import { getSkinBurnDemograph } from "../../services/getSkinBurnDemograph";
 import { getLocationUVName } from "../../services/getLocationUVName";
 import { locationUVName } from "../../actions/locationAction";
 import { useDispatch, useSelector } from "react-redux";
-// import UVIndexMap from "../MapBox/UVIndexMap";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -45,15 +44,14 @@ const Home = () => {
   }, [dispatch, latitude, longitude]);
 
   return (
-    <div>
+    <>
       <Hero locationName={locationName} uvi={uvi} />
       <DataInformatiom
         deathCount={deathCount}
         survivalRate={survivalRate}
         diagnosedCount={diagnosedCount}
       />
-      {/* <UVIndexMap /> */}
-    </div>
+    </>
   );
 };
 

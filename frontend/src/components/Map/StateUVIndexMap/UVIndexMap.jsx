@@ -8,6 +8,8 @@ import getStateGeoJson from "../../../services/getStateGeoJson";
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
+console.log(process.env.REACT_APP_MAPBOX_TOKEN);
+
 const UVIndexMap = () => {
   const [loading, setLoading] = useState(true);
   const [viewport, setViewport] = useState({

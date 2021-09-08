@@ -17,7 +17,7 @@ const UVIndexMap = () => {
     bearing: 0,
     pitch: 0,
     height: 500,
-    width: "100%",
+    width: "100",
   });
 
   const onViewPortChange = (viewport) => {

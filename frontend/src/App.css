@@ -210,7 +210,7 @@ h6 {
   background-color: var(--secondary-light);
   opacity: 0.85;
   padding: 0.7rem;
-  height: 100px;
+  height: 150px;
   width: 200px;
   position: absolute;
   right: 0;
@@ -223,13 +223,25 @@ h6 {
 }
 
 .hero-current-uv-radiation-font {
-  font-size: large;
-  font-weight: 500;
+  margin-bottom: 0;
 }
 
 .hero-current-uv-radiation-number-font {
   font-size: xx-large;
-  font-weight: 900;
+  font-weight: 500;
+  margin-bottom: 0;
+  margin-left: 1rem;
+}
+
+.hero-current-uv-radiation-current-time {
+  margin-top: 1rem;
+  font-size: small;
+  text-decoration: underline;
+}
+
+.hero-current-uv-radiation-current-time:hover {
+  cursor: pointer;
+  color: red;
 }
 
 /* Learn More */
@@ -505,6 +517,44 @@ select {
   color: rgba(255, 183, 0, 0.5);
 }
 
-.search-chip-box {
-  background-color: none !important;
+.search-icon {
+  width: 20px;
 }
+
+/* Home Page Card with Border */
+.card-with-border-primary {
+  border: 2px solid var(--primary-color);
+  height: 250px;
+  width: 350px;
+  color: var(--color-white);
+}
+
+.card-with-border-primary:hover,
+.card-with-border-primary:hover h3 {
+  background-color: var(--primary-color);
+  color: black;
+}
+
+.card-with-border-primary:hover svg {
+  border: 50px solid var(--color-black);
+}
+
+.card-with-border-primary h3 {
+  margin: 2rem;
+}
+
+.card-with-border-primary-information-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.card-with-border-primary-information-layout img {
+  width: 100px;
+  height: 50%;
+}
+
+/* .card-with-border-primary-information-layout p {
+  text-align: justify;
+  text-justify: inter-word;
+} */

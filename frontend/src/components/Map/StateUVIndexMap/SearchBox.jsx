@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Chips from "react-chips";
 import vic from "../../../services/GeoJsonFiles/vic.json";
 import act from "../../../services/GeoJsonFiles/act.json";
@@ -6,14 +6,10 @@ import nsw from "../../../services/GeoJsonFiles/nsw.json";
 import nt from "../../../services/GeoJsonFiles/nt.json";
 import qld from "../../../services/GeoJsonFiles/qld.json";
 import tas from "../../../services/GeoJsonFiles/tas.json";
+import { Alert, Row, Col, Button } from "react-bootstrap";
+import search from "../../../images/search.png";
 
-const SearchBox = () => {
-  const [chips, setChips] = useState([]);
-
-  const onChange = (chips) => {
-    setChips(chips);
-  };
-
+const SearchBox = ({ chips, onChange, error, errorOnclose }) => {
   const theme = {
     chipsContainer: {
       display: "flex",
@@ -90,15 +86,28 @@ const SearchBox = () => {
 
   return (
     <div className="search-box">
-      <Chips
-        value={chips}
-        onChange={onChange}
-        suggestions={[...vic, ...act, ...nsw, ...nt, ...qld, ...tas]}
-        placeholder="Search by Suburb Locations"
-        className="search-chip-box"
-        theme={theme}
-        chipTheme={chipTheme}
-      />
+      <Row>
+        <Col sm={10}>
+          <Chips
+            value={chips}
+            onChange={onChange}
+            suggestions={[...vic, ...act, ...nsw, ...nt, ...qld, ...tas]}
+            placeholder="Search by Suburb Locations"
+            theme={theme}
+            chipTheme={chipTheme}
+          />
+        </Col>
+        <Col>
+          <Button variant="warning" style={{ float: "right" }}>
+            <img src={search} alt="search button" className="search-icon" />
+          </Button>
+        </Col>
+        {error && (
+          <Alert variant="danger" onClose={errorOnclose} dismissible>
+            Only 5 Suburbs allowed
+          </Alert>
+        )}
+      </Row>
     </div>
   );
 };

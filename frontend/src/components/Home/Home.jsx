@@ -5,6 +5,7 @@ import { getSkinBurnDemograph } from "../../services/getSkinBurnDemograph";
 import { getLocationUVName } from "../../services/getLocationUVName";
 import { locationUVName } from "../../actions/locationAction";
 import { useDispatch, useSelector } from "react-redux";
+import CardWithBorderPrimary from "../Common/CardWithBorderPrimary";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -51,6 +52,7 @@ const Home = () => {
         survivalRate={survivalRate}
         diagnosedCount={diagnosedCount}
       />
+      <CardWithBorderPrimary />
     </>
   );
 };

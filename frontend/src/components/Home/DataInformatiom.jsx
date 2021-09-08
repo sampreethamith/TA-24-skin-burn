@@ -5,7 +5,7 @@ import { Animated } from "react-animated-css";
 
 const DataInformatiom = ({ deathCount, survivalRate, diagnosedCount }) => {
   return (
-    <section className="block block--light">
+    <section className="block">
       <Container>
         <Animated
           animationIn="bounceIn"

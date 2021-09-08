@@ -9,7 +9,10 @@ import getStateGeoJson from "../../../services/getStateGeoJson";
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
 const UVIndexMap = () => {
+  const [data, setData] = useState(null);
+  const [hoverInfo, setHoverInfo] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [chips, setChips] = useState([]);
   const [viewport, setViewport] = useState({
     latitude: -28.539960029117317,
     longitude: 133.1102061296636,
@@ -19,13 +22,24 @@ const UVIndexMap = () => {
     height: 500,
     width: "100",
   });
+  const [error, setError] = useState(false);
 
   const onViewPortChange = (viewport) => {
     setViewport(viewport);
   };
 
-  const [data, setData] = useState(null);
-  const [hoverInfo, setHoverInfo] = useState(null);
+  const onChipChange = (newChip) => {
+    if (newChip.length > 5) {
+      setError(true);
+    } else {
+      setError(false);
+      setChips(newChip);
+    }
+  };
+
+  const errorOnClose = () => {
+    setError(false);
+  };
 
   useEffect(() => {
     const getStateGeoJsonDataUV = async () => {
@@ -47,6 +61,10 @@ const UVIndexMap = () => {
       window.removeEventListener("resize", onResize);
     };
   });
+
+  useEffect(() => {
+    console.clear();
+  }, []);
 
   const onResize = () => {
     setViewport({
@@ -97,7 +115,12 @@ const UVIndexMap = () => {
             </div>
           )}
           <MapLegend />
-          <SearchBox />
+          <SearchBox
+            chips={chips}
+            onChange={onChipChange}
+            error={error}
+            errorOnclose={errorOnClose}
+          />
           {loading && (
             <Spinner
               animation="border"

@@ -1,9 +1,7 @@
 import React, { Component, useEffect, useRef, useState } from "react";
 import { Container } from "react-bootstrap";
-import IframeWillyWeather from "./IframeWillyWeather";
 import IframeWillyWeatherLaptop from "./IframeWillyWeatherLaptop";
 import IframeWillyWeatherMobile from "./IframeWillyWeatherMobile";
-import IframeWillyWeatherTablet from "./IframeWillyWeatherTablet";
 
 const UVassist = () => {
   const [currentWidth, setCurrentWidth] = useState(

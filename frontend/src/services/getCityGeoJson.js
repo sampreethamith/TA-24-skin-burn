@@ -1,13 +1,12 @@
 import http from "./httpService";
 
 const apiEndPoint = process.env.REACT_APP_WEATHER_END_POINT;
-console.log(apiEndPoint);
 
-export const getLocationUVName = (latitude, longitude) => {
+export default function getCityGeoJson(suburb) {
   const params = {
-    q: "loc",
-    v: `${latitude},${longitude}`,
+    q: "city",
+    v: suburb.join(","),
   };
 
   return http.get(apiEndPoint, { params });
-};
+}

@@ -19,8 +19,11 @@ const SunCalculator = () => {
     if (location.isLocationEnabled && !location.locationName) {
       const getLocationUVNameDetails = async (latitude, longitude) => {
         const { data } = await getLocationUVName(latitude, longitude);
-        data.uvi = Math.round(data.uvi * 10) / 10;
-        dispatch(locationUVName(data.uvi, data.loc_name));
+        const { properties } = data[0];
+
+        properties.uvi = Math.round(properties.uvi * 10) / 10;
+
+        dispatch(locationUVName(properties.uvi, properties.name.toUpperCase()));
       };
       getLocationUVNameDetails(location.latitude, location.longitude);
     }

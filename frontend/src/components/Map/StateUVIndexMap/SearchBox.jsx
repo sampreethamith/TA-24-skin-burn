@@ -9,7 +9,7 @@ import tas from "../../../services/GeoJsonFiles/tas.json";
 import { Alert, Row, Col, Button } from "react-bootstrap";
 import search from "../../../images/search.png";
 
-const SearchBox = ({ chips, onChange, error, errorOnclose }) => {
+const SearchBox = ({ chips, onChange, error, errorOnclose, onClick }) => {
   const theme = {
     chipsContainer: {
       display: "flex",
@@ -98,7 +98,11 @@ const SearchBox = ({ chips, onChange, error, errorOnclose }) => {
           />
         </Col>
         <Col>
-          <Button variant="warning" style={{ float: "right" }}>
+          <Button
+            variant="warning"
+            style={{ float: "right" }}
+            onClick={onClick}
+          >
             <img src={search} alt="search button" className="search-icon" />
           </Button>
         </Col>

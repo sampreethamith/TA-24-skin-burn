@@ -1,8 +1,11 @@
 import http from "./httpService";
 
-const apiEndPoint =
-  "https://fix8y9br5m.execute-api.us-east-2.amazonaws.com/s3/geojson?q=test";
+const apiEndPoint = process.env.REACT_APP_WEATHER_END_POINT;
 
 export default function getStateGeoJson() {
-  return http.get(apiEndPoint);
+  const params = {
+    q: "state",
+    v: "all",
+  };
+  return http.get(apiEndPoint, { params });
 }

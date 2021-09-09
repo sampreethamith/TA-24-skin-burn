@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useCallback } from "react";
-import ReactMapGL, { Source, Layer } from "react-map-gl";
+import ReactMapGL, { Source, Layer, FlyToInterpolator } from "react-map-gl";
 import { Container, Spinner } from "react-bootstrap";
 import { dataLayer } from "./map-style.js";
+import { easeCubic } from "d3-ease";
 import MapLegend from "./MapLegend";
 import SearchBox from "./SearchBox";
 import getStateGeoJson from "../../../services/getStateGeoJson";
+import getCityGeoJson from "../../../services/getCityGeoJson";
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
@@ -37,6 +39,31 @@ const UVIndexMap = () => {
     }
   };
 
+  const onCitySearchClick = async () => {
+    if (chips.length < 1) return;
+    setLoading(true);
+    try {
+      let { data } = await getCityGeoJson(chips);
+      const {
+        properties: { coord },
+      } = data[0];
+      console.log(data);
+      setViewport({
+        ...viewport,
+        latitude: coord["lat"],
+        longitude: coord["lon"],
+        zoom: 10,
+        transitionDuration: 5000,
+        transitionInterpolator: new FlyToInterpolator(),
+        transitionEasing: easeCubic,
+      });
+      console.log(viewport);
+      data = { type: "FeatureCollection", features: data };
+      setData(data);
+      setLoading(false);
+    } catch (error) {}
+  };
+
   const errorOnClose = () => {
     setError(false);
   };
@@ -44,7 +71,8 @@ const UVIndexMap = () => {
   useEffect(() => {
     const getStateGeoJsonDataUV = async () => {
       try {
-        const { data } = await getStateGeoJson();
+        let { data } = await getStateGeoJson();
+        data = { type: "FeatureCollection", features: data };
         setData(data);
         setLoading(false);
       } catch (error) {
@@ -63,9 +91,9 @@ const UVIndexMap = () => {
   });
 
   useEffect(() => {
-    setTimeout(() => {
-      console.clear();
-    }, 1000);
+    // setTimeout(() => {
+    //   console.clear();
+    // }, 1000);
   }, []);
 
   const onResize = () => {
@@ -112,8 +140,8 @@ const UVIndexMap = () => {
               className="map-tooltip"
               style={{ left: hoverInfo.x, top: hoverInfo.y }}
             >
-              <div>State: {hoverInfo.feature.properties.STATE_NAME}</div>
-              <div>UV Index: {hoverInfo.feature.properties.UVI}</div>
+              <div>State: {hoverInfo.feature.properties.name}</div>
+              <div>UV Index: {hoverInfo.feature.properties.uvi}</div>
             </div>
           )}
           <MapLegend />
@@ -122,6 +150,7 @@ const UVIndexMap = () => {
             onChange={onChipChange}
             error={error}
             errorOnclose={errorOnClose}
+            onClick={onCitySearchClick}
           />
           {loading && (
             <Spinner

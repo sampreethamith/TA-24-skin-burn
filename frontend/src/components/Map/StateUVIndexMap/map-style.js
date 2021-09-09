@@ -3,7 +3,7 @@ export const dataLayer = {
   type: "fill",
   paint: {
     "fill-color": {
-      property: "UVI",
+      property: "uvi",
       stops: [
         [0 || 1 || 2, "#B68449"],
         [3 || 4 || 5, "#DB9F24"],

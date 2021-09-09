@@ -601,3 +601,8 @@ select {
 .pointer-cursor {
   cursor: pointer;
 }
+
+/* Home Information Page */
+.home-information-font {
+  font-size: x-large;
+}

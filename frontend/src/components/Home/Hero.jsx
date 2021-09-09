@@ -3,7 +3,6 @@ import { Container, Row, Col, Spinner } from "react-bootstrap";
 import { Animated } from "react-animated-css";
 import LearnMore from "../Common/LearnMore";
 import { useSelector } from "react-redux";
-import DataInformatiom from "./DataInformatiom";
 
 const Hero = ({
   locationName,
@@ -61,8 +60,8 @@ const Hero = ({
         </div>
         ;
         <Container>
-          <Row>
-            <Col>
+          <Row className="hero-row">
+            <Col sm={12} md={6}>
               <Animated
                 animationIn="bounceInLeft"
                 animationOut="fadeOut"
@@ -73,10 +72,10 @@ const Hero = ({
                     "Australia has reported the highest number of skin cancers
                     from sunburn, but it could be avoided."
                   </h1>
-                  {/* <LearnMore
+                  <LearnMore
                     position={"card-learn-more-end-position"}
                     path="/home/information"
-                  /> */}
+                  />
                 </div>
               </Animated>
             </Col>

@@ -26,11 +26,10 @@ const UVChart = () => {
             longitude,
             "hourly"
           );
-          
+
           // data.forEach((item, index) => {
           //   item[index]['dt'] = new Date(item[index]['dt'] * 1000);
           // })
-          console.log(data)
           x.paddingRight = 20;
           x.data = data;
 

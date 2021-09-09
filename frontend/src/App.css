@@ -91,7 +91,7 @@ h6 {
 
 /* Blocks */
 .block {
-  --padding-vertical: 6rem;
+  --padding-vertical: 2rem;
   padding: var(--padding-vertical) 2rem;
 }
 
@@ -196,6 +196,10 @@ h6 {
 }
 
 /* Home Hero Component */
+.hero-row {
+  margin-top: 7rem !important;
+}
+
 .hero-relative {
   position: relative;
 }
@@ -242,6 +246,12 @@ h6 {
 .hero-current-uv-radiation-current-time:hover {
   cursor: pointer;
   color: red;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-row {
+    margin-top: 0 !important;
+  }
 }
 
 /* Learn More */
@@ -531,6 +541,7 @@ select {
   font-size: 1.5rem;
   transition: 0.3s;
   margin: 1rem;
+  cursor: pointer;
 }
 
 .card-with-border-primary:hover {
@@ -580,4 +591,13 @@ select {
   .card-with-border-primary-title {
     margin: 1.5rem;
   }
+}
+
+/* Text */
+.text-inline {
+  display: inline;
+}
+
+.pointer-cursor {
+  cursor: pointer;
 }

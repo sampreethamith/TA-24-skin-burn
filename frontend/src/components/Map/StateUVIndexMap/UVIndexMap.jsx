@@ -63,7 +63,9 @@ const UVIndexMap = () => {
   });
 
   useEffect(() => {
-    console.clear();
+    setTimeout(() => {
+      console.clear();
+    }, 1000);
   }, []);
 
   const onResize = () => {

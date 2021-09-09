@@ -4,6 +4,7 @@ import NavigationBar from "./components/NavigationBar/NavigationBar";
 import { useDispatch } from "react-redux";
 import "./App.css";
 import Home from "./components/Home/Home";
+import SunBurnInformation from "./components/Home/SunBurnInformation";
 import Loader from "./components/Common/Loader";
 import NotFound from "./components/Common/NotFound";
 import SkinCancer from "./components/SkinCancer/SkinCancer";
@@ -80,6 +81,7 @@ function App() {
             <NavigationBar />
           </header>
           <Switch>
+            <Route path="/home/information" component={SunBurnInformation} />
             <Route path="/home" component={Home} />
             <Route
               path="/skincancer/skincancer-symptom"

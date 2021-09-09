@@ -1,7 +1,6 @@
 import React from "react";
 
 const Iframe = () => {
-  const styling = "padding:0; margin: 0px; overflow:hidden;";
   return (
     <div>
       <iframe

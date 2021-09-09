@@ -40,8 +40,6 @@ const SunCalculator = () => {
 
   let valueOfSkinTypeSelected = "";
 
-  const skinTypeMap = skinType.map((type) => type);
-
   const handleSkinTypeChange = (e) => {
     valueOfSkinTypeSelected = skinType[e.target.value];
     setSpfLevel(getSPFByUvi(valueOfSkinTypeSelected, location.uvi));
@@ -70,7 +68,7 @@ const SunCalculator = () => {
               onChange={(e) => handleSkinTypeChange(e)}
               className="select-selected"
             >
-              {skinTypeMap.map((type, id) => {
+              {SkinTypeMap.map((type, id) => {
                 return (
                   <option key={id} value={id}>
                     {type}

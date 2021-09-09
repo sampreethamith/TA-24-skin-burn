@@ -22,7 +22,7 @@ const RightInformationCard = ({ data, learnmoreroute }) => {
         isVisible={true}
       >
         <div className="information-block">
-          <h2>{data.header}</h2>
+          {data.header && <h2>{data.header}</h2>}
           <p>{data.description}</p>
           {learnmoreroute && <LearnMore path={learnmoreroute} />}
         </div>

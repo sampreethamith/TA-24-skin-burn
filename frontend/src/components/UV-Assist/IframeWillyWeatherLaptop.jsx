@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 
 const IframeWillyWeatherLaptop = ({ currentWidth }) => {
   if (currentWidth < 1024) currentWidth = 700;

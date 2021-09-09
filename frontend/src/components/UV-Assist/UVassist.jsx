@@ -1,5 +1,4 @@
-import React, { Component, useEffect, useRef, useState } from "react";
-import { Container } from "react-bootstrap";
+import React, { Component, useEffect, useState } from "react";
 import IframeWillyWeatherLaptop from "./IframeWillyWeatherLaptop";
 import IframeWillyWeatherMobile from "./IframeWillyWeatherMobile";
 
@@ -7,7 +6,6 @@ const UVassist = () => {
   const [currentWidth, setCurrentWidth] = useState(
     document.documentElement.clientWidth
   );
-  // const currentWidth = document.documentElement.clientWidth;
   useEffect(() => {
     window.addEventListener("resize", onResize);
     return () => {
@@ -16,10 +14,7 @@ const UVassist = () => {
   });
 
   const onResize = () => {
-    // console.log(window.innerWidth);
-    // console.log(document.documentElement.clientWidth)
     setCurrentWidth(document.documentElement.clientWidth);
-    console.log(currentWidth);
   };
   return (
     <div className="text-center">

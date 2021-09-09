@@ -1,13 +1,8 @@
 import React from "react";
 import Chips from "react-chips";
-import vic from "../../../services/GeoJsonFiles/vic.json";
-import act from "../../../services/GeoJsonFiles/act.json";
-import nsw from "../../../services/GeoJsonFiles/nsw.json";
-import nt from "../../../services/GeoJsonFiles/nt.json";
-import qld from "../../../services/GeoJsonFiles/qld.json";
-import tas from "../../../services/GeoJsonFiles/tas.json";
 import { Alert, Row, Col, Button } from "react-bootstrap";
 import search from "../../../images/search.png";
+import auCities from "../../../services/auCities.json";
 
 const SearchBox = ({ chips, onChange, error, errorOnclose }) => {
   const theme = {
@@ -91,7 +86,7 @@ const SearchBox = ({ chips, onChange, error, errorOnclose }) => {
           <Chips
             value={chips}
             onChange={onChange}
-            suggestions={[...vic, ...act, ...nsw, ...nt, ...qld, ...tas]}
+            suggestions={[...auCities]}
             placeholder="Search by Suburb Locations"
             theme={theme}
             chipTheme={chipTheme}

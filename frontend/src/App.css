@@ -627,8 +627,20 @@ select {
   font-size: x-large;
 }
 
+.home-information-icon-right {
+  float: right;
+}
+
+.home-information-icon-left {
+  float: left;
+}
+
 /* UV Assist Widget */
 .uv-assist-widget {
   width: 100%;
   height: 500px;
+}
+
+.text-align-right {
+  text-align: right;
 }

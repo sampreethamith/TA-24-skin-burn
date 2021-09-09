@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import RightArrow from "../../images/right-arrow-icon.svg";
 
-const LearnMore = ({ position, path }) => {
+const LearnMore = ({ position, path, title }) => {
   const history = useHistory();
   let classname = "learn-more";
 
@@ -15,7 +15,9 @@ const LearnMore = ({ position, path }) => {
       className={`${classname} pointer-cursor`}
       onClick={() => history.push(path)}
     >
-      <p className="secondary-text text-inline">Learn More</p>
+      <p className="secondary-text text-inline">
+        {title ? title : "Learn More"}
+      </p>
       <img src={RightArrow} alt="Right Arrow" />
     </div>
   );

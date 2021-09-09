@@ -99,7 +99,6 @@ function App() {
             <Route path="/prevention" component={Prevention} />
             <Route path="/uv-assist" component={UVassist} />
             <Route path="/map" component={MapPage} />
-            <Route path="/uvchart" component={UVChart} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />

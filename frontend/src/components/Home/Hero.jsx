@@ -74,7 +74,8 @@ const Hero = ({
                   </h1>
                   <LearnMore
                     position={"card-learn-more-end-position"}
-                    path="/home/information"
+                    path="/prevention"
+                    title={"See How"}
                   />
                 </div>
               </Animated>

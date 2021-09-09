@@ -6,7 +6,7 @@ const Iframe = () => {
       <iframe
         title="SunSmart"
         src="https://www.sunsmart.com.au/uvalert/default.asp?version=australia&locationid=161"
-        width="200"
+        width="100%"
         height="300"
         frameborder="0"
         scrolling="no"

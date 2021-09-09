@@ -1,13 +1,18 @@
 import React from "react";
-import australiamap from "../../images/australiamap.svg";
+import { useHistory } from "react-router-dom";
 
-const CardWithBorderPrimary = () => {
+const CardWithBorderPrimary = ({ data }) => {
+  const history = useHistory();
+
   return (
-    <div className="card-with-border-primary">
-      <h3 className="text-center">Title</h3>
+    <div
+      className="card-with-border-primary"
+      onClick={() => history.push(data.route)}
+    >
+      <p className="text-center card-with-border-primary-title">{data.title}</p>
       <div className="card-with-border-primary-information-layout">
-        <img src={australiamap} alt="Australia Map" />
-        <p className="text-center">Find high UV areas and plan your trip</p>
+        <img src={data.imageUrl} alt={data.altName} />
+        <p className="text-center">{data.information}</p>
       </div>
     </div>
   );

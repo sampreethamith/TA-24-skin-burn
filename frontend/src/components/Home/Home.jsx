@@ -6,6 +6,7 @@ import { getLocationUVName } from "../../services/getLocationUVName";
 import { locationUVName } from "../../actions/locationAction";
 import { useDispatch, useSelector } from "react-redux";
 import CardWithBorderPrimary from "../Common/CardWithBorderPrimary";
+import RouteCards from "./RouteCards";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -52,7 +53,7 @@ const Home = () => {
         survivalRate={survivalRate}
         diagnosedCount={diagnosedCount}
       />
-      <CardWithBorderPrimary />
+      <RouteCards />
     </>
   );
 };

@@ -606,3 +606,9 @@ select {
 .home-information-font {
   font-size: x-large;
 }
+
+/* UV Assist Widget */
+.uv-assist-widget {
+  width: 100%;
+  height: 500px;
+}

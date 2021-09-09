@@ -94,7 +94,7 @@ const UVIndexMap = () => {
   }, []);
 
   return (
-    <section className="block">
+    <section>
       <Container>
         <ReactMapGL
           {...viewport}

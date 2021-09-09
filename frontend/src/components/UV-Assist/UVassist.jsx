@@ -1,10 +1,10 @@
 import React from "react";
-import Iframe from "./Iframe";
+import IframeWillyWeather from "./IframeWillyWeather";
 
 const UVassist = () => {
   return (
     <div>
-      <Iframe />
+      <IframeWillyWeather />
     </div>
   );
 };

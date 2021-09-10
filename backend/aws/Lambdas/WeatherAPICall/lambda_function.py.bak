@@ -1,0 +1,180 @@
+import os
+import sys
+import json
+import requests
+import time
+import pyowm
+# import pandas as pd
+from datetime import datetime, date, timedelta, timezone
+
+
+# sam key: af0cfc6611defe4fe50200aec8c78d50
+openweather_appid_sam = 'af0cfc6611defe4fe50200aec8c78d50'
+openweather_appid_vivek = 'af0cfc6611defe4fe50200aec8c78d50'
+CURRENT_DATA = 'current'
+MINUTE_DATA = 'minutely'
+HOUR_DATA = 'hourly'
+DAILY_DATA = 'daily'
+ALERT_DATA = 'alerts'
+UNIT = 'metric'
+# openweather_appid_default = 'af0cfc6611defe4fe50200aec8c78d50'
+# openweather_appid_map = 'af0cfc6611defe4fe50200aec8c78d50'
+# openweather_appid_history = 'af0cfc6611defe4fe50200aec8c78d50'
+
+# openweather_uv_url = 'https://api.openweathermap.org/data/2.5/onecall'
+# openweather_loc_url = 'http://api.openweathermap.org/geo/1.0/reverse'
+# openweather_unit = 'metric'
+# state_coordinate = {
+#     'VIC': [-37, 145],
+#     'Victoria': [-37, 145],
+#     'NT': [-20, 134],
+#     'Northern Territory': [-20, 134],
+#     'SA': [-30, 135],
+#     'South Australia': [-30, 135],
+#     'WA': [-25, 122],
+#     'Western Australia': [-25, 122],
+#     'QLD': [-20, 145],
+#     'Queensland': [-20, 145],
+#     'NSW': [-33, 146],
+#     'New South Wales': [-33, 146],
+#     'ACT': [-35.5, 149],
+#     'Australian Capital Territory': [-35.5, 149],
+#     'TAS': [-42, 147],
+#     'Tasmania': [-42, 147]
+# }
+
+
+# def build_uv_call(lati, longi, key, timestamp=None, excludes=None):
+#     if timestamp is None:
+#         timestamp = round(time.time())
+#     if excludes is None:
+#         excludes = 'daily,hourly,minutely'
+#     return {
+#         'lat': lati,
+#         'lon': longi,
+#         'units': openweather_unit,
+#         'exclude': excludes,
+#         'dt': timestamp,
+#         'appid': key
+#     }
+
+
+# def build_location_call(lati, longi, key):
+#     return {
+#         'lat': lati,
+#         'lon': longi,
+#         'appid': key
+#     }
+
+
+# def get_uvi_by_name(response_obj, area_name: str):
+#     # make a weather call
+#     uv_result = requests.get(url=openweather_uv_url, params=build_uv_call(
+#         state_coordinate[area_name][0], state_coordinate[area_name][1], openweather_appid_map)).json()
+#     del uv_result['minutely']
+#     del uv_result['hourly']
+#     del uv_result['daily']
+#     return uv_result['current']['uvi']
+
+
+# def get_weather_params(response_obj, lat, lon, dt=None):
+#     # make a weather call
+#     uv_result = requests.get(url=openweather_uv_url, params=build_uv_call(
+#         lat, lon, dt, openweather_appid_default)).json()
+#     loc_result = requests.get(url=openweather_loc_url, params=build_location_call(
+#         lat, lon, openweather_appid_default)).json()
+#     del uv_result['minutely']
+#     del uv_result['hourly']
+#     del uv_result['daily']
+#     print(loc_result)
+#     response_obj['body'] = {
+#         'uvi': uv_result['current']['uvi'],
+#         'loc_name': loc_result[0]['name'] if len(loc_result) > 0 else ""
+#     }
+#     return response_obj
+
+
+# def get_uvi_history(response_obj, lat, lon, timespan):
+#     uv_result = requests.get(url=openweather_uv_url, params=build_uv_call(
+#         lat, lon, openweather_appid_history)).json()
+#     print(uv_result)
+#     if 'current' in uv_result:
+#         del uv_result['current']
+#     if 'minutely' in uv_result:
+#         del uv_result['minutely']
+#     if 'daily' in uv_result:
+#         del uv_result['daily']
+#     hourly_uvis = []
+#     for index in range(0, len(uv_result['hourly'])):
+#         hourly_uvis.append({
+#             'dt': uv_result['hourly'][index]['dt'],
+#             'uvi': uv_result['hourly'][index]['uvi'],
+#             'name': 'name' + str(index)
+#         })
+#     response_obj['body'] = hourly_uvis
+#     return response_obj
+
+def get_owm():
+    return pyowm.OWM(openweather_appid_vivek)
+
+def get_city_by_loc(lat, lon):
+    data = get_owm().geocoding_manager().reverse_geocode(lat, lon, limit=1)
+    if len(data) > 0:
+        return data[0].name
+    return ''
+
+def get_uvi_by_loc(lat, lon):
+    data = get_owm().uvindex_manager().uvindex_around_coords(lat, lon)
+    if data != None:
+        return data.value
+    else:
+        return -1
+
+def one_call(lat, lon, includes: set):
+    owm = pyowm.OWM(openweather_appid_vivek)
+    mgr = owm.weather_manager()
+    excludes = [CURRENT_DATA, MINUTE_DATA, HOUR_DATA, DAILY_DATA, ALERT_DATA] - includes
+    one_call = mgr.one_call(lat, lon, exclude=','.join(excludes), units=UNIT)
+    return one_call
+
+
+def set_error_msg(response_obj, message):
+    return {
+        'statusCode': 500,
+        'headers': response_obj['headers'],
+        'body': {
+            'msg': message
+        }
+    }
+
+
+def lambda_handler(event, context):
+    # response_obj = {
+    #     'isBase64Encoded': True,
+    #     'statusCode': 200,
+    #     'headers': {
+    #         'Content-Type': 'application/json',
+    #         'Access-Control-Allow-Headers': 'Content-Type',
+    #         'Access-Control-Allow-Origin': '*',
+    #         'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
+    #     },
+    #     'body': {}
+    # }
+    print(event)
+    if 'loc' in event:
+        return {'name': get_city_by_loc(event['loc']['lat'], event['loc']['lon']), 'uvi': get_uvi_by_loc(event['loc']['lat'], event['loc']['lon'])}
+    elif 'lat' in event and 'lon' in event:
+        return {'uvi': get_uvi_by_loc(event['lat'], event['lon'])}
+    else:
+        return {}
+    #     response_obj = set_error_msg(
+    #         response_obj, "query parameters are invalid.")
+    # response_obj['body'] = json.dumps(
+    #     response_obj['body']) if response_obj['body'] is not None else ""
+    # print(response_obj)
+    # return response_obj
+
+
+# lambda_handler(None, None)
+# data = get_uvi_by_loc(-37.866669, 144.666672)
+# print(data)

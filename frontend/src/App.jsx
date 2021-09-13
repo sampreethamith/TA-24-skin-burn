@@ -20,12 +20,15 @@ import {
   latlongNotAvailable,
 } from "./actions/locationAction";
 import UVChart from "./components/UVChart/UVChart";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
+  const [locationNotAvailable, setLocationNotAvailable] = useState(false);
 
   useEffect(() => {
     const showPosition = (position) => {
@@ -53,6 +56,11 @@ function App() {
     };
 
     const handleLatLongNotAvailable = () => {
+      setLocationNotAvailable(true);
+      toast.error("Location Not Turned on", {
+        autoClose: 10000,
+        position: "top-center",
+      });
       dispatch(latlongNotAvailable());
     };
 
@@ -80,6 +88,7 @@ function App() {
           <header>
             <NavigationBar />
           </header>
+          {locationNotAvailable && <ToastContainer />}
           <Switch>
             <Route path="/home/information" component={SunBurnInformation} />
             <Route path="/home" component={Home} />

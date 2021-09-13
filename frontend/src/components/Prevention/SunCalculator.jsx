@@ -9,6 +9,7 @@ import { getLocationUVName } from "../../services/getLocationUVName";
 import { locationUVName } from "../../actions/locationAction";
 import Iframe from "./IframeSunSmart";
 import skinTypeInformation from "../../images/skinTypeInformation.jpg";
+import { toast } from "react-toastify";
 
 const SunCalculator = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const SunCalculator = () => {
   const [spfLevel, setSpfLevel] = useState(0);
   const [clothing, setClothing] = useState([]);
   const [showInformation, setShowInformation] = useState(false);
+  const [locationNotAvailable, setLocationNotAvailable] = useState(false);
 
   useEffect(() => {
     if (location.isLocationEnabled && !location.locationName) {
@@ -46,6 +48,21 @@ const SunCalculator = () => {
   const SkinTypeMap = skinType.map((type) => type);
 
   const handleOnClick = () => {
+    if (!location.isLocationEnabled) {
+      if (!locationNotAvailable) {
+        toast.error("Location Not Turned on", {
+          autoClose: 10000,
+          position: "top-center",
+        });
+        setTimeout(() => {
+          setLocationNotAvailable(false);
+        }, 10000);
+      }
+      setLocationNotAvailable(true);
+
+      return;
+    }
+
     setSpfLevel(getSPFByUvi(skinTypeSelected, location.uvi));
     setClothing(getClothing(3));
     if (location.isLocationEnabled) setShowInformation(true);

@@ -567,6 +567,7 @@ select {
 .card-with-border-primary:hover {
   background-color: var(--primary-color);
   color: black;
+  z-index: 10;
 }
 
 .card-with-border-primary-title {
@@ -643,4 +644,14 @@ select {
 
 .text-align-right {
   text-align: right;
+}
+
+.location-not-available-error {
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+}
+
+.more {
+  display: none !important;
 }

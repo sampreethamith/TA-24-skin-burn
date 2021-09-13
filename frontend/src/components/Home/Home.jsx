@@ -58,19 +58,6 @@ const Home = () => {
       />
       <RouteCards />
       <InformationCards />
-      <iframe
-        title="d3-project"
-        src="http://ec2-18-224-93-207.us-east-2.compute.amazonaws.com/"
-        style={{ border: "0px#ffffff none" }}
-        name="myiFrame"
-        scrolling="no"
-        frameborder="1"
-        marginheight="0px"
-        marginwidth="0px"
-        height="100%"
-        width="100%"
-        allowfullscreen
-      ></iframe>
     </>
   );
 };

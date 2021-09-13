@@ -57,10 +57,7 @@ function App() {
 
     const handleLatLongNotAvailable = () => {
       setLocationNotAvailable(true);
-      toast.error("Location Not Turned on", {
-        autoClose: 10000,
-        position: "top-center",
-      });
+      toast.error("Location Not Turned on");
       dispatch(latlongNotAvailable());
     };
 
@@ -88,7 +85,20 @@ function App() {
           <header>
             <NavigationBar />
           </header>
-          {locationNotAvailable && <ToastContainer />}
+          {locationNotAvailable && (
+            <ToastContainer
+              position="top-center"
+              autoClose={10000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
+            />
+          )}
           <Switch>
             <Route path="/home/information" component={SunBurnInformation} />
             <Route path="/home" component={Home} />

@@ -50,10 +50,7 @@ const SunCalculator = () => {
   const handleOnClick = () => {
     if (!location.isLocationEnabled) {
       if (!locationNotAvailable) {
-        toast.error("Location Not Turned on", {
-          autoClose: 10000,
-          position: "top-center",
-        });
+        toast.error("Location Not Turned on");
         setTimeout(() => {
           setLocationNotAvailable(false);
         }, 10000);

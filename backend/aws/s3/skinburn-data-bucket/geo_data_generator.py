@@ -1,43 +1,5 @@
 import json
 
-
-    # {
-    #     "id": 833,
-    #     "name": "Ḩeşār-e Sefīd",
-    #     "state": "",
-    #     "country": "IR",
-    #     "coord": {
-    #         "lon": 47.159401,
-    #         "lat": 34.330502
-    #     }
-    # },
-
-    # {
-    #     "type": "Feature",
-    #     "geometry":
-    #     {
-    #         "type": "Polygon",
-    #         "coordinates": [[[149.11516334, -35.31860619], [149.12137948, -35.31161585], [149.12862742, -35.31068372], [149.13543437, -35.3161087], [149.12675945, -35.32256967], [149.11516334, -35.31860619]]]
-    #     },
-    #     "properties":
-    #     {
-    #         "lc_ply_pid": 16479,
-    #         "dt_create":
-    #         "2017-09-12Z",
-    #         "dt_retire": null,
-    #         "loc_pid": "ACT216",
-    #         "act_locali": "2017-10-03Z",
-    #         "act_loca_1": null,
-    #         "act_loca_2": "FORREST",
-    #         "act_loca_3": null,
-    #         "act_loca_4": null,
-    #         "act_loca_5": "G",
-    #         "act_loca_6": null,
-    #         "act_loca_7": 8
-    #     },
-    #         "id": "ckan_0257a9da_b558_4d86_a987_535c775cf8d8.1"
-    # }
-
 def city_filter():
     ow_au_data = json.load(open("ow_au_data.json", encoding='utf-8'))
     open_au_data = json.load(
@@ -129,3 +91,41 @@ def modify_states():
 # city_for_fe()
 # modify_cities()
 modify_states()
+
+
+    # {
+    #     "id": 833,
+    #     "name": "Ḩeşār-e Sefīd",
+    #     "state": "",
+    #     "country": "IR",
+    #     "coord": {
+    #         "lon": 47.159401,
+    #         "lat": 34.330502
+    #     }
+    # },
+
+    # {
+    #     "type": "Feature",
+    #     "geometry":
+    #     {
+    #         "type": "Polygon",
+    #         "coordinates": [[[149.11516334, -35.31860619], [149.12137948, -35.31161585], [149.12862742, -35.31068372], [149.13543437, -35.3161087], [149.12675945, -35.32256967], [149.11516334, -35.31860619]]]
+    #     },
+    #     "properties":
+    #     {
+    #         "lc_ply_pid": 16479,
+    #         "dt_create":
+    #         "2017-09-12Z",
+    #         "dt_retire": null,
+    #         "loc_pid": "ACT216",
+    #         "act_locali": "2017-10-03Z",
+    #         "act_loca_1": null,
+    #         "act_loca_2": "FORREST",
+    #         "act_loca_3": null,
+    #         "act_loca_4": null,
+    #         "act_loca_5": "G",
+    #         "act_loca_6": null,
+    #         "act_loca_7": 8
+    #     },
+    #         "id": "ckan_0257a9da_b558_4d86_a987_535c775cf8d8.1"
+    # }

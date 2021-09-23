@@ -656,3 +656,58 @@ select {
 .more {
   display: none !important;
 }
+
+/* Quiz Page */
+.question-and-answer {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+/* .question-and-answer img {
+  width: 100%;
+  object-fit: contain;
+} */
+
+.question {
+  display: flex;
+  flex-direction: column;
+}
+
+.question-image {
+  align-self: center;
+}
+
+.question-image img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.options {
+  border: 1px solid white;
+  background-color: var(--secondary-light);
+  border-radius: 5px;
+}
+
+.options-answer {
+  display: flex;
+  flex-direction: row;
+}
+
+.option-number {
+  border: 1px solid white;
+  width: 20px;
+  height: 25px;
+  margin: 10px;
+  padding-left: 3px;
+  background-color: var(--secondary-dark);
+}
+
+.option-value {
+  margin: 10px;
+}
+
+.option-value p,
+.option-number p {
+  margin-bottom: 0 !important;
+}

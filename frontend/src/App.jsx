@@ -19,9 +19,9 @@ import {
   latlongAvailable,
   latlongNotAvailable,
 } from "./actions/locationAction";
-import UVChart from "./components/UVChart/UVChart";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import QuizPage from "./components/Quiz/QuizPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -116,6 +116,7 @@ function App() {
               component={SunCalculator}
             />
             <Route path="/prevention" component={Prevention} />
+            <Route path="/quiz" component={QuizPage} />
             <Route path="/uv-assist" component={UVassist} />
             <Route path="/map" component={MapPage} />
             <Route path="/not-found" component={NotFound} />

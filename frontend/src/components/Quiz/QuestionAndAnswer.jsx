@@ -1,67 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import AnswerOptions from "./AnswerOptions";
 import uvImage from "../../images/UVSunImage.svg";
 import Pagination from "../Common/Pagination";
 import { paginate } from "../../utils/pagination";
-import AOS from "aos";
+import { UVQuizData } from "../../services/getUVQuizData";
+import { skinCancerQuizData } from "../../services/getSkinCancerQuizData";
+import { sunScreenQuizData } from "../../services/getSunScreenQuizData";
 
-const QuestionAndAnswer = () => {
-  const constantQuizJson = [
-    {
-      questionTitle: "Question 1",
-      questionSubtitle: "What is UV stand for?",
-      imagePath: "../../images/UVSunImage.svg",
-      imageAltName: "UV",
-      options: [
-        {
-          optionNumber: "A",
-          optionAnswer: "Answer",
-          correctAnswer: true,
-        },
-        {
-          optionNumber: "B",
-          optionAnswer: "Answer",
-        },
-        {
-          optionNumber: "C",
-          optionAnswer: "Answer",
-        },
-        {
-          optionNumber: "D",
-          optionAnswer: "Answer",
-        },
-      ],
-    },
-    {
-      questionTitle: "Question 2?",
-      questionSubtitle: "What is UV stand for?",
-      imagePath: "../../images/UVSunImage.svg",
-      imageAltName: "UV",
-      options: [
-        {
-          optionNumber: "A",
-          optionAnswer: "Answer",
-        },
-        {
-          optionNumber: "B",
-          optionAnswer: "Answer",
-        },
-        {
-          optionNumber: "C",
-          optionAnswer: "Answer",
-          correctAnswer: true,
-        },
-        {
-          optionNumber: "D",
-          optionAnswer: "Answer",
-        },
-      ],
-    },
-  ];
+const QuestionAndAnswer = ({ quizType }) => {
+  let constantQuizJson = [];
+  if (quizType === "UV Index") constantQuizJson = [...UVQuizData()];
+  if (quizType === "Sun Screen") constantQuizJson = [...sunScreenQuizData()];
+  if (quizType === "Skin Cancer") constantQuizJson = [...skinCancerQuizData()];
   const [pageSize] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState([]);
+  const documentReference = useRef(null);
 
   useEffect(() => {
     const question = getPageData();
@@ -88,20 +43,19 @@ const QuestionAndAnswer = () => {
   };
 
   const handlePageClick = (page) => {
-    console.log("Clicked....");
+    console.log(documentReference.current);
+    document
+      .getElementsByClassName("question-and-answer")[0]
+      .classList.remove("aos-animate");
 
-    // let mainDiv = document.getElementById('quizMainDiv')
-    // let mainDivChild = mainDiv.getChildrens()[0]
-    // mainDiv.removeChild()
-    // mainDiv.appendChildren(mainDivChild)
     setCurrentPage(page);
   };
 
   return (
-    <div>
+    <div data-aos="flip-left">
       {currentQuestion.map((question, questionIndex) => {
         return (
-          <div className="question-and-answer" data-aos="flip-left">
+          <div className="question-and-answer" ref={documentReference}>
             <h5>{question.questionTitle}</h5>
             <h6>{question.questionSubtitle}</h6>
             <div className="py-3 question-image">

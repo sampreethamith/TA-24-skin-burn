@@ -7,6 +7,8 @@
   --secondary-dark: #000000;
   --color-white: #fff;
   --color-black: #000;
+  --color-error: #f46666;
+  --color-success: #5cb85c;
   width: 100vw;
 }
 
@@ -684,9 +686,23 @@ select {
 }
 
 .options {
-  border: 1px solid white;
-  background-color: var(--secondary-light);
+  border: 1px solid none;
+  background-color: #444444;
   border-radius: 5px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.options:hover {
+  background-color: #d3d1cc;
+}
+
+.options:hover p {
+  color: black;
+}
+
+.options:hover .option-number p {
+  color: white;
 }
 
 .options-answer {
@@ -695,12 +711,13 @@ select {
 }
 
 .option-number {
-  border: 1px solid white;
+  border: 1px solid none;
   width: 20px;
   height: 25px;
   margin: 10px;
-  padding-left: 3px;
-  background-color: var(--secondary-dark);
+  padding-left: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
 }
 
 .option-value {
@@ -710,4 +727,69 @@ select {
 .option-value p,
 .option-number p {
   margin-bottom: 0 !important;
+}
+
+/* Valid answer selected */
+.option-selected-valid-answer {
+  border: 1px solid none;
+  background-color: var(--color-success);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.option-selected-valid-answer p {
+  color: var(--color-black);
+}
+
+.option-selected-valid-answer .option-number {
+  background-color: #26872f !important;
+}
+
+/* Invalid answer selected */
+.option-selected-invalid-answer {
+  border: 1px solid none;
+  background-color: var(--color-error);
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.option-selected-invalid-answer p {
+  color: var(--color-white);
+}
+
+.option-selected-invalid-answer .option-number {
+  background-color: #ff3d00 !important;
+}
+
+.option-selected-invalid-answer .option-number p {
+  color: var(--color-black);
+}
+
+/* Pagination */
+.pagination-inline {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.pagination {
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  height: 30px;
+  width: 70px;
+  color: var(--color-white);
+  transition: 0.3s;
+  margin: 1rem;
+  cursor: pointer;
+  display: flex;
+  flex: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination:hover {
+  background-color: var(--primary-color);
+  color: black;
+  z-index: 10;
+  transform: scale(1.1);
 }

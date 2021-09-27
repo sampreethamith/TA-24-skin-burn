@@ -3,7 +3,7 @@ import IframeWillyWeatherLaptop from "./IframeWillyWeatherLaptop";
 import IframeWillyWeatherMobile from "./IframeWillyWeatherMobile";
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
-import am4themes from "@amcharts/amcharts4/themes/material";
+import am4themes from "@amcharts/amcharts4/themes/dark";
 import uvindexData from "./data/state_month_uv.json";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -15,7 +15,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import radara_chart_help from "./data/radar_chart_help.jpg";
-import { maxHeight } from "@mui/system";
 
 am4core.useTheme(am4themes);
 var startYear = 2011;
@@ -255,7 +254,7 @@ const UVassist = () => {
     })
   );
 
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = React.useState(true);
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
@@ -272,7 +271,7 @@ const UVassist = () => {
     setUpChart();
     return () => {
       window.removeEventListener("resize", onResize);
-      chart.dispose()
+      chart.dispose();
     };
   });
 
@@ -340,8 +339,7 @@ const UVassist = () => {
                 <Typography id="modal-modal-title" variant="h6" component="h2">
                   Understand the History UV Graph
                 </Typography>
-                <img style={{
-                }} src={radara_chart_help} />
+                <img style={{}} src={radara_chart_help} />
               </Box>
             </Modal>
             <div className="amChart-radar-timeline" id="chartdiv"></div>

@@ -256,7 +256,7 @@ const UVassist = () => {
 
   const [expanded, setExpanded] = React.useState(true);
   const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
+    if (isExpanded) setExpanded(isExpanded ? panel : false);
   };
 
   const [open, setOpen] = React.useState(false);
@@ -274,6 +274,10 @@ const UVassist = () => {
       chart.dispose();
     };
   });
+
+  useEffect(() => {
+    setExpanded("panel1");
+  }, []);
 
   const onResize = () => {
     setCurrentWidth(document.documentElement.clientWidth);

@@ -19,15 +19,11 @@ import {
   latlongAvailable,
   latlongNotAvailable,
 } from "./actions/locationAction";
-import UVChart from "./components/UVChart/UVChart";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
+import QuizPage from "./components/Quiz/QuizPage";
 
-AOS.init();
-
-// You can also pass an optional settings object
-// below listed default settings
 AOS.init({
   // Global settings:
   disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
@@ -48,6 +44,8 @@ AOS.init({
   mirror: false, // whether elements should animate out while scrolling past them
   anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
 });
+
+
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -142,6 +140,7 @@ function App() {
               component={SunCalculator}
             />
             <Route path="/prevention" component={Prevention} />
+            <Route path="/quiz" component={QuizPage} />
             <Route path="/uv-assist" component={UVassist} />
             <Route path="/map" component={MapPage} />
             <Route path="/not-found" component={NotFound} />

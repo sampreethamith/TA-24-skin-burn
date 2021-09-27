@@ -7,7 +7,7 @@ const MapPage = () => {
     <section className="block">
       <Container>
         <h1>Location Based UV Level</h1>
-        <UVIndexMap />
+        <UVIndexMap data-aos="zoom-in-up" data-aos-duration="1000" />
       </Container>
     </section>
   );

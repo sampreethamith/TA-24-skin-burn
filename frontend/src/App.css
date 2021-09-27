@@ -659,6 +659,11 @@ select {
   display: none !important;
 }
 
+.amChart-radar-timeline {
+  width: 100%;
+  height: 800px;
+}
+
 /* Quiz Page */
 .question-and-answer {
   display: flex;

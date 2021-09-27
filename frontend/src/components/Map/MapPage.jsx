@@ -67,7 +67,9 @@ const MapPage = () => {
   }, []);
 
   useEffect(() => {
-    let variationOffeset = window.width > 768 ? 650 : 550;
+    let variationOffeset =
+      document.documentElement.clientWidth > 768 ? 850 : 750;
+    console.log(variationOffeset);
     if (offset >= 0 && offset <= variationOffeset * 1) {
       map.zoomToRectangle(
         map.north + 10,
@@ -137,11 +139,36 @@ const MapPage = () => {
           position: `absolute`,
           display: `flex`,
           flexDirection: `column`,
-          height: `600%`,
+          height: `800%`,
           width: `100vw`,
         }}
       >
-        <CardInfo visibility="hidden" />
+        <CardInfo
+          style={{
+            display: `flex`,
+            flexDirection: `row`,
+            alignContent: `flex-start`,
+            alignItems: "center",
+            alignItems: `start`,
+            // height: '300%',
+            marginLeft: "7%",
+            marginTop: "10%",
+          }}
+          cardBackColor="#ffb800"
+          textOneStart="Due to the high rate of ultraviolet rays, Australia's server sunburn and skin cancer issues."
+        />
+        <CardInfo
+          style={{
+            display: `flex`,
+            flexDirection: `row`,
+            justifyContent: `center`,
+            alignItems: `center`,
+            marginTop: "20%",
+          }}
+          cardBackColor="#ffb800"
+          textOneStart="Scroll to learn more"
+        />
+        <CardInfo visibility="hidden" cardBackColor="#ffb800" />
         <CardInfo
           textOneStart="In 2016,"
           textOneBold=" Victoria "

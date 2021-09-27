@@ -15,6 +15,7 @@ const CardInfo = ({
   textThreeEnd,
   visibility,
   style,
+  cardBackColor,
 }) => {
   const styleToApply =
     style == null
@@ -27,9 +28,15 @@ const CardInfo = ({
           visibility: visibility,
         }
       : style;
+  const cardStyle =
+    cardBackColor == null
+      ? {}
+      : {
+          backgroundColor: cardBackColor,
+        };
   return (
     <div style={styleToApply}>
-      <Card className="card-info">
+      <Card className="card-info" style={cardStyle}>
         <CardContent>
           <Typography variant="h5" component="div">
             {textOneStart}

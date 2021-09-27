@@ -23,6 +23,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
 import QuizPage from "./components/Quiz/QuizPage";
+import Test from "./components/Test/Test";
 
 AOS.init({
   // Global settings:
@@ -44,8 +45,6 @@ AOS.init({
   mirror: false, // whether elements should animate out while scrolling past them
   anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
 });
-
-
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -142,6 +141,7 @@ function App() {
             <Route path="/prevention" component={Prevention} />
             <Route path="/quiz" component={QuizPage} />
             <Route path="/uv-assist" component={UVassist} />
+            <Route path="/test" component={Test} />
             <Route path="/map" component={MapPage} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />

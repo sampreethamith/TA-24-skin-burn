@@ -272,7 +272,7 @@ const UVassist = () => {
     setUpChart();
     return () => {
       window.removeEventListener("resize", onResize);
-      chart.dispose()
+      chart.dispose();
     };
   });
 
@@ -340,8 +340,7 @@ const UVassist = () => {
                 <Typography id="modal-modal-title" variant="h6" component="h2">
                   Understand the History UV Graph
                 </Typography>
-                <img style={{
-                }} src={radara_chart_help} />
+                <img style={{}} src={radara_chart_help} />
               </Box>
             </Modal>
             <div className="amChart-radar-timeline" id="chartdiv"></div>

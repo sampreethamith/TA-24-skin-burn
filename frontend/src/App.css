@@ -819,3 +819,25 @@ select {
   z-index: 10;
   transform: scale(1.1);
 }
+
+/* Map by location */
+.map-position {
+  margin-top: 5%;
+}
+
+/* Map Page Toggle Button */
+.map-toggle.react-toggle--checked .react-toggle-track {
+  background-color: var(--primary-color);
+}
+
+.container-position {
+  position: relative;
+}
+
+/* Toggle Position */
+.toggle-position {
+  position: absolute;
+  right: 2rem;
+  top: 10rem;
+  z-index: 99999;
+}

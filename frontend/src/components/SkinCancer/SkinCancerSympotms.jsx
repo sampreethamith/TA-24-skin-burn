@@ -7,6 +7,7 @@ import s2 from "./../../images/sympotms/s2.png";
 import s3 from "./../../images/sympotms/s3.png";
 import s4 from "./../../images/sympotms/s4.png";
 import s5 from "./../../images/sympotms/s5.png";
+import BreadCrumb from "../Common/BreadCrumb";
 
 const cards_data = [
   {
@@ -43,9 +44,26 @@ const SkinCancerSympotms = () => {
     setShowImage(!showImage);
   };
 
+  const navigation = [
+    {
+      href: "/home",
+      title: "Home",
+    },
+    {
+      href: "/skincancer",
+      title: "Skin Cancer",
+    },
+    {
+      href: "/skincancer/skincancer-symptom",
+      title: "Skin Cancer Symptom",
+      active: "active",
+    },
+  ];
+
   return (
     <div className="block">
       <Container>
+        <BreadCrumb navigation={navigation} />
         <h1>Skin Cancer Symptoms</h1>
         <p className="white-text">
           Please try to check all parts of your body including the part that is

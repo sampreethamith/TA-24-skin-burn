@@ -4,6 +4,7 @@ import LeftInformationCard from "../Common/LeftInformationCard";
 import RightInformationCard from "../Common/RightInformationCard";
 import sunscreen_level from "./../../images/sunscreen_level.png";
 import uvAssist from "./../../images/uvAssistImage.jpg";
+import BreadCrumb from "../Common/BreadCrumb";
 
 const Prevention = () => {
   const left_cardData = {
@@ -18,6 +19,18 @@ const Prevention = () => {
 This tool provides you with the UV levels and sun protection times for your location.To avoid maximum UV radiation on any day.It also gives information about sun laps.`,
     imgP: uvAssist,
   };
+
+  const navigation = [
+    {
+      href: "/home",
+      title: "Home",
+    },
+    {
+      href: "/prevention",
+      title: "Prevention",
+      active: "active",
+    },
+  ];
   // const sunCalcData = {
   //   header: `Going out?`,
   //   QueOne: `Which Sunscreen you should apply?`,
@@ -26,6 +39,7 @@ This tool provides you with the UV levels and sun protection times for your loca
   return (
     <Container>
       <div className="block">
+        <BreadCrumb navigation={navigation} />
         <LeftInformationCard
           data={left_cardData}
           learnmoreroute="/prevention/skin-burn-calculator"

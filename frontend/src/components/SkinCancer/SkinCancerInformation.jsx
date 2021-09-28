@@ -7,6 +7,7 @@ import LeftInformationCard from "../Common/LeftInformationCard";
 import RightInformationCard from "../Common/RightInformationCard";
 import malenoma from "./../../images/melonoma.jpg";
 import uvcancer from "./../../images/skin_cancer_help.png";
+import BreadCrumb from "../Common/BreadCrumb";
 
 const SkinCancerInformation = () => {
   const left_cardData = {
@@ -21,17 +22,31 @@ const SkinCancerInformation = () => {
     Melanomas are darkly pigmented, discolored areas or bumps with an asymmetrical shape, irregular borders, or dark black or multicolored surface. While the majority of melanomas do not arise from moles, new or changing moles in adulthood should be examined.`,
     imgP: malenoma,
   };
+
+  const navigation = [
+    {
+      href: "/home",
+      title: "Home",
+    },
+    {
+      href: "/skincancer",
+      title: "Skin Cancer",
+    },
+    {
+      href: "/skincancer/skincancer-information",
+      title: "Skin Cancer Information",
+      active: "active",
+    },
+  ];
+
   return (
     <Container>
       <div className="block">
-        <RightInformationCard
-          data={right_cardData}
-        />
+        <BreadCrumb navigation={navigation} />
+        <RightInformationCard data={right_cardData} />
       </div>
       <div className="block">
-        <LeftInformationCard
-          data={left_cardData}
-        />
+        <LeftInformationCard data={left_cardData} />
       </div>
     </Container>
   );

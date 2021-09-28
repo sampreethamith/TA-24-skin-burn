@@ -1,24 +1,18 @@
 import React from "react";
 import { Breadcrumb } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
-const BreadCrumb = () => {
-  const navigation = [
-    {
-      href: "/home",
-      title: "Home",
-    },
-    {
-      href: "/skincancer",
-      title: "Skin Cancer",
-    },
-  ];
-
+const BreadCrumb = ({ navigation }) => {
   return (
     <Breadcrumb>
       {navigation.map((value, index) => {
-        <Breadcrumb.Item href={value.href} key={index} className="white-text">
-          {value.title}
-        </Breadcrumb.Item>;
+        return (
+          <LinkContainer to={value.href}>
+            <Breadcrumb.Item active={value.active} className="link-color">
+              {value.title}
+            </Breadcrumb.Item>
+          </LinkContainer>
+        );
       })}
     </Breadcrumb>
   );

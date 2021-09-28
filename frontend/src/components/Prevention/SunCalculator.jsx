@@ -10,6 +10,7 @@ import { locationUVName } from "../../actions/locationAction";
 import Iframe from "./IframeSunSmart";
 import skinTypeInformation from "../../images/skinTypeInformation.jpg";
 import { toast } from "react-toastify";
+import BreadCrumb from "../Common/BreadCrumb";
 
 const SunCalculator = () => {
   const dispatch = useDispatch();
@@ -69,9 +70,26 @@ const SunCalculator = () => {
     setSkinTypeSelected(skinType[e.target.value]);
   };
 
+  const navigation = [
+    {
+      href: "/home",
+      title: "Home",
+    },
+    {
+      href: "/prevention",
+      title: "Prevention",
+    },
+    {
+      href: "/prevention/skin-burn-calculator",
+      title: "Skin Burn Calculator",
+      active: "active",
+    },
+  ];
+
   return (
     <div className="block">
       <Container>
+        <BreadCrumb navigation={navigation} />
         <h1 className="text-center">Going Out?</h1>
         <Row>
           <Col>

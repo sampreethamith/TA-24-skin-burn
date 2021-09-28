@@ -858,3 +858,15 @@ select {
 .back-to-top:hover {
   background: var(--primary-dark);
 }
+
+.breadcrumb-item.active {
+  color: #f7f1f0 !important;
+}
+
+.link-color a {
+  color: var(--primary-color) !important;
+}
+
+/* .breadcrumb-location {
+  margin-top: 1rem;
+} */

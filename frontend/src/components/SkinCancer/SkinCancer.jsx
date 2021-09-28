@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import LeftInformationCard from "../Common/LeftInformationCard";
 import RightInformationCard from "../Common/RightInformationCard";
 import skin from "./../../images/skin-cancer-symptoms.jpeg";
-import BreadCrumb from "../Common/BreadCrumb";
+import BreadCrumbComponent from "../Common/BreadCrumbComponent";
 
 const SkinCancer = () => {
   const left_cardData = {
@@ -31,7 +31,7 @@ const SkinCancer = () => {
   return (
     <Container>
       <div className="block">
-        <BreadCrumb navigation={navigation} />
+        <BreadCrumbComponent navigation={navigation} />
         <RightInformationCard
           data={right_cardData}
           learnmoreroute="/skincancer/skincancer-information"

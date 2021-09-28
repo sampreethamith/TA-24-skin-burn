@@ -7,7 +7,7 @@ import LeftInformationCard from "../Common/LeftInformationCard";
 import RightInformationCard from "../Common/RightInformationCard";
 import malenoma from "./../../images/melonoma.jpg";
 import uvcancer from "./../../images/skin_cancer_help.png";
-import BreadCrumb from "../Common/BreadCrumb";
+import BreadCrumbComponent from "../Common/BreadCrumbComponent";
 
 const SkinCancerInformation = () => {
   const left_cardData = {
@@ -42,7 +42,7 @@ const SkinCancerInformation = () => {
   return (
     <Container>
       <div className="block">
-        <BreadCrumb navigation={navigation} />
+        <BreadCrumbComponent navigation={navigation} />
         <RightInformationCard data={right_cardData} />
       </div>
       <div className="block">

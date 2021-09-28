@@ -4,7 +4,7 @@ import LeftInformationCard from "../Common/LeftInformationCard";
 import RightInformationCard from "../Common/RightInformationCard";
 import sunscreen_level from "./../../images/sunscreen_level.png";
 import uvAssist from "./../../images/uvAssistImage.jpg";
-import BreadCrumb from "../Common/BreadCrumb";
+import BreadCrumbComponent from "../Common/BreadCrumbComponent";
 
 const Prevention = () => {
   const left_cardData = {
@@ -39,7 +39,7 @@ This tool provides you with the UV levels and sun protection times for your loca
   return (
     <Container>
       <div className="block">
-        <BreadCrumb navigation={navigation} />
+        <BreadCrumbComponent navigation={navigation} />
         <LeftInformationCard
           data={left_cardData}
           learnmoreroute="/prevention/skin-burn-calculator"

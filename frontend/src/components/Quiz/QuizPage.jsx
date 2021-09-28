@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Spinner } from "react-bootstrap";
 import QuestionAndAnswer from "./QuestionAndAnswer";
-import BreadCrumb from "../Common/BreadCrumb";
+import BreadCrumbComponent from "../Common/BreadCrumbComponent";
 
 const QuizPage = () => {
   const [quizType] = useState(["UV Index", "Sun Screen", "Skin Cancer"]);
@@ -34,7 +34,7 @@ const QuizPage = () => {
   return (
     <div className="block">
       <Container>
-        <BreadCrumb navigation={navigation} />
+        <BreadCrumbComponent navigation={navigation} />
         <h1 className="py-3">{`${quizTypeSelected} Quiz`}</h1>
         <Row>
           <Col sm={2}>

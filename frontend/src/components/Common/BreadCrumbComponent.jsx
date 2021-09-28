@@ -2,7 +2,7 @@ import React from "react";
 import { Breadcrumb } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
-const BreadCrumb = ({ navigation }) => {
+const BreadCrumbComponent = ({ navigation }) => {
   return (
     <Breadcrumb>
       {navigation.map((value, index) => {
@@ -18,4 +18,4 @@ const BreadCrumb = ({ navigation }) => {
   );
 };
 
-export default BreadCrumb;
+export default BreadCrumbComponent;

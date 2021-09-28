@@ -10,7 +10,7 @@ import { locationUVName } from "../../actions/locationAction";
 import Iframe from "./IframeSunSmart";
 import skinTypeInformation from "../../images/skinTypeInformation.jpg";
 import { toast } from "react-toastify";
-import BreadCrumb from "../Common/BreadCrumb";
+import BreadCrumbComponent from "../Common/BreadCrumbComponent";
 
 const SunCalculator = () => {
   const dispatch = useDispatch();
@@ -89,7 +89,7 @@ const SunCalculator = () => {
   return (
     <div className="block">
       <Container>
-        <BreadCrumb navigation={navigation} />
+        <BreadCrumbComponent navigation={navigation} />
         <h1 className="text-center">Going Out?</h1>
         <Row>
           <Col>

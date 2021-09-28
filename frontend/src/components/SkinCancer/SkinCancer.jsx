@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import LeftInformationCard from "../Common/LeftInformationCard";
 import RightInformationCard from "../Common/RightInformationCard";
 import skin from "./../../images/skin-cancer-symptoms.jpeg";
+import Breadcrumb from "../Common/Breadcrumb";
 
 const SkinCancer = () => {
   const left_cardData = {
@@ -17,6 +18,8 @@ const SkinCancer = () => {
   };
   return (
     <Container>
+      <Breadcrumb />
+
       <div className="block">
         <RightInformationCard
           data={right_cardData}

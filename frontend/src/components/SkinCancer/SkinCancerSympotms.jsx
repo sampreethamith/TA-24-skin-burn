@@ -6,8 +6,8 @@ import s1 from "./../../images/sympotms/s1.png";
 import s2 from "./../../images/sympotms/s2.png";
 import s3 from "./../../images/sympotms/s3.png";
 import s4 from "./../../images/sympotms/s4.png";
-import s5 from "./../../images/sympotms/s5.png";
 import BreadCrumb from "../Common/BreadCrumb";
+import s5 from "./../../images/sympotms/s5.png";
 
 const cards_data = [
   {

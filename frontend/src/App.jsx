@@ -24,6 +24,7 @@ import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
 import QuizPage from "./components/Quiz/QuizPage";
 import ScrollTopButton from "./components/Common/ScrollTopButton";
+import Home2 from "./components/Home/Home2";
 
 AOS.init({
   // Global settings:
@@ -124,7 +125,7 @@ function App() {
           )}
           <Switch>
             <Route path="/home/information" component={SunBurnInformation} />
-            <Route path="/home" component={Home} />
+            <Route path="/home2" component={Home2} />
             <Route
               path="/skincancer/skincancer-symptom"
               component={SkinCancerSympotms}

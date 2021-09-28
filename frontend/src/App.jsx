@@ -23,6 +23,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
 import QuizPage from "./components/Quiz/QuizPage";
+import ScrollTopButton from "./components/Common/ScrollTopButton";
 
 AOS.init({
   // Global settings:
@@ -145,6 +146,7 @@ function App() {
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />
           </Switch>
+          <ScrollTopButton />
         </>
       )}
     </React.Fragment>

@@ -841,3 +841,20 @@ select {
   top: 10rem;
   z-index: 99999;
 }
+
+/* Scroll to Top */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 50px;
+  background: var(--primary-color);
+  color: var(--color-black);
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+}
+
+.back-to-top:hover {
+  background: var(--primary-dark);
+}

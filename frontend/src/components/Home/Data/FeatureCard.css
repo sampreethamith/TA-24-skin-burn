@@ -1,0 +1,74 @@
+.feature-card-wrapper img {
+  vertical-align: middle;
+}
+
+.feature-card-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 35rem;
+  height: 20rem;
+  border: 1px solid #ffb800;
+  text-align: center;
+  margin: 5px;
+}
+
+.feature-card-wrapper:hover {
+  cursor: pointer;
+}
+
+.box {
+  position: absolute;
+  width: 100%;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.helper {
+  display: flex;
+}
+
+.hover-div {
+  z-index: 9;
+  background-color: #ffb800;
+  opacity: 0.8;
+  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+}
+
+.slide-up {
+  animation: ease-up 0.5s forwards;
+  -webkit-animation: ease-up 0.5s forwards;
+}
+
+.slide-down {
+  animation: ease-down 0.5s forwards;
+  -webkit-animation: ease-down 0.5s forwards;
+}
+
+@keyframes ease-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes ease-down {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.main-text {
+  display: inline-block;
+  vertical-align: bottom;
+  padding-bottom: 20px;
+  color: black;
+}

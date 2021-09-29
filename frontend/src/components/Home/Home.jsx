@@ -7,6 +7,10 @@ import { locationUVName } from "../../actions/locationAction";
 import { useDispatch, useSelector } from "react-redux";
 import RouteCards from "./RouteCards";
 import InformationCards from "./InformationCards";
+import SkewPanel from "./MiniCompos/SkewPanel";
+import FeatureCard from "./MiniCompos/FeatureCard";
+import HoverPanel from "./HoverPanel";
+import ImageInfoCard from "./MiniCompos/ImageInfoCard";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -51,13 +55,18 @@ const Home = () => {
   return (
     <>
       <Hero locationName={locationName} uvi={uvi} />
-      <DataInformatiom
+      {/* <DataInformatiom
         deathCount={deathCount}
         survivalRate={survivalRate}
         diagnosedCount={diagnosedCount}
-      />
+      /> */}
       <RouteCards />
-      <InformationCards />
+      <SkewPanel />
+      <HoverPanel />
+      <ImageInfoCard />
+      {/* <br/>
+      <br/> */}
+      {/* <InformationCards /> */}
     </>
   );
 };

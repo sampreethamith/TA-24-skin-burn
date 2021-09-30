@@ -620,7 +620,7 @@ select {
 
 @media screen and (min-width: 1024px) {
   .card-with-border-primary {
-    width: 400px;
+    max-width: 300px;
     height: 250px;
     margin: 0;
     font-size: 1rem;
@@ -628,6 +628,19 @@ select {
   }
   .card-with-border-primary-title {
     margin: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .card-with-border-primary {
+    max-width: 350px;
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 1350px) {
+  .card-with-border-primary {
+    max-width: 400px;
   }
 }
 

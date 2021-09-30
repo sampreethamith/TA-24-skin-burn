@@ -2,8 +2,10 @@ import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import skin_cancer_image from "../Data/skin-cancer-img.jpg";
 import "../Css/ImageInfoCard.css";
+import { useHistory } from "react-router-dom";
 
 const ImageInfoCard = () => {
+  const history = useHistory();
   return (
     <Container
       data-aos="zoom-out"
@@ -22,12 +24,16 @@ const ImageInfoCard = () => {
             directly caused by UV radiation with skin:
           </p>
           <ul>
-            <li>Basal cell carcinoma</li>
-            <li>Basal cell carcinoma</li>
-            <li>Basal cell carcinoma</li>
-            <li>Basal cell carcinoma</li>
+            <li>Basal cell carcinoma (BCC)</li>
+            <li>Squamous cell carcinoma</li>
+            <li>Melanoma</li>
+            <li>Merkel cell carcinoma</li>
           </ul>
-          <Button className="image-info-card-button" variant="dark">
+          <Button
+            onClick={() => history.push("/skincancer")}
+            className="image-info-card-button"
+            variant="dark"
+          >
             Learn more
           </Button>
         </Col>

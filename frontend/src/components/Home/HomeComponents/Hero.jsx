@@ -3,6 +3,7 @@ import { Container, Row, Col, Spinner } from "react-bootstrap";
 import { Animated } from "react-animated-css";
 import LearnMore from "../../Common/LearnMore";
 import { useSelector } from "react-redux";
+import ModelPopup from "../../Common/ModelPopup";
 
 const Hero = ({
   locationName,
@@ -44,6 +45,7 @@ const Hero = ({
                   ? `Last Updated: ${new Date().getHours()}:${new Date().getMinutes()}`
                   : ""}
               </p>
+              <ModelPopup />
             </div>
           ) : (
             <Spinner
@@ -67,7 +69,7 @@ const Hero = ({
                 animationOut="fadeOut"
                 isVisible={true}
               >
-                <div className="card-title-body-learn-more hero-card">
+                <div className="card-title-body-learn-more hero-card first-text-hero">
                   <h1 className="primary-text">
                     "Australia has reported the highest number of skin cancers
                     from sunburn, but it could be avoided."
@@ -77,7 +79,6 @@ const Hero = ({
             </Col>
             <Col></Col>
           </Row>
-          <Row></Row>
         </Container>
       </section>
     </React.Fragment>

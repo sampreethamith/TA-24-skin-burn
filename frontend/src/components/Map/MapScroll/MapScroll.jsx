@@ -67,7 +67,6 @@ const MapScroll = () => {
   useEffect(() => {
     let variationOffeset =
       document.documentElement.clientWidth > 768 ? 850 : 750;
-    console.log(variationOffeset);
     if (offset >= 0 && offset <= variationOffeset * 1) {
       map.zoomToRectangle(
         map.north + 10,

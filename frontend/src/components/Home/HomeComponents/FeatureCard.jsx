@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import sample_icon from "../Data/uvindex_icon.svg";
-import sample_hover_icon from "../Data/search_black_icon.svg";
+import { useHistory } from "react-router-dom";
 import "../Css/FeatureCard.css";
 
 function FeatureCard({
   mainImage,
   hoverImage,
-  hoverTextOne,
+  hoverText,
   mainImageHeight,
   hoverImageHeight,
+  path
 }) {
   mainImageHeight =
     mainImageHeight == null || mainImageHeight == ""
@@ -20,6 +20,7 @@ function FeatureCard({
       : hoverImageHeight;
 
   const [changeClass, setChangeClass] = useState("");
+  const history = useHistory()
 
   function handleMouseEnter() {
     setChangeClass("slide-up");
@@ -29,7 +30,9 @@ function FeatureCard({
     setChangeClass("slide-down");
   }
 
-  function handleClick() {}
+  function handleClick() {
+    history.push(path)
+  }
   return (
     <div
       data-aos="flip-up"
@@ -39,11 +42,11 @@ function FeatureCard({
       onClick={handleClick}
     >
       <div className="box">
-        <img height={mainImageHeight} src={sample_icon} />
+        <img height={mainImageHeight} src={mainImage} />
       </div>
       <div className={"box hover-div " + changeClass}>
-        <img height={hoverImageHeight} src={sample_hover_icon} />
-        <h3 className="main-text">Hello</h3>
+        <img height={hoverImageHeight} src={hoverImage} />
+        <h3 className="main-text">{hoverText}</h3>
       </div>
     </div>
   );

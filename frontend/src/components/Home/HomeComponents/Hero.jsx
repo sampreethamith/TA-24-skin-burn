@@ -3,6 +3,7 @@ import { Container, Row, Col, Spinner } from "react-bootstrap";
 import { Animated } from "react-animated-css";
 import LearnMore from "../../Common/LearnMore";
 import { useSelector } from "react-redux";
+import ModelPopup from "../../Common/ModelPopup";
 
 const Hero = ({
   locationName,
@@ -44,6 +45,7 @@ const Hero = ({
                   ? `Last Updated: ${new Date().getHours()}:${new Date().getMinutes()}`
                   : ""}
               </p>
+              <ModelPopup />
             </div>
           ) : (
             <Spinner

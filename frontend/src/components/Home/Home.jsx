@@ -26,7 +26,8 @@ const Home = () => {
       setLocationName(properties.name.toUpperCase());
       setUvi(properties.uvi);
     };
-    getLocationUVNameDetails(latitude, longitude);
+    if (location.isLocationEnabled && !latitude)
+      getLocationUVNameDetails(latitude, longitude);
   }, [dispatch, latitude, longitude]);
 
   return (

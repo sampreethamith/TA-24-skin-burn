@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import UVIndexMap from "./StateUVIndexMap/UVIndexMap";
 import { Container } from "react-bootstrap";
 import Toggle from "react-toggle";
@@ -11,6 +11,10 @@ const MapPage = () => {
   const handleToggleChange = () => {
     setSearchMap(!searchMap);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>

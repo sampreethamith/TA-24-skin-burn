@@ -23,6 +23,7 @@ import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
 import QuizPage from "./components/Quiz/QuizPage";
 import ScrollTopButton from "./components/Common/ScrollTopButton";
+import SunBurnInformation from "./components/Information/SunBurnInformation";
 
 AOS.init({
   // Global settings:
@@ -135,6 +136,10 @@ function App() {
             <Route
               path="/prevention/skin-burn-calculator"
               component={SunCalculator}
+            />
+            <Route
+              path="/information/ultraviolet"
+              component={SunBurnInformation}
             />
             <Route path="/prevention" component={Prevention} />
             <Route path="/quiz" component={QuizPage} />

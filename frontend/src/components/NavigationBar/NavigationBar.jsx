@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
-import skinburn_logo from "./../../images/skinburn_logo.svg";
+import skinburn_logo from "./../../images/skinsafe_logo.png";
 
 const NavigationBar = () => {
   return (

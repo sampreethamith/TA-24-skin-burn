@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import sunScreenInformation from "../../images/sunscreenIcon.svg";
 import spfSunscreenIcon from "../../images/spfSunscreenIcon.svg";
 import uvRayInformation from "../../images/uvRaysInformation.jpg";
 
 const SunBurnInformation = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <section className="block">
       <Container>

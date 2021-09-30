@@ -138,9 +138,9 @@ h6 {
 }
 
 .img-hero-background {
-  background-image: url("./images/beach.jpg");
+  background-image: url("./images/home1.png");
   width: 100%;
-  height: auto;
+  height: 35rem;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -556,14 +556,19 @@ select {
 /* Home Page Card with Border */
 .card-with-border-primary {
   border: 2px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 250px;
   width: 350px;
   color: var(--color-white);
   position: relative;
-  font-size: 1.5rem;
+  font-size: 1rem;
   transition: 0.3s;
   margin: 1rem;
   cursor: pointer;
+  padding: 1.5rem;
 }
 
 .card-with-border-primary:hover {
@@ -573,9 +578,13 @@ select {
   transform: scale(1.1);
 }
 
+.card-with-border-primary-img {
+  width: 60px;
+}
+
 .card-with-border-primary-title {
   margin: 1.3rem;
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
 
 .card-with-border-primary-information-layout {
@@ -610,7 +619,8 @@ select {
   .card-with-border-primary {
     width: 450px;
     margin: 0;
-    font-size: 1.7rem;
+    font-size: 1rem;
+    padding: 3.5rem;
   }
   .card-with-border-primary-title {
     margin: 1.5rem;

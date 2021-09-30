@@ -12,12 +12,9 @@ const CardWithBorderPrimary = ({ data }) => {
     >
       <img className="card-with-border-primary-img" src={quiz_icon} />
       <p className="card-with-border-primary-title">Take a Quiz</p>
-      <p className="text-center">Find more about UV index, Sun screen, and Skin cancer</p>
-      {/* <p className="text-center card-with-border-primary-title">{data.title}</p>
-      <div className="card-with-border-primary-information-layout">
-        <img src={data.imageUrl} alt={data.altName} />
-        <p className="text-center">{data.information}</p>
-      </div> */}
+      <p className="text-center">
+        Find more about UV index, Sun screen, and Skin cancer
+      </p>
     </div>
   );
 };

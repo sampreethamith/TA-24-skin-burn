@@ -4,7 +4,6 @@ import NavigationBar from "./components/NavigationBar/NavigationBar";
 import { useDispatch } from "react-redux";
 import "./App.css";
 import Home from "./components/Home/Home";
-import SunBurnInformation from "./components/Home/SunBurnInformation";
 import Loader from "./components/Common/Loader";
 import NotFound from "./components/Common/NotFound";
 import SkinCancer from "./components/SkinCancer/SkinCancer";
@@ -23,10 +22,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
 import QuizPage from "./components/Quiz/QuizPage";
-import FeatureCard from "./components/Home/MiniCompos/FeatureCard";
-import SkewPanel from "./components/Home/MiniCompos/SkewPanel";
-import ImageInfoCard from "./components/Home/MiniCompos/ImageInfoCard";
-import HoverPanel from "./components/Home/HoverPanel";
 
 AOS.init({
   // Global settings:
@@ -48,8 +43,6 @@ AOS.init({
   mirror: false, // whether elements should animate out while scrolling past them
   anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
 });
-
-
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -128,7 +121,6 @@ function App() {
             />
           )}
           <Switch>
-            <Route path="/home/information" component={SunBurnInformation} />
             <Route path="/home" component={Home} />
             <Route
               path="/skincancer/skincancer-symptom"
@@ -148,7 +140,6 @@ function App() {
             <Route path="/uv-assist" component={UVassist} />
             <Route path="/map" component={MapPage} />
             <Route path="/not-found" component={NotFound} />
-            <Route path="/tester" component={HoverPanel} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />
           </Switch>

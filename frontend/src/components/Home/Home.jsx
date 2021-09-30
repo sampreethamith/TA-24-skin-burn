@@ -7,6 +7,7 @@ import RouteCards from "./HomeComponents/RouteCards";
 import ImageInfoCard from "./HomeComponents/ImageInfoCard";
 import { getLocationUVName } from "../../services/getLocationUVName";
 import { locationUVName } from "../../actions/locationAction";
+import WelcomeText from "./HomeComponents/WelcomeText";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const Home = () => {
   return (
     <>
       <Hero locationName={locationName} uvi={uvi} />
+      <WelcomeText />
       <RouteCards />
       <SkewPanel />
       <HoverPanel />

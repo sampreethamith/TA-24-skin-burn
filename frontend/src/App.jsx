@@ -24,6 +24,8 @@ import AOS from "aos";
 import QuizPage from "./components/Quiz/QuizPage";
 import ScrollTopButton from "./components/Common/ScrollTopButton";
 import SunBurnInformation from "./components/Information/SunBurnInformation";
+import ModelPopup from "./components/Common/ModelPopup";
+import LocationSearch from "./components/Common/LocationSearch";
 
 AOS.init({
   // Global settings:
@@ -145,6 +147,7 @@ function App() {
             <Route path="/quiz" component={QuizPage} />
             <Route path="/uv-assist" component={UVassist} />
             <Route path="/map" component={MapPage} />
+            <Route path="/test" component={LocationSearch} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />

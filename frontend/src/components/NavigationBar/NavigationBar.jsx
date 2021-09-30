@@ -31,6 +31,9 @@ const NavigationBar = () => {
             <NavLink className="nav-link" to="/quiz">
               Quiz
             </NavLink>
+            <NavLink className="nav-link" to="/test">
+              Test Controls
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

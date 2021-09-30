@@ -21,6 +21,7 @@
     "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-animated-css": "^1.2.1",
+    "react-autocomplete": "^1.8.1",
     "react-bootstrap": "^2.0.0-beta.4",
     "react-chips": "^0.8.0",
     "react-countup": "^5.2.0",

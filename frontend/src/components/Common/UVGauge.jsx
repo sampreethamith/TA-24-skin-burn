@@ -8,6 +8,7 @@ import "./Css/UVGauge.css";
 am4core.useTheme(am4themes);
 let chart = null;
 let hand = null;
+let cityLabel = "";
 var chartMin = 0;
 var chartMax = 15;
 
@@ -128,7 +129,7 @@ Ranges
     range.label.inside = true;
     range.label.radius = am4core.percent(10);
     range.label.paddingBottom = -5; // ~half font size
-    range.label.fontSize = "0.9em";
+    range.label.fontSize = "0.7em";
   }
 
   var matchingGrade = lookUpGrade(data.score, data.gradingData);
@@ -141,7 +142,7 @@ Ranges
   label0.isMeasured = false;
   label0.fontSize = "1.3em";
   label0.x = am4core.percent(0);
-  label0.paddingBottom = 90;
+  label0.paddingBottom = 70;
   label0.horizontalCenter = "middle";
   label0.verticalCenter = "bottom";
   //label.dataItem = data;
@@ -153,17 +154,17 @@ Ranges
    * Label 00
    */
 
-  var label00 = chart.radarContainer.createChild(am4core.Label);
-  label00.isMeasured = false;
-  label00.fontSize = "0.9em";
-  label00.x = am4core.percent(0);
-  label00.paddingBottom = 70;
-  label00.horizontalCenter = "middle";
-  label00.verticalCenter = "bottom";
+  cityLabel = chart.radarContainer.createChild(am4core.Label);
+  cityLabel.isMeasured = false;
+  cityLabel.fontSize = "0.9em";
+  cityLabel.x = am4core.percent(0);
+  cityLabel.paddingBottom = 50;
+  cityLabel.horizontalCenter = "middle";
+  cityLabel.verticalCenter = "bottom";
   //label.dataItem = data;
-  label00.text = "Clayton";
+  cityLabel.text = "No Location";
   //label.text = "{score}";
-  label00.fill = am4core.color("#ffffff");
+  cityLabel.fill = am4core.color("#ffffff");
 
   /**
    * Label 1
@@ -171,9 +172,9 @@ Ranges
 
   var label = chart.radarContainer.createChild(am4core.Label);
   label.isMeasured = false;
-  label.fontSize = "3em";
+  label.fontSize = "2em";
   label.x = am4core.percent(50);
-  label.paddingBottom = 10;
+  label.paddingBottom = 15;
   label.horizontalCenter = "middle";
   label.verticalCenter = "bottom";
   //label.dataItem = data;
@@ -230,18 +231,24 @@ function setHandValue(val) {
   }, 1000);
 }
 
-const UVGauge = ({ customClass }) => {
-  const location = useSelector((state) => state.location);
-  console.log(location);
-  const uvi = location || location.uvi ? location.uvi : 0;
+const UVGauge = ({ customClass, uvi, locationName }) => {
+  // const location = useSelector((state) => state.location);
+  // console.log(location);
   console.log(uvi);
+  console.log(locationName);
+  // console.log(uvi);
   useEffect(() => {
     buildGauge();
-    hand.value = uvi;
     return () => {
       if (chart != null) chart.dispose();
     };
   }, []);
+
+  useEffect(() => {
+    if (hand != null) hand.value = uvi ? uvi : 0;
+    if (cityLabel != null)
+      cityLabel.text = locationName ? locationName : "No Location";
+  });
 
   customClass = customClass
     ? "am-chart-uv-gauge " + customClass

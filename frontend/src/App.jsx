@@ -26,6 +26,7 @@ import ScrollTopButton from "./components/Common/ScrollTopButton";
 import SunBurnInformation from "./components/Information/SunBurnInformation";
 import ModelPopup from "./components/Common/ModelPopup";
 import WelcomeText from "./components/Home/HomeComponents/WelcomeText";
+import CenterScreenSpinner from "./components/Common/CenterScreenSpinner";
 
 AOS.init({
   // Global settings:

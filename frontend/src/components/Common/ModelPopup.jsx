@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "@mui/material/Modal";
-import Button from "react-bootstrap/Button";
+import { Button } from "react-bootstrap";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -10,7 +10,8 @@ import "./Css/ModelPopup.css";
 import cities from "../../services/auCities.json";
 import getCityGeoJson from "../../services/getCityGeoJson";
 import { useDispatch, useSelector } from "react-redux";
-import { latlongAvailable, locationUVName } from "../../actions/locationAction";
+import { locationName } from "../../actions/locationAction";
+import CenterScreenSpinner from "./CenterScreenSpinner";
 
 const style = {
   position: "absolute",
@@ -30,6 +31,7 @@ const ModelPopup = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [inputError, setinputError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [value, setValue] = React.useState("");
   const [inputValue, setInputValue] = React.useState("");
@@ -41,25 +43,31 @@ const ModelPopup = () => {
   });
 
   async function handleOnSubmit() {
+    setLoading(true);
     if (value === "" || value === undefined || value === null) {
+      setLoading(false);
       setinputError(true);
       return;
     }
     setinputError(false);
-    let { data } = await getCityGeoJson([value]);
-    dispatch(
-      latlongAvailable(
-        data[0].properties.coord.lat,
-        data[0].properties.coord.lon
-      )
-    );
-    dispatch(
-      locationUVName(
-        data[0].properties.uvi,
-        data[0].properties.name.toUpperCase()
-      )
-    );
-    setOpen(false);
+    try {
+      let { data } = await getCityGeoJson([value]);
+      setLoading(false);
+      setOpen(false);
+      const { properties } = data[0];
+      properties.uvi = Math.round(properties.uvi * 10) / 10;
+
+      dispatch(
+        locationName(
+          properties.coord.lat,
+          properties.coord.lon,
+          properties.uvi,
+          properties.name.toUpperCase()
+        )
+      );
+    } catch (e) {
+      console.log(e);
+    }
   }
   return (
     <>
@@ -104,6 +112,7 @@ const ModelPopup = () => {
               <Button variant="warning" onClick={handleOnSubmit}>
                 Submit
               </Button>
+              {loading && <CenterScreenSpinner />}
             </div>
           </Box>
         </Modal>

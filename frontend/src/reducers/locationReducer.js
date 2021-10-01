@@ -16,6 +16,15 @@ export const locationReducer = (state = initialState, action) => {
     case "LOCATION_UV_NAME":
       const { uvi, locationName } = action.payload;
       return { ...state, uvi, locationName };
+    case "LOCATION_NAME":
+      return {
+        ...state,
+        uvi: action.payload.uvi,
+        locationName: action.payload.locationName,
+        latitude: action.payload.latitude,
+        longitude: action.payload.longitude,
+      };
+
     default:
       return state;
   }

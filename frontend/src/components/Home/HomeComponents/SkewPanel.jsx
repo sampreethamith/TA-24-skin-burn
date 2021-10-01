@@ -53,7 +53,7 @@ const SkewPanel = () => {
       <div className="skew-panel-info">
         <img src={survive_img}></img>
         <h3 className="secondary-text">
-          <CountUp end={survivalRate} duration={2.5} />
+          <CountUp end={survivalRate} duration={2.5} />%
         </h3>
         <p>Recovered last year from sunburn</p>
       </div>

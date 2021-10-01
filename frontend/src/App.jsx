@@ -163,13 +163,7 @@ function App() {
             <Route path="/quiz" component={QuizPage} />
             <Route path="/uv-assist" component={UVassist} />
             <Route path="/map" component={MapPage} />
-<<<<<<< HEAD
-            <Route path="/test" component={MapScroll} />
             <Route path="/test" component={LocationUVPanel} />
-
-=======
-            <Route path="/test" component={LocationUVPanel} />
->>>>>>> iteration-3-redesign-1
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />

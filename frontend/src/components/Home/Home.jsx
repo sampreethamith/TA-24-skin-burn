@@ -12,7 +12,6 @@ import WelcomeText from "./HomeComponents/WelcomeText";
 const Home = () => {
   const dispatch = useDispatch();
   const location = useSelector((state) => state.location);
-  const { latitude, longitude } = location;
   const [locationName, setLocationName] = useState("");
   const [uvi, setUvi] = useState("");
 
@@ -27,9 +26,28 @@ const Home = () => {
       setLocationName(properties.name.toUpperCase());
       setUvi(properties.uvi);
     };
-    if (location.isLocationEnabled && !latitude)
-      getLocationUVNameDetails(latitude, longitude);
-  }, [dispatch, latitude, longitude]);
+
+    const setLocationNameAndUVI = () => {
+      console.log(location.locationName);
+      setLocationName(location.locationName);
+      setUvi(location.uvi);
+    };
+
+    if (location.isLocationEnabled) {
+      console.log("calling inside location turned on...");
+      getLocationUVNameDetails(location.latitude, location.longitude);
+    } else if (!location.isLocationEnabled && location.latitude) {
+      console.log("calling inside location not turned on function");
+      setLocationNameAndUVI();
+    }
+  }, [
+    dispatch,
+    location.latitude,
+    location.longitude,
+    location.locationName,
+    location.isLocationEnabled,
+    location.uvi,
+  ]);
 
   return (
     <>

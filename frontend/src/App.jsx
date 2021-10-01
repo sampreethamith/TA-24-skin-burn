@@ -26,6 +26,15 @@ import ScrollTopButton from "./components/Common/ScrollTopButton";
 import SunBurnInformation from "./components/Information/SunBurnInformation";
 import ModelPopup from "./components/Common/ModelPopup";
 import WelcomeText from "./components/Home/HomeComponents/WelcomeText";
+import CenterScreenSpinner from "./components/Common/CenterScreenSpinner";
+<<<<<<< HEAD
+import CardInfo from "./components/Map/MapScroll/CardInfo";
+=======
+import UVGauge from "./components/Common/UVGauge";
+import CardInfo from "./components/Map/MapScroll/CardInfo";
+import LocationUVPanel from "./components/Prevention/PreventionComponents/LocationUVPanel";
+>>>>>>> cc91b3783faa71256672681a89bba7c80cdc5033
+import MapScroll from "./components/Map/MapScroll/MapScroll";
 
 AOS.init({
   // Global settings:
@@ -147,7 +156,11 @@ function App() {
             <Route path="/quiz" component={QuizPage} />
             <Route path="/uv-assist" component={UVassist} />
             <Route path="/map" component={MapPage} />
-            <Route path="/test" component={WelcomeText} />
+<<<<<<< HEAD
+            <Route path="/test" component={MapScroll} />
+=======
+            <Route path="/test" component={LocationUVPanel} />
+>>>>>>> cc91b3783faa71256672681a89bba7c80cdc5033
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />

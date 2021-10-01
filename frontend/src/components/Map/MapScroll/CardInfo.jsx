@@ -1,62 +1,46 @@
 import React from "react";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import Card from "@mui/material/Card";
 
-const CardInfo = ({
-  textOneStart,
-  textOneBold,
-  textOneEnd,
-  textTwoStart,
-  textTwoBold,
-  textTwoEnd,
-  textThreeStart,
-  textThreeBold,
-  textThreeEnd,
-  visibility,
-  style,
-  cardBackColor,
-}) => {
-  const styleToApply =
-    style == null
-      ? {
-          display: `flex`,
-          flexDirection: `column`,
-          justifyContent: `center`,
-          alignItems: `center`,
-          height: `300%`,
-          visibility: visibility,
-        }
-      : style;
+import "./MapScroll.css";
+
+const CardInfo = ({ cardType, headingText, scrollToLearnText, data }) => {
   const cardStyle =
-    cardBackColor == null
-      ? {}
-      : {
-          backgroundColor: cardBackColor,
-        };
+    cardType === "primary"
+      ? "custom-card card-primary"
+      : "custom-card card-white";
+
   return (
-    <div style={styleToApply}>
-      <Card className="card-info" style={cardStyle}>
-        <CardContent>
-          <Typography variant="h5" component="div">
-            {textOneStart}
-            <strong>{textOneBold}</strong>
-            {textOneEnd}
+    <CardContent className={cardStyle}>
+      {headingText && (
+        <Typography color="text.secondary" gutterBottom>
+          {headingText}
+        </Typography>
+      )}
+      {scrollToLearnText && (
+        <Typography color="text.secondary" className="text-center">
+          Scroll To Learn More
+        </Typography>
+      )}
+      {data && (
+        <>
+          <Typography>
+            {data.firstText}
+            <strong>{data.state}</strong>
+            {data.secondText}
           </Typography>
-          <Typography variant="h5" component="div">
-            {textTwoStart}
-            <strong>{textTwoBold}</strong>
-            {textTwoEnd}
+          <Typography>
+            {data.thirdText}
+            <strong>{data.deaths}</strong>
+            {data.fourthText}
           </Typography>
-          <br />
-          <Typography variant="h6" component="div">
-            {textThreeStart}
-            <strong>{textThreeBold}</strong>
-            {textThreeEnd}{" "}
+          <Typography>
+            <strong>{data.TotalPeople}</strong>
+            {data.fifthText}
           </Typography>
-        </CardContent>
-      </Card>
-    </div>
+        </>
+      )}
+    </CardContent>
   );
 };
 

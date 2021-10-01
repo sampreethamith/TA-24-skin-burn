@@ -29,23 +29,37 @@ const Hero = ({
           {!loader ? (
             <div>
               <p className="primary-text hero-current-uv-radiation-font">
-                {state.isLocationEnabled ? "Current UV" : "Location"}
+                {state.isLocationEnabled
+                  ? "Current UV"
+                  : state.latitude
+                  ? "Current UV"
+                  : "Location"}
               </p>
               <p className="primary-text hero-inline hero-current-uv-radiation-number-font">
-                {state.isLocationEnabled ? state.uvi : "Not Available"}
+                {state.isLocationEnabled
+                  ? state.uvi
+                  : state.latitude
+                  ? state.uvi
+                  : "Not Available"}
               </p>
               <p className="primary-text hero-current-uv-radiation-font">
-                {state.isLocationEnabled ? state.locationName : ""}
+                {state.isLocationEnabled
+                  ? state.locationName
+                  : state.latitude
+                  ? state.locationName
+                  : ""}
               </p>
+              <ModelPopup />
               <p
                 className="primary-text text-center hero-current-uv-radiation-current-time"
                 onClick={loadTimer}
               >
                 {state.isLocationEnabled
                   ? `Last Updated: ${new Date().getHours()}:${new Date().getMinutes()}`
+                  : state.latitude
+                  ? `Last Updated: ${new Date().getHours()}:${new Date().getMinutes()}`
                   : ""}
               </p>
-              <ModelPopup />
             </div>
           ) : (
             <Spinner

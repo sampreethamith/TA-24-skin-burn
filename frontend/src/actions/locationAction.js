@@ -17,3 +17,10 @@ export const locationUVName = (uvi, locationName) => {
     payload: { uvi, locationName },
   };
 };
+
+export const locationName = (latitude, longitude, uvi, locationName) => {
+  return {
+    type: "LOCATION_NAME",
+    payload: { latitude, longitude, uvi, locationName },
+  };
+};

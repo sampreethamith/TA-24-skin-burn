@@ -1,0 +1,21 @@
+@import "../../../App.css";
+
+.mapbox-popup {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  opacity: 0.8;
+  width: auto;
+}
+
+.mapboxgl-popup-content {
+  background-color: var(--secondary-color) !important;
+}
+
+.mapboxgl-popup-tip {
+  border-bottom-color: var(--secondary-color) !important;
+}
+
+.mapboxgl-popup-close-button {
+  background-color: var(--primary-color) !important;
+}

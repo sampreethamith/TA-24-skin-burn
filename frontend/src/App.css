@@ -440,7 +440,7 @@ select {
 }
 
 .map-position-relative {
-  position: relative;
+  /* position: relative; */
 }
 
 .map-tooltip {
@@ -829,7 +829,7 @@ select {
 
 /* Map by location */
 .map-position {
-  margin-top: 5%;
+  /* margin-top: 5%; */
 }
 
 /* Map Page Toggle Button */
@@ -845,7 +845,7 @@ select {
 .toggle-position {
   position: absolute;
   right: 2rem;
-  top: 10rem;
+  top: 15rem;
   z-index: 99999;
 }
 

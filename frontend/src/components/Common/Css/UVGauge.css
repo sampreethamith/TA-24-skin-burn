@@ -1,0 +1,8 @@
+.am-chart-uv-gauge {
+    width: 100%;
+    min-height: 20rem;
+}
+
+.am-chart-uv-gauge-letter-space {
+    letter-spacing: 1.3em;
+}

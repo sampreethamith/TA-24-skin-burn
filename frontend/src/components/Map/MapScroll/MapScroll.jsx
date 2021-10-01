@@ -4,6 +4,7 @@ import * as am4maps from "@amcharts/amcharts4/maps";
 import am4geodata_australiaLow from "@amcharts/amcharts4-geodata/australiaHigh";
 import am4themes from "@amcharts/amcharts4/themes/material";
 import CardInfo from "./CardInfo";
+import "../MapScroll/mapscroll.css";
 
 am4core.useTheme(am4themes);
 let map = null;
@@ -137,50 +138,24 @@ const MapScroll = () => {
   }, []);
 
   return (
-    <div style={{}}>
+    <div>
       <div
-        className="amChart-map"
+        className="amChart-map map-scroll-amchart-map"
         id="chartdiv_map"
-        style={{
-          position: `fixed`,
-        }}
       ></div>
-      <div
-        style={{
-          position: `absolute`,
-          display: `flex`,
-          flexDirection: `column`,
-          height: `800%`,
-          width: `100vw`,
-        }}
-      >
+      <div className="map-scroll-flex-div">
         <CardInfo
-          style={{
-            display: `flex`,
-            flexDirection: `row`,
-            alignContent: `flex-start`,
-            alignItems: "center",
-            alignItems: `start`,
-            // height: '300%',
-            marginLeft: "7%",
-            marginTop: "10%",
-          }}
-          cardBackColor="#ffb800"
+          Customclass="map-scroll-flex-title-card"
+          cardBackColor={true}
           textOneStart="Due to the high rate of ultraviolet rays, Australia's server sunburn and skin cancer issues."
         />
         <CardInfo
-          style={{
-            display: `flex`,
-            flexDirection: `row`,
-            justifyContent: `center`,
-            alignItems: `center`,
-            marginTop: "20%",
-          }}
-          cardBackColor="#ffb800"
+          Customclass="map-scroll-flex-learn-more-card"
+          cardBackColor={true}
           textOneStart="Scroll to learn more"
         />
-        <CardInfo visibility="hidden" cardBackColor="#ffb800" />
-        <div ref={refVic}>
+        {/* <CardInfo visibility="hidden" /> */}
+        <div ref={refVic} className="map-scroll-flex-normal-card">
           <CardInfo
             textOneStart="In 2016,"
             textOneBold=" Victoria "
@@ -194,6 +169,7 @@ const MapScroll = () => {
         </div>
         <div ref={refNsw}>
           <CardInfo
+            Customclass="map-scroll-flex-normal-card"
             textOneStart="In 2016,"
             textOneBold=" New South Wales "
             textOneEnd="recorded the highest ultraviolet rate of 15.7"
@@ -206,6 +182,7 @@ const MapScroll = () => {
         </div>
         <div ref={refSoutAus}>
           <CardInfo
+            Customclass="map-scroll-flex-normal-card"
             textOneStart="In 2016,"
             textOneBold=" South Australia "
             textOneEnd="recorded the highest ultraviolet rate of 15.5"
@@ -218,6 +195,7 @@ const MapScroll = () => {
         </div>
         <div ref={refQsld}>
           <CardInfo
+            Customclass="map-scroll-flex-normal-card"
             textOneStart="In 2015,"
             textOneBold=" Queensland "
             textOneEnd="recorded the highest ultraviolet rate of 17.1"
@@ -230,6 +208,7 @@ const MapScroll = () => {
         </div>
         <div ref={refWa}>
           <CardInfo
+            Customclass="map-scroll-flex-normal-card"
             textOneStart="In 2015,"
             textOneBold=" Western Australia "
             textOneEnd="recorded the highest ultraviolet rate of 15.4"
@@ -242,6 +221,7 @@ const MapScroll = () => {
         </div>
         <div ref={refTas}>
           <CardInfo
+            Customclass="map-scroll-flex-normal-card"
             textOneStart="In 2013,"
             textOneBold=" Tasmania "
             textOneEnd="recorded the highest ultraviolet rate of 13.1"
@@ -254,6 +234,7 @@ const MapScroll = () => {
         </div>
         <div ref={refNt}>
           <CardInfo
+            Customclass="map-scroll-flex-normal-card"
             textOneStart="In 2013,"
             textOneBold=" Northern Territory "
             textOneEnd="recorded the highest ultraviolet rate of 19.8"

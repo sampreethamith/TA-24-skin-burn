@@ -17,6 +17,9 @@ const QuestionAndAnswer = ({ quizType }) => {
   const [totalCount, setTotalCount] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState([]);
   const documentReference = useRef(null);
+  const [quizTypeQuestions, setQuizTypeQuestions] = useState([
+    ...constantQuizJson,
+  ]);
 
   useEffect(() => {
     const question = getPageData();
@@ -30,6 +33,10 @@ const QuestionAndAnswer = ({ quizType }) => {
   };
 
   useEffect(() => {
+    console.log(quizTypeQuestions);
+  }, [quizTypeQuestions]);
+
+  useEffect(() => {
     const question = getPageData();
     setCurrentQuestion([...question]);
   }, [currentPage]);
@@ -39,11 +46,15 @@ const QuestionAndAnswer = ({ quizType }) => {
     const newQuizJson = [...question];
     newQuizJson[questionIndex]["options"][optionIndex].selected = true;
 
+    const newQuizTypeQuestions = [...constantQuizJson];
+    newQuizTypeQuestions[questionIndex]["options"][optionIndex].selected = true;
+
+    setQuizTypeQuestions([...newQuizTypeQuestions]);
+
     setCurrentQuestion([...newQuizJson]);
   };
 
   const handlePageClick = (page) => {
-    console.log(documentReference.current);
     document
       .getElementsByClassName("question-and-answer")[0]
       .classList.remove("aos-animate");

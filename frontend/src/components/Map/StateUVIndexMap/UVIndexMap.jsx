@@ -1,5 +1,11 @@
-import React, { useState, useEffect, useCallback } from "react";
-import ReactMapGL, { Source, Layer, FlyToInterpolator } from "react-map-gl";
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import ReactMapGL, {
+  Source,
+  Layer,
+  FlyToInterpolator,
+  Marker,
+  Popup,
+} from "react-map-gl";
 import { Container, Spinner } from "react-bootstrap";
 import { dataLayer } from "./map-style.js";
 import { easeCubic } from "d3-ease";
@@ -7,6 +13,7 @@ import MapLegend from "./MapLegend";
 import SearchBox from "./SearchBox";
 import getStateGeoJson from "../../../services/getStateGeoJson";
 import getCityGeoJson from "../../../services/getCityGeoJson";
+import "./UVIndexMap.css";
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
@@ -18,11 +25,12 @@ const UVIndexMap = () => {
   const [viewport, setViewport] = useState({
     latitude: -28.539960029117317,
     longitude: 133.1102061296636,
-    zoom: 3,
+    minZoom: 4,
+    zoom: 4,
     bearing: 0,
     pitch: 0,
-    height: 500,
-    width: "100",
+    height: document.documentElement.clientHeight - 100,
+    width: "auto",
   });
   const [error, setError] = useState(false);
 
@@ -52,7 +60,7 @@ const UVIndexMap = () => {
         ...viewport,
         latitude: coord["lat"],
         longitude: coord["lon"],
-        zoom: 10,
+        zoom: chips.length <= 1 ? 10 : 4,
         transitionDuration: 5000,
         transitionInterpolator: new FlyToInterpolator(),
         transitionEasing: easeCubic,
@@ -60,6 +68,7 @@ const UVIndexMap = () => {
       console.log(viewport);
       data = { type: "FeatureCollection", features: data };
       setData(data);
+      console.log(data);
       setLoading(false);
     } catch (error) {}
   };
@@ -100,7 +109,7 @@ const UVIndexMap = () => {
     setViewport({
       ...viewport,
       width: "100%",
-      height: 500,
+      height: document.documentElement.clientHeight - 100,
     });
   };
 
@@ -121,9 +130,22 @@ const UVIndexMap = () => {
     );
   }, []);
 
+  const [location, setlocation] = useState(null);
+  function openPopup(param) {
+    setlocation(param);
+    setPopupInfo(true);
+  }
+
+  const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,4.5,2,10c0,2,0.6,3.9,1.6,5.4c0,0.1,0.1,0.2,0.2,0.3
+  c0,0,0.1,0.1,0.1,0.2c0.2,0.3,0.4,0.6,0.7,0.9c2.6,3.1,7.4,7.6,7.4,7.6s4.8-4.5,7.4-7.5c0.2-0.3,0.5-0.6,0.7-0.9
+  C20.1,15.8,20.2,15.8,20.2,15.7z`;
+
+  const SIZE = 20;
+  const [popupInfo, setPopupInfo] = useState(null);
+
   return (
     <section>
-      <Container>
+      <>
         <ReactMapGL
           {...viewport}
           mapStyle="mapbox://styles/mapbox/dark-v10"
@@ -168,8 +190,51 @@ const UVIndexMap = () => {
               variant="warning"
             ></Spinner>
           )}
+          {data &&
+            data.features.map((item, index) => (
+              <Marker
+                key={`marker-${index}`}
+                longitude={item.properties.coord.lon}
+                latitude={item.properties.coord.lat}
+              >
+                <svg
+                  height={SIZE}
+                  viewBox="0 0 24 24"
+                  style={{
+                    cursor: "pointer",
+                    fill: "#d00",
+                    stroke: "none",
+                    transform: `translate(${-SIZE / 2}px,${-SIZE}px)`,
+                  }}
+                  onClick={() => {
+                    openPopup(item);
+                    setHoverInfo(false);
+                  }}
+                  onMouseEnter={() => setHoverInfo(false)}
+                >
+                  <path d={ICON} />
+                </svg>
+              </Marker>
+            ))}
+          {popupInfo && (
+            <Popup
+              tipSize={5}
+              anchor="top"
+              longitude={location.properties.coord.lon}
+              latitude={location.properties.coord.lat}
+              closeOnClick={true}
+              onClose={() => setPopupInfo(false)}
+              onMouseEnter={() => setHoverInfo(false)}
+              className="mapbox-popup"
+            >
+              <div>
+                <p>{location.properties.name.toUpperCase()}</p>
+                <p>{"UVI: " + location.properties.uvi}</p>
+              </div>
+            </Popup>
+          )}
         </ReactMapGL>
-      </Container>
+      </>
     </section>
   );
 };

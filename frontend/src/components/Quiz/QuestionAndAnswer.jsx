@@ -6,6 +6,7 @@ import { paginate } from "../../utils/pagination";
 import { UVQuizData } from "../../services/getUVQuizData";
 import { skinCancerQuizData } from "../../services/getSkinCancerQuizData";
 import { sunScreenQuizData } from "../../services/getSunScreenQuizData";
+import FinishedPage from "./FinishedPage";
 
 const QuestionAndAnswer = ({ quizType }) => {
   let constantQuizJson = [];
@@ -19,12 +20,7 @@ const QuestionAndAnswer = ({ quizType }) => {
   const [quizTypeQuestions, setQuizTypeQuestions] = useState([
     ...constantQuizJson,
   ]);
-
-  const getConstantQuizJson = () => {
-    return constantQuizJson.map((a) => {
-      return { ...a };
-    });
-  };
+  const [finishedClicked, setFinishedClicked] = useState(false);
 
   const getPageDataByQuestions = (quizQuestions) => {
     const question = paginate(quizQuestions, pageSize, currentPage);
@@ -32,84 +28,92 @@ const QuestionAndAnswer = ({ quizType }) => {
   };
 
   useEffect(() => {
-    // console.log("printing inside initial useEffect hook");
-    // console.log(quizTypeQuestions);
     const question = getPageDataByQuestions([...quizTypeQuestions]);
     setCurrentQuestion([...question]);
-    setTotalCount(constantQuizJson.length);
+    setTotalCount(quizTypeQuestions.length);
   }, []);
+
+  useEffect(() => {
+    const question = getPageDataByQuestions(quizTypeQuestions);
+    setCurrentQuestion([...question]);
+  }, [currentPage]);
 
   const answerSelected = (optionIndex) => {
     let newQuizJson = [];
     newQuizJson = JSON.parse(JSON.stringify(constantQuizJson));
+
     newQuizJson[currentPage - 1]["options"][optionIndex].selected = true;
 
-    console.log(newQuizJson);
+    let myArray = [];
+    for (let index = 0; index < newQuizJson.length; index++) {
+      if (index === currentPage - 1) {
+        myArray.push(JSON.parse(JSON.stringify(newQuizJson[index])));
+      } else {
+        myArray.push(quizTypeQuestions[index]);
+      }
+    }
 
-    // const cloneQuizType = [...quizTypeQuestions];
+    const newCurrentQuestion = getPageDataByQuestions([...newQuizJson]);
 
-    // console.log(cloneQuizType);
+    setCurrentQuestion([...newCurrentQuestion]);
 
-    // const removed = cloneQuizType.splice(currentPage - 1, 1, {
-    //   ...newQuizJson[currentPage - 1],
-    // });
-
-    // console.log(cloneQuizType);
-    // setQuizTypeQuestions([...newQuizJson]);
-    // const currentQuizQuestion = getPageDataByQuestions([...newQuizJson]);
-
-    // setCurrentQuestion([newQuizJson[currentPage - 1]]);
+    setQuizTypeQuestions([...myArray]);
   };
 
   const handlePageClick = (page) => {
+    if (currentPage === quizTypeQuestions.length && page !== currentPage - 1) {
+      setFinishedClicked(true);
+    }
     setCurrentPage(page);
-    const question = getPageDataByQuestions([...quizTypeQuestions]);
-    setCurrentQuestion([...question]);
   };
 
   return (
     <div data-aos="flip-left">
-      {currentQuestion.map((question, questionIndex) => {
-        return (
-          <div className="question-and-answer">
-            <h5>{question.questionTitle}</h5>
-            <h6>{question.questionSubtitle}</h6>
-            <div className="py-3 question-image">
-              <img src={uvImage} alt="UV" />
+      {!finishedClicked &&
+        currentQuestion.map((question, questionIndex) => {
+          return (
+            <div className="question-and-answer">
+              <h5>{question.questionTitle}</h5>
+              <h6>{question.questionSubtitle}</h6>
+              <div className="py-3 question-image">
+                <img src={uvImage} alt="UV" />
+              </div>
+              <div>
+                {question.options.map((option, optionIndex) => {
+                  return (
+                    <div className="py-1">
+                      <AnswerOptions
+                        optionValue={option.optionNumber}
+                        optionTitle={option.optionAnswer}
+                        handleOnClick={() => answerSelected(optionIndex)}
+                        selected={
+                          currentQuestion[questionIndex]["options"][optionIndex]
+                            .selected
+                        }
+                        validAnswer={
+                          currentQuestion[questionIndex]["options"][optionIndex]
+                            .selected &&
+                          currentQuestion[questionIndex]["options"][optionIndex]
+                            .correctAnswer
+                        }
+                      />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            <div>
-              {question.options.map((option, optionIndex) => {
-                return (
-                  <div className="py-1">
-                    <AnswerOptions
-                      optionValue={option.optionNumber}
-                      optionTitle={option.optionAnswer}
-                      handleOnClick={() => answerSelected(optionIndex)}
-                      selected={
-                        currentQuestion[questionIndex]["options"][optionIndex]
-                          .selected
-                      }
-                      validAnswer={
-                        currentQuestion[questionIndex]["options"][optionIndex]
-                          .selected &&
-                        currentQuestion[questionIndex]["options"][optionIndex]
-                          .correctAnswer
-                      }
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
 
-      <Pagination
-        itemCount={totalCount}
-        pageSize={pageSize}
-        currentPage={currentPage}
-        onPageClick={handlePageClick}
-      />
+      {!finishedClicked && (
+        <Pagination
+          itemCount={totalCount}
+          pageSize={pageSize}
+          currentPage={currentPage}
+          onPageClick={handlePageClick}
+        />
+      )}
+      {finishedClicked && <FinishedPage quizType={quizType} />}
     </div>
   );
 };

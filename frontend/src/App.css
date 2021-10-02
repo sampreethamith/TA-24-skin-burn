@@ -818,6 +818,7 @@ select {
   flex: row;
   justify-content: center;
   align-items: center;
+  padding: 2px !important;
 }
 
 .pagination:hover {

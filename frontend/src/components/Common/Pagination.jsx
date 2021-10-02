@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import _ from "lodash";
-import { ProgressBar } from "react-bootstrap";
+import { ProgressBar, Button } from "react-bootstrap";
 
 const Pagination = (props) => {
   const { itemCount, pageSize, onPageClick, currentPage } = props;
@@ -17,13 +17,16 @@ const Pagination = (props) => {
         now={(currentPage / itemCount) * 100}
       />
       <nav className="pagination-inline">
-        <div
+        <Button
+          disabled={currentPage === 1}
+          variant="outline-warning"
           className="pagination"
           onClick={() => onPageClick(currentPage === 1 ? 1 : currentPage - 1)}
         >
           Previous
-        </div>
-        <div
+        </Button>
+        <Button
+          variant="outline-warning"
           className="pagination"
           onClick={() =>
             onPageClick(
@@ -31,8 +34,8 @@ const Pagination = (props) => {
             )
           }
         >
-          Next
-        </div>
+          {currentPage === itemCount ? "Finish" : "Next"}
+        </Button>
       </nav>
     </>
   );

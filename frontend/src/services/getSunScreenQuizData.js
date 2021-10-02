@@ -86,7 +86,8 @@ export function sunScreenQuizData() {
       options: [
         {
           optionNumber: "A",
-          optionAnswer: "Provides safe and effective protection against broad spectrum of ultraviolet rays",
+          optionAnswer:
+            "Provides safe and effective protection against broad spectrum of ultraviolet rays",
         },
         {
           optionNumber: "B",
@@ -109,12 +110,11 @@ export function sunScreenQuizData() {
 export function getSunScreenInfo() {
   return {
     title: "More On Sun Screen",
-    descriptionOne:
+    descriptionText: [
       "Sun Protection Factor – is a measure of a sunscreen’s ability to prevent UVB from damaging the skin.",
-    descriptionTwo:
       "If it takes 20 minutes for your unprotected skin to start turning red, using an SPF 15 sunscreen theoretically prevents reddening 15 times longer – about five hours.",
-    descriptionThree:
       "In reality, sunscreen wears away and loses strength after a while in the sun, so you need to reapply at least every couple of hours, and immediately after sweating or swimming.",
+    ],
     link: "/skincancer",
   };
 }

@@ -433,7 +433,6 @@ select {
   font-size: 1.3rem;
 }
 
-
 /* Add Button */
 .add-button {
   background-color: var(--secondary-color) !important;
@@ -806,6 +805,13 @@ select {
 
 .link-color a {
   color: var(--primary-color) !important;
+}
+
+.mapbox-float-button {
+  position: fixed !important;
+  bottom: 8% !important;
+  right: 4% !important;
+  background-color: var(--primary-dark) !important;
 }
 
 /* .breadcrumb-location {

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Fab from "@mui/material/Fab";
+import FloatIcon from "@mui/icons-material/ArrowUpward";
 
 const ScrollTopButton = () => {
   const [showButton, setShowButton] = useState(false);
@@ -18,9 +20,17 @@ const ScrollTopButton = () => {
   return (
     <div>
       {showButton && (
-        <button onClick={scrollToTop} className="back-to-top">
-          &#8679;
-        </button>
+        // <button onClick={scrollToTop} className="back-to-top">
+        //   &#8679;
+        // </button>
+        <Fab
+          // aria-describedby={id}
+          onClick={scrollToTop}
+          className="mapbox-float-button"
+          color="secondary"
+        >
+          <FloatIcon />
+        </Fab>
       )}
     </div>
   );

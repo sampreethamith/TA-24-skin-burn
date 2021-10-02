@@ -237,8 +237,9 @@ const MapScroll = () => {
     <>
       <div className="amChart-map" id="chartdiv_map"></div>
       <Container>
-        <p className="maphistory-title-text">
-        Find out the history of the <em>effects of ultraviolet</em> on Australia
+        <p className="maphistory-title-text text-center">
+          Learn more about the history of the <em>ULTRAVIOLET EFFECTS</em> in
+          Australia
         </p>
         <div className="flex-card">
           <div className="self-align-start flex-card-individual">

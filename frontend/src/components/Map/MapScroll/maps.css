@@ -65,7 +65,8 @@
 .maphistory-title-text em {
   font-style: normal;
   letter-spacing: 0.2em;
-  color: #000;
-  background-color: var(--primary-light);
+  color: black;
+  font-weight: 700;
+  background-color: var(--primary-dark);
   text-transform: uppercase;
 }

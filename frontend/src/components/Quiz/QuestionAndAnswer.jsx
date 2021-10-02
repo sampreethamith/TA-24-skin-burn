@@ -40,7 +40,8 @@ const QuestionAndAnswer = ({ quizType }) => {
   }, []);
 
   const answerSelected = (optionIndex) => {
-    const newQuizJson = getConstantQuizJson();
+    let newQuizJson = [];
+    newQuizJson = JSON.parse(JSON.stringify(constantQuizJson));
     newQuizJson[currentPage - 1]["options"][optionIndex].selected = true;
 
     console.log(newQuizJson);
@@ -57,7 +58,7 @@ const QuestionAndAnswer = ({ quizType }) => {
     // setQuizTypeQuestions([...newQuizJson]);
     // const currentQuizQuestion = getPageDataByQuestions([...newQuizJson]);
 
-    // setCurrentQuestion([...currentQuizQuestion]);
+    // setCurrentQuestion([newQuizJson[currentPage - 1]]);
   };
 
   const handlePageClick = (page) => {

@@ -130,9 +130,11 @@ export function skinCancerQuizData() {
 export function getSkinCancerInfo() {
   return {
     title: "More On Skin Cancer",
-    descriptionOne: "The early cure rate of common skin cancer diseases such as melanoma has reached more than 90%.",
-    descriptionTwo: "Cosmetics themselves do not have the function to protect you from Ultraviolet radiation, and some cosmetics contain the composition to protect you from UV radiation. But make sure that only the comedic that have 30+ SPF could effectively guard against sunburn.",
-    descriptionThree: "Understanding BCC causes, risk factors and warning signs can help you detect them early when they are easiest to treat and cure.",
+    description: [
+      "The early cure rate of common skin cancer diseases such as melanoma has reached more than 90%.",
+      "Cosmetics themselves do not have the function to protect you from Ultraviolet radiation, and some cosmetics contain the composition to protect you from UV radiation. But make sure that only the comedic that have 30+ SPF could effectively guard against sunburn.",
+      "Understanding BCC causes, risk factors and warning signs can help you detect them early when they are easiest to treat and cure.",
+    ],
     link: "/skincancer",
   };
 }

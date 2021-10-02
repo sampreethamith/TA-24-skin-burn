@@ -1,5 +1,7 @@
+import _ from "lodash";
+
 export function UVQuizData() {
-  return [
+  const uvQuizArray = [
     {
       questionTitle: "How do UVA and UVB differ?",
       questionSubtitle: "",
@@ -109,6 +111,8 @@ export function UVQuizData() {
       ],
     },
   ];
+
+  return _.shuffle(uvQuizArray);
 }
 
 export function getUVInfo() {

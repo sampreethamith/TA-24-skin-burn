@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import AnswerOptions from "./AnswerOptions";
-import uvImage from "../../images/UVSunImage.svg";
 import Pagination from "../Common/Pagination";
 import { paginate } from "../../utils/pagination";
 import { UVQuizData } from "../../services/getUVQuizData";
@@ -75,9 +74,6 @@ const QuestionAndAnswer = ({ quizType }) => {
             <div className="question-and-answer">
               <h5>{question.questionTitle}</h5>
               <h6>{question.questionSubtitle}</h6>
-              <div className="py-3 question-image">
-                <img src={uvImage} alt="UV" />
-              </div>
               <div>
                 {question.options.map((option, optionIndex) => {
                   return (

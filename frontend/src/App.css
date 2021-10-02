@@ -647,7 +647,6 @@ select {
 }
 
 .question-image img {
-  width: 100%;
   object-fit: contain;
 }
 

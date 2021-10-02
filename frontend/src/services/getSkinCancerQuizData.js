@@ -1,5 +1,7 @@
+import _ from "lodash";
+
 export function skinCancerQuizData() {
-  return [
+  const skinCancerArray = [
     {
       questionTitle: "What is the most common form of skin cancer?",
       questionSubtitle: "",
@@ -125,6 +127,8 @@ export function skinCancerQuizData() {
       ],
     },
   ];
+
+  return _.shuffle(skinCancerArray);
 }
 
 export function getSkinCancerInfo() {

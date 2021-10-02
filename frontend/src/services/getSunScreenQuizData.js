@@ -1,5 +1,7 @@
+import _ from "lodash";
+
 export function sunScreenQuizData() {
-  return [
+  const sunScreenQuizArray = [
     {
       questionTitle: "Who should use sunscreen?",
       questionSubtitle: "",
@@ -132,6 +134,8 @@ export function sunScreenQuizData() {
       ],
     },
   ];
+
+  return _.shuffle(sunScreenQuizArray);
 }
 
 export function getSunScreenInfo() {

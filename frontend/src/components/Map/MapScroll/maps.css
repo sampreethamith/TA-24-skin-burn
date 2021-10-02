@@ -53,3 +53,20 @@
   height: 120vh;
   position: fixed;
 }
+
+.maphistory-title-text {
+  color: white;
+  font-size: 20pt;
+  letter-spacing: 0.1em;
+  position: absolute;
+  top: 12%;
+}
+
+.maphistory-title-text em {
+  font-style: normal;
+  letter-spacing: 0.2em;
+  color: black;
+  font-weight: 700;
+  background-color: var(--primary-dark);
+  text-transform: uppercase;
+}

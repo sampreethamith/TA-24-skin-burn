@@ -1,77 +1,110 @@
 export function UVQuizData() {
   return [
     {
-      questionTitle: "Question 1",
-      questionSubtitle: "What is UV stand for?",
-      imagePath: "../../images/UVSunImage.svg",
+      questionTitle: "How do UVA and UVB differ?",
+      questionSubtitle: "",
+      imagePath: "",
       imageAltName: "UV",
       options: [
         {
           optionNumber: "A",
-          optionAnswer: "Answer",
-          correctAnswer: true,
+          optionAnswer:
+            "UVA (ultraviolet A) is associated with skin aging, while UVB (ultraviolet B) is associated with skin burning.",
         },
         {
           optionNumber: "B",
-          optionAnswer: "Answer",
+          optionAnswer:
+            "UVA (ultraviolet A) is associated with skin burning, while UVB (ultraviolet B) is associated with skin aging.",
         },
         {
           optionNumber: "C",
-          optionAnswer: "Answer",
+          optionAnswer:
+            "UVB causes sunburn and suntan, while UVA is proven to contribute to the development of skin cancer.",
         },
         {
           optionNumber: "D",
-          optionAnswer: "Answer",
+          optionAnswer: "Options A and C",
+          correctAnswer: true,
         },
       ],
     },
     {
-      questionTitle: "Question 2?",
-      questionSubtitle: "What is UV stand for?",
-      imagePath: "../../images/UVSunImage.svg",
+      questionTitle:
+        "I do not have to apply sunscreen if the UV index is Moderate between (3 to 6).",
+      questionSubtitle: "",
+      imagePath: "",
       imageAltName: "UV",
       options: [
         {
           optionNumber: "A",
-          optionAnswer: "Answer",
+          optionAnswer: "True",
         },
         {
           optionNumber: "B",
-          optionAnswer: "Answer",
-        },
-        {
-          optionNumber: "C",
-          optionAnswer: "Answer",
+          optionAnswer: "False",
           correctAnswer: true,
-        },
-        {
-          optionNumber: "D",
-          optionAnswer: "Answer",
         },
       ],
     },
     {
-      questionTitle: "Question 3",
-      questionSubtitle: "What is UV stand for?",
-      imagePath: "../../images/UVSunImage.svg",
+      questionTitle:
+        "If the UV index number is 5 to 6, how long can you stay under the sun without protective clothing/sunscreen?",
+      questionSubtitle: "",
+      imagePath: "",
       imageAltName: "UV",
       options: [
         {
           optionNumber: "A",
-          optionAnswer: "Answer",
+          optionAnswer: "10 minutes",
         },
         {
           optionNumber: "B",
-          optionAnswer: "Answer",
+          optionAnswer: "20 minutes",
         },
         {
           optionNumber: "C",
-          optionAnswer: "Answer",
+          optionAnswer: "30 minutes",
           correctAnswer: true,
         },
         {
           optionNumber: "D",
-          optionAnswer: "Answer",
+          optionAnswer: "40 minutes",
+        },
+      ],
+    },
+    {
+      questionTitle:
+        "If you are looking for very high sun protective clothing - for outdoor work, bushwalking or for sport - choose light colours, as they are better at absorbing UV than black colours.",
+      questionSubtitle: "",
+      imagePath: "",
+      imageAltName: "UV",
+      options: [
+        {
+          optionNumber: "A",
+          optionAnswer: "True",
+        },
+        {
+          optionNumber: "B",
+          optionAnswer: "False",
+          correctAnswer: true,
+        },
+      ],
+    },
+    {
+      questionTitle:
+        "Even in people with dark skin, mild sunburns can directly suppress immune functions.",
+      questionSubtitle: "",
+      imagePath: "",
+      imageAltName: "UV",
+      options: [
+        {
+          optionNumber: "A",
+          optionAnswer: "True",
+          correctAnswer: true,
+        },
+        {
+          optionNumber: "B",
+          optionAnswer: "False ",
         },
       ],
     },

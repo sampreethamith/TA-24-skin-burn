@@ -1,0 +1,23 @@
+.que-ans-template {
+  color: white;
+}
+
+.que-ans-template-list-group button {
+  margin-bottom: 1rem;
+  background-color: #444444;
+  color: white;
+  padding: 0;
+}
+
+.que-ans-template-list-group button:hover {
+  background-color: #d3d1cc;
+  color: black;
+}
+
+.que-ans-template-option-content {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 1rem;
+  z-index: 99;
+}

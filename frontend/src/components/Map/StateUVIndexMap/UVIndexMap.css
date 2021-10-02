@@ -1,0 +1,155 @@
+@import "../../../App.css";
+
+/* Map Styling */
+#map {
+  width: 100vw;
+  height: 100vh;
+}
+
+.map-position-relative {
+  /* position: relative; */
+}
+
+.map-tooltip {
+  position: absolute;
+  margin: 8px;
+  padding: 4px;
+  background: #000;
+  color: #fff;
+  max-width: 300px;
+  font-size: 10pt;
+  z-index: 9;
+  pointer-events: none;
+}
+
+/* Map Legend */
+.legend {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-width: 320px;
+  background: var(--secondary-light);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 12px 10px;
+  margin: 20px;
+  line-height: 2;
+  color: var(--primary-color);
+  outline: none;
+  text-transform: uppercase;
+}
+
+.legend-color-pallet-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.legend-individual-color-pallet {
+  display: flex;
+  flex-direction: row;
+}
+
+.legend-individual-color-pallet p {
+  margin: 0 0 0 1rem;
+}
+
+.legend-individual-color-pallet div {
+  height: 15px;
+  width: 15px;
+  align-self: center;
+}
+
+.legend-individual-color-pallet-1 {
+  background-color: #b68449;
+}
+.legend-individual-color-pallet-2 {
+  background-color: #db9f24;
+}
+.legend-individual-color-pallet-3 {
+  background-color: #ffb900;
+}
+.legend-individual-color-pallet-4 {
+  background-color: #ff9f00;
+}
+.legend-individual-color-pallet-5 {
+  background-color: #ff8400;
+}
+
+.mapbox-popup {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  opacity: 0.8;
+  width: auto;
+}
+
+.mapboxgl-popup-content {
+  background-color: var(--secondary-color) !important;
+}
+
+.mapboxgl-popup-tip {
+  border-bottom-color: var(--secondary-color) !important;
+}
+
+.mapboxgl-popup-close-button {
+  display: none !important;
+  background-color: var(--primary-color) !important;
+}
+
+.mapbox-float-button {
+  position: fixed !important;
+  bottom: 8% !important;
+  right: 4% !important;
+  background-color: var(--primary-dark) !important;
+}
+
+.mapbox-toggle-search-button button {
+  color: white;
+  border-color: #fff !important;
+}
+
+.Mui-selected:hover {
+  background-color: var(--primary-color) !important;
+  color: black !important;
+}
+
+.Mui-selected {
+  background-color: var(--primary-color) !important;
+  color: black !important;
+}
+
+.mapbox-mapover-controls {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 18rem;
+  gap: 30px;
+  top: 20px;
+  left: 4%;
+}
+
+@media screen and (min-width: 768px) {
+  .mapbox-mapover-controls {
+    width: 30rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .mapbox-mapover-controls {
+    width: 50rem;
+  }
+}
+
+.mapbox-title-text {
+  color: white;
+  font-size: 20pt;
+  letter-spacing: 0.1em;
+}
+
+.mapbox-title-text em {
+  font-style: normal;
+  letter-spacing: 0.2em;
+  color: var(--primary-color);
+  /* background-color: var(--primary-light); */
+  text-transform: uppercase;
+}

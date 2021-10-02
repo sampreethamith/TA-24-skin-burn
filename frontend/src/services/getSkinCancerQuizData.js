@@ -27,7 +27,7 @@ export function skinCancerQuizData() {
     },
     {
       questionTitle:
-        "Skin cancer is found only on areas of your body which are exposed to the sun?",
+        "Skin cancer is found only in areas of your body that are exposed to the sun?",
       questionSubtitle: "",
       imagePath: "",
       imageAltName: "SkinCancer",
@@ -44,6 +44,24 @@ export function skinCancerQuizData() {
       ],
     },
     {
+      questionTitle:
+        "Melanoma (the most dangerous type of skin cancer) is the most common cancer found in women aged 25-29.",
+      questionSubtitle: "",
+      imagePath: "",
+      imageAltName: "SkinCancer",
+      options: [
+        {
+          optionNumber: "A",
+          optionAnswer: "True",
+          correctAnswer: true,
+        },
+        {
+          optionNumber: "B",
+          optionAnswer: "False",
+        },
+      ],
+    },
+    {
       questionTitle: "What is an effective way to prevent skin cancer?",
       questionSubtitle: "",
       imagePath: "",
@@ -52,7 +70,7 @@ export function skinCancerQuizData() {
         {
           optionNumber: "A",
           optionAnswer:
-            "Covering up with clothing, including a broad-brimmed hat and UV-blocking sunglasses",
+            "Cover up with clothing, including a broad-brimmed hat and UV-blocking sunglasses.",
         },
         {
           optionNumber: "B",
@@ -61,11 +79,11 @@ export function skinCancerQuizData() {
         },
         {
           optionNumber: "C",
-          optionAnswer: "Seeking the shade, especially between 10 AM and 4 PM",
+          optionAnswer: "Seek the shade, especially between 10 AM and 4 PM.",
         },
         {
           optionNumber: "D",
-          optionAnswer: "All of above",
+          optionAnswer: "All of the above",
           correctAnswer: true,
         },
       ],
@@ -90,7 +108,7 @@ export function skinCancerQuizData() {
     },
     {
       questionTitle:
-        "Tanned or olive skin people don’t need to worry about sun burn.",
+        "Tanned or olive skin people don’t need to worry about sunburn.",
       questionSubtitle: "",
       imagePath: "",
       imageAltName: "SkinCancer",

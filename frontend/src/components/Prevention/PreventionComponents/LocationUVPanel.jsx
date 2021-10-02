@@ -15,6 +15,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { getLocationUVName } from "../../../services/getLocationUVName";
 import { locationUVName } from "../../../actions/locationAction";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
 const LocationUVPanel = () => {
   const dispatch = useDispatch();
@@ -25,9 +27,8 @@ const LocationUVPanel = () => {
   const [loading, setLoading] = useState(false);
   const [uviChange, setUviChange] = useState(0);
   const [locationNameChange, setLocationNameChange] = useState("");
-
-  const [checked, setChecked] = React.useState(
-    location || location.isLocationEnabled ? location.isLocationEnabled : false
+  const [alignment, setAlignment] = React.useState(
+    location || location.isLocationEnabled ? "current" : "manual"
   );
 
   const darkTheme = createTheme({
@@ -49,7 +50,6 @@ const LocationUVPanel = () => {
       setLoading(false);
       const { properties } = data[0];
       properties.uvi = Math.round(properties.uvi * 10) / 10;
-      console.log(properties);
       setUviChange(properties.uvi);
       setLocationNameChange(properties.name);
     } catch (e) {
@@ -72,18 +72,18 @@ const LocationUVPanel = () => {
       getLocationUVNameDetails(location.latitude, location.longitude);
   }, []);
 
-  const handleChange = (event) => {
-    if (event.target.checked) {
+  const handleChange = (event, newAlignment) => {
+    if (newAlignment === "current") {
       if (location.isLocationEnabled) {
-        setChecked(true);
         console.log(location);
+        setAlignment(newAlignment);
         setUviChange(location.uvi);
         setLocationNameChange(location.locationName);
       } else {
         toast.error("Location Not Turned on");
       }
     } else {
-      setChecked(false);
+      setAlignment(newAlignment);
       setUviChange(0);
       setLocationNameChange("");
     }
@@ -93,15 +93,27 @@ const LocationUVPanel = () => {
     <>
       <ThemeProvider theme={darkTheme}>
         <div className="location-uv-panel-div">
-          <FormGroup>
+          {/* <FormGroup>
             <FormControlLabel
               control={<Switch checked={checked} onChange={handleChange} />}
               label="Use Current Location"
             />
-          </FormGroup>
+          </FormGroup> */}
+
+          <ToggleButtonGroup
+            className="mapbox-toggle-search-button"
+            color="warning"
+            value={alignment}
+            exclusive
+            onChange={handleChange}
+          >
+            <ToggleButton value="current">Current Location</ToggleButton>
+            <ToggleButton value="manual">Enter Manually</ToggleButton>
+          </ToggleButtonGroup>
+
           <Autocomplete
             disablePortal
-            disabled={checked}
+            disabled={alignment !== "manual"}
             value={value}
             onChange={(event, newValue) => {
               setValue(newValue);
@@ -124,7 +136,7 @@ const LocationUVPanel = () => {
           />
           {loading && <CenterScreenSpinner />}
           <Button
-            disabled={checked}
+            disabled={alignment !== "manual"}
             variant="outline-warning"
             onClick={handleOnSubmit}
           >

@@ -5,7 +5,11 @@ import * as am4maps from "@amcharts/amcharts4/maps";
 import am4geodata_australiaLow from "@amcharts/amcharts4-geodata/australiaHigh";
 import am4themes from "@amcharts/amcharts4/themes/material";
 import CardInfo from "./CardInfo";
+<<<<<<< HEAD
 import "./mapscroll.css";
+=======
+import "./maps.css";
+>>>>>>> iteration-3-redesign-1
 
 am4core.useTheme(am4themes);
 let map = null;
@@ -158,9 +162,9 @@ const MapScroll = () => {
       firstText: "In 2016, ",
       state: "Victoria ",
       secondText: "recorded the highest ultraviolet rate of 14.9",
-      thirdText: "According to the data there are ",
+      thirdText: "According to the data, there were ",
       deaths: "304 deaths ",
-      fourthText: "due to skin cancer in Victoria 2017.",
+      fourthText: "due to skin cancer in Victoria in 2017.",
       TotalPeople: "2989 people ",
       fifthText:
         "got affected by sunburn cases, severe damage to their skin in the year 2017.",
@@ -169,9 +173,9 @@ const MapScroll = () => {
       firstText: "In 2016, ",
       state: "New South Wales",
       secondText: "recorded the highest ultraviolet rate of 15.7",
-      thirdText: "According to the data there are ",
+      thirdText: "According to the data, there were ",
       deaths: "506 deaths ",
-      fourthText: "due to skin cancer in New South Wales 2017.",
+      fourthText: "due to skin cancer in New South Wales in 2017.",
       TotalPeople: "4715 people ",
       fifthText:
         "got affected by sunburn cases, severe damage to their skin in the year 2017.",
@@ -180,7 +184,7 @@ const MapScroll = () => {
       firstText: "In 2016, ",
       state: "South Australia ",
       secondText: "recorded the highest ultraviolet rate of 15.5",
-      thirdText: "According to the data there are ",
+      thirdText: "According to the data, there were ",
       deaths: "95 deaths ",
       fourthText: "due to skin cancer in South Australia 2017.",
       TotalPeople: "819 people ",
@@ -191,9 +195,9 @@ const MapScroll = () => {
       firstText: "In 2015, ",
       state: "Queensland ",
       secondText: "recorded the highest ultraviolet rate of 17.1",
-      thirdText: "According to the data there are ",
+      thirdText: "According to the data, there were ",
       deaths: "302 deaths ",
-      fourthText: "due to skin cancer in Queensland 2017.",
+      fourthText: "due to skin cancer in Queensland in 2017.",
       TotalPeople: "3972 people ",
       fifthText:
         "got affected by sunburn cases, severe damage to their skin in the year 2016.",
@@ -202,9 +206,9 @@ const MapScroll = () => {
       firstText: "In 2015, ",
       state: "Western Australia ",
       secondText: "recorded the highest ultraviolet rate of 15.4",
-      thirdText: "According to the data there are ",
+      thirdText: "According to the data, there were ",
       deaths: "126 deaths ",
-      fourthText: "due to skin cancer in Western Australia 2016.",
+      fourthText: "due to skin cancer in Western Australia in 2016.",
       TotalPeople: "2989 people ",
       fifthText:
         "got affected by sunburn cases, severe damage to their skin in the year 2017.",
@@ -213,9 +217,9 @@ const MapScroll = () => {
       firstText: "In 2013, ",
       state: "Tasmania ",
       secondText: "recorded the highest ultraviolet rate of 13.1",
-      thirdText: "According to the data there are ",
+      thirdText: "According to the data, there were ",
       deaths: "40 deaths ",
-      fourthText: "due to skin cancer in Tasmania 2014.",
+      fourthText: "due to skin cancer in Tasmania in 2014.",
       TotalPeople: "332 people ",
       fifthText:
         "got affected by sunburn cases, severe damage to their skin in the year 2017.",
@@ -224,9 +228,9 @@ const MapScroll = () => {
       firstText: "In 2013, ",
       state: "Northern Territory ",
       secondText: "recorded the highest ultraviolet rate of 19.8",
-      thirdText: "According to the data there are ",
+      thirdText: "According to the data, there were ",
       deaths: "7 deaths ",
-      fourthText: "due to skin cancer in Northern Territory 2014.",
+      fourthText: "due to skin cancer in Northern Territory in 2014.",
       TotalPeople: "68 people ",
       fifthText:
         "got affected by sunburn cases, severe damage to their skin in the year 2017.",
@@ -237,6 +241,10 @@ const MapScroll = () => {
     <>
       <div className="amChart-map" id="chartdiv_map"></div>
       <Container>
+        <p className="maphistory-title-text text-center">
+          Learn more about the history of the <em>ULTRAVIOLET EFFECTS</em> in
+          Australia
+        </p>
         <div className="flex-card">
           <div className="self-align-start flex-card-individual">
             <CardInfo

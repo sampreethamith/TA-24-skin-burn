@@ -30,9 +30,9 @@ const MapPage = () => {
       {!searchMap && <MapScroll />}
       {searchMap && (
         <div className="map-position">
-          <Container>
+          {/* <Container>
             <h1>Location Based UV Index</h1>
-          </Container>
+          </Container> */}
           <UVIndexMap data-aos="zoom-in-up" data-aos-duration="1000" />
         </div>
       )}

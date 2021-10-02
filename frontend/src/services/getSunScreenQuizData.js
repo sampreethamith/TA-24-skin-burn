@@ -115,6 +115,6 @@ export function getSunScreenInfo() {
       "If it takes 20 minutes for your unprotected skin to start turning red, using an SPF 15 sunscreen theoretically prevents reddening 15 times longer – about five hours.",
       "In reality, sunscreen wears away and loses strength after a while in the sun, so you need to reapply at least every couple of hours, and immediately after sweating or swimming.",
     ],
-    link: "/skincancer",
+    link: "/information/sunscreen",
   };
 }

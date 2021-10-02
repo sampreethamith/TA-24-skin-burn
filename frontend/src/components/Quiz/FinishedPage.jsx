@@ -1,12 +1,14 @@
 import React from "react";
-import { getSunScreenInfo } from "../../services/getSunScreenQuizData.js";
+import { getSunScreenInfo } from "../../services/getSunScreenQuizData";
+import { getUVInfo } from "../../services/getUVQuizData";
+import { getSkinCancerInfo } from "../../services/getSkinCancerQuizData";
 import LearnMore from "../Common/LearnMore";
 
 const FinishedPage = ({ quizType }) => {
   let data = {};
-  if (quizType === "UV Index") data = getSunScreenInfo();
+  if (quizType === "UV Index") data = getUVInfo();
   if (quizType === "Sun Screen") data = getSunScreenInfo();
-  if (quizType === "Skin Cancer") data = getSunScreenInfo();
+  if (quizType === "Skin Cancer") data = getSkinCancerInfo();
   return (
     <div>
       <h2>{data.title}</h2>

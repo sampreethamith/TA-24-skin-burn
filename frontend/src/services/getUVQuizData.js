@@ -81,7 +81,7 @@ export function UVQuizData() {
 export function getUVInfo() {
   return {
     title: "More On Ultraviolet Index",
-    description: [
+    descriptionText: [
       "When the UV Index is in a Moderate (5-6) range, most people can tolerate a maximum of 30 minutes of exposure to the sun without skin damage.",
       "UV exposure leads to an altered immune response balance through cells and antibodies and may reduce the body's ability to defend itself against certain diseases.",
       "Dark colours are better at absorbing UV than light colours.",

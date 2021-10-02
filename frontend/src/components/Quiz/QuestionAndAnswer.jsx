@@ -16,57 +16,61 @@ const QuestionAndAnswer = ({ quizType }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState([]);
-  const documentReference = useRef(null);
   const [quizTypeQuestions, setQuizTypeQuestions] = useState([
     ...constantQuizJson,
   ]);
 
-  useEffect(() => {
-    const question = getPageData();
-    setCurrentQuestion([...question]);
-    setTotalCount(constantQuizJson.length);
-  }, []);
+  const getConstantQuizJson = () => {
+    return constantQuizJson.map((a) => {
+      return { ...a };
+    });
+  };
 
-  const getPageData = () => {
-    const question = paginate(constantQuizJson, pageSize, currentPage);
+  const getPageDataByQuestions = (quizQuestions) => {
+    const question = paginate(quizQuestions, pageSize, currentPage);
     return question;
   };
 
   useEffect(() => {
-    console.log(quizTypeQuestions);
-  }, [quizTypeQuestions]);
-
-  useEffect(() => {
-    const question = getPageData();
+    // console.log("printing inside initial useEffect hook");
+    // console.log(quizTypeQuestions);
+    const question = getPageDataByQuestions([...quizTypeQuestions]);
     setCurrentQuestion([...question]);
-  }, [currentPage]);
+    setTotalCount(constantQuizJson.length);
+  }, []);
 
-  const answerSelected = (questionIndex, optionIndex) => {
-    const question = getPageData();
-    const newQuizJson = [...question];
-    newQuizJson[questionIndex]["options"][optionIndex].selected = true;
+  const answerSelected = (optionIndex) => {
+    const newQuizJson = getConstantQuizJson();
+    newQuizJson[currentPage - 1]["options"][optionIndex].selected = true;
 
-    const newQuizTypeQuestions = [...constantQuizJson];
-    newQuizTypeQuestions[questionIndex]["options"][optionIndex].selected = true;
+    console.log(newQuizJson);
 
-    setQuizTypeQuestions([...newQuizTypeQuestions]);
+    // const cloneQuizType = [...quizTypeQuestions];
 
-    setCurrentQuestion([...newQuizJson]);
+    // console.log(cloneQuizType);
+
+    // const removed = cloneQuizType.splice(currentPage - 1, 1, {
+    //   ...newQuizJson[currentPage - 1],
+    // });
+
+    // console.log(cloneQuizType);
+    // setQuizTypeQuestions([...newQuizJson]);
+    // const currentQuizQuestion = getPageDataByQuestions([...newQuizJson]);
+
+    // setCurrentQuestion([...currentQuizQuestion]);
   };
 
   const handlePageClick = (page) => {
-    document
-      .getElementsByClassName("question-and-answer")[0]
-      .classList.remove("aos-animate");
-
     setCurrentPage(page);
+    const question = getPageDataByQuestions([...quizTypeQuestions]);
+    setCurrentQuestion([...question]);
   };
 
   return (
     <div data-aos="flip-left">
       {currentQuestion.map((question, questionIndex) => {
         return (
-          <div className="question-and-answer" ref={documentReference}>
+          <div className="question-and-answer">
             <h5>{question.questionTitle}</h5>
             <h6>{question.questionSubtitle}</h6>
             <div className="py-3 question-image">
@@ -79,9 +83,7 @@ const QuestionAndAnswer = ({ quizType }) => {
                     <AnswerOptions
                       optionValue={option.optionNumber}
                       optionTitle={option.optionAnswer}
-                      handleOnClick={() =>
-                        answerSelected(questionIndex, optionIndex)
-                      }
+                      handleOnClick={() => answerSelected(optionIndex)}
                       selected={
                         currentQuestion[questionIndex]["options"][optionIndex]
                           .selected
@@ -111,3 +113,15 @@ const QuestionAndAnswer = ({ quizType }) => {
   );
 };
 export default QuestionAndAnswer;
+
+// const getPageData = () => {
+//   const question = paginate(constantQuizJson, pageSize, currentPage);
+//   return question;
+// };
+
+// useEffect(() => {
+//   console.log(quizTypeQuestions);
+// }, [quizTypeQuestions]);
+
+// const newQuizTypeQuestions = [...constantQuizJson];
+// newQuizTypeQuestions[questionIndex]["options"][optionIndex].selected = true;

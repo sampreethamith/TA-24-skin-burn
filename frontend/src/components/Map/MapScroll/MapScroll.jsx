@@ -5,11 +5,7 @@ import * as am4maps from "@amcharts/amcharts4/maps";
 import am4geodata_australiaLow from "@amcharts/amcharts4-geodata/australiaHigh";
 import am4themes from "@amcharts/amcharts4/themes/material";
 import CardInfo from "./CardInfo";
-<<<<<<< HEAD
-import "./mapscroll.css";
-=======
 import "./maps.css";
->>>>>>> iteration-3-redesign-1
 
 am4core.useTheme(am4themes);
 let map = null;

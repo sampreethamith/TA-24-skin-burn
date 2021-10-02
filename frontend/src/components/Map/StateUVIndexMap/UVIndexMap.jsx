@@ -14,6 +14,10 @@ import SearchBox from "./SearchBox";
 import getStateGeoJson from "../../../services/getStateGeoJson";
 import getCityGeoJson from "../../../services/getCityGeoJson";
 import "./UVIndexMap.css";
+import Fab from "@mui/material/Fab";
+import FloatIcon from "@mui/icons-material/LiveHelp";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
@@ -55,7 +59,6 @@ const UVIndexMap = () => {
       const {
         properties: { coord },
       } = data[0];
-      console.log(data);
       setViewport({
         ...viewport,
         latitude: coord["lat"],
@@ -65,10 +68,8 @@ const UVIndexMap = () => {
         transitionInterpolator: new FlyToInterpolator(),
         transitionEasing: easeCubic,
       });
-      console.log(viewport);
       data = { type: "FeatureCollection", features: data };
       setData(data);
-      console.log(data);
       setLoading(false);
     } catch (error) {}
   };
@@ -143,6 +144,14 @@ const UVIndexMap = () => {
   const SIZE = 20;
   const [popupInfo, setPopupInfo] = useState(null);
 
+  const [alignment, setAlignment] = React.useState("state");
+
+  const handleChange = (event, newAlignment) => {
+    if (newAlignment !== null) {
+      setAlignment(newAlignment);
+    }
+  };
+
   return (
     <section>
       <>
@@ -154,26 +163,44 @@ const UVIndexMap = () => {
           interactiveLayerIds={["data"]}
           onHover={onHover}
         >
-          <Source type="geojson" data={data}>
-            <Layer {...dataLayer} />
-          </Source>
-          {hoverInfo && (
+          {alignment == "state" && (
+            <Source type="geojson" data={data}>
+              <Layer {...dataLayer} />
+            </Source>
+          )}
+          {hoverInfo && alignment == "state" && (
             <div
               className="map-tooltip"
               style={{ left: hoverInfo.x, top: hoverInfo.y }}
             >
-              <div>State: {hoverInfo.feature.properties.name}</div>
+              <div>
+                State: {hoverInfo.feature.properties.name.toUpperCase()}
+              </div>
               <div>UV Index: {hoverInfo.feature.properties.uvi}</div>
             </div>
           )}
           <MapLegend />
-          <SearchBox
-            chips={chips}
-            onChange={onChipChange}
-            error={error}
-            errorOnclose={errorOnClose}
-            onClick={onCitySearchClick}
-          />
+          <div className="mapbox-mapover-controls ">
+            <ToggleButtonGroup
+              className="mapbox-toggle-search-button"
+              color="warning"
+              value={alignment}
+              exclusive
+              onChange={handleChange}
+            >
+              <ToggleButton value="state">States</ToggleButton>
+              <ToggleButton value="suburb">Suburbs</ToggleButton>
+            </ToggleButtonGroup>
+            {alignment == "suburb" && (
+              <SearchBox
+                chips={chips}
+                onChange={onChipChange}
+                error={error}
+                errorOnclose={errorOnClose}
+                onClick={onCitySearchClick}
+              />
+            )}
+          </div>
           {loading && (
             <Spinner
               animation="border"
@@ -191,30 +218,38 @@ const UVIndexMap = () => {
             ></Spinner>
           )}
           {data &&
+            alignment == "suburb" &&
             data.features.map((item, index) => (
-              <Marker
-                key={`marker-${index}`}
-                longitude={item.properties.coord.lon}
-                latitude={item.properties.coord.lat}
+              <div
+                onMouseEnter={() => {
+                  openPopup(item);
+                  setHoverInfo(null);
+                }}
+                onMouseLeave={() => setPopupInfo(false)}
               >
-                <svg
-                  height={SIZE}
-                  viewBox="0 0 24 24"
-                  style={{
-                    cursor: "pointer",
-                    fill: "#d00",
-                    stroke: "none",
-                    transform: `translate(${-SIZE / 2}px,${-SIZE}px)`,
-                  }}
-                  onClick={() => {
-                    openPopup(item);
-                    setHoverInfo(false);
-                  }}
-                  onMouseEnter={() => setHoverInfo(false)}
+                <Marker
+                  key={`marker-${index}`}
+                  longitude={item.properties.coord.lon}
+                  latitude={item.properties.coord.lat}
+                  onH
                 >
-                  <path d={ICON} />
-                </svg>
-              </Marker>
+                  <svg
+                    height={SIZE}
+                    viewBox="0 0 24 24"
+                    style={{
+                      cursor: "pointer",
+                      fill: "#d00",
+                      stroke: "none",
+                      transform: `translate(${-SIZE / 2}px,${-SIZE}px)`,
+                    }}
+                    onClick={() => {
+                      openPopup(item);
+                    }}
+                  >
+                    <path d={ICON} />
+                  </svg>
+                </Marker>
+              </div>
             ))}
           {popupInfo && (
             <Popup
@@ -234,6 +269,9 @@ const UVIndexMap = () => {
             </Popup>
           )}
         </ReactMapGL>
+        <Fab className="mapbox-float-button" color="secondary" aria-label="add">
+          <FloatIcon />
+        </Fab>
       </>
     </section>
   );

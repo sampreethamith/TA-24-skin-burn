@@ -31,6 +31,7 @@ import UVGauge from "./components/Common/UVGauge";
 import CardInfo from "./components/Map/MapScroll/CardInfo";
 import LocationUVPanel from "./components/Prevention/PreventionComponents/LocationUVPanel";
 import MapScroll from "./components/Map/MapScroll/MapScroll";
+import QueAnsTemplate from "./components/Quiz/QuizComponents/QueAnsTemplate";
 
 AOS.init({
   // Global settings:
@@ -156,7 +157,7 @@ function App() {
             <Route path="/quiz" component={QuizPage} />
             <Route path="/uv-assist" component={UVassist} />
             <Route path="/map" component={MapPage} />
-            <Route path="/test" component={LocationUVPanel} />
+            <Route path="/test" component={QueAnsTemplate} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />

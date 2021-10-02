@@ -112,7 +112,8 @@ export function UVQuizData() {
     },
   ];
 
-  return _.shuffle(uvQuizArray);
+  // return _.shuffle(uvQuizArray);
+  return uvQuizArray;
 }
 
 export function getUVInfo() {

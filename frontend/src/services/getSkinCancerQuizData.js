@@ -128,7 +128,8 @@ export function skinCancerQuizData() {
     },
   ];
 
-  return _.shuffle(skinCancerArray);
+  // return _.shuffle(skinCancerArray);
+  return skinCancerArray;
 }
 
 export function getSkinCancerInfo() {

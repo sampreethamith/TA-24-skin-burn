@@ -135,7 +135,8 @@ export function sunScreenQuizData() {
     },
   ];
 
-  return _.shuffle(sunScreenQuizArray);
+  // return _.shuffle(sunScreenQuizArray);
+  return sunScreenQuizArray;
 }
 
 export function getSunScreenInfo() {

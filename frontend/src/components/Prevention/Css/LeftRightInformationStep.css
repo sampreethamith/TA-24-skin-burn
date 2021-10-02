@@ -1,0 +1,56 @@
+@import "../../../App.css";
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.content-text {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.content-text-left {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.content-image {
+  align-self: center;
+}
+
+.image-custom {
+  height: 15rem;
+}
+
+.vertical-line {
+  height: 2px;
+  width: auto;
+  background: var(--primary-color);
+  margin: 1.5rem 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .content-text {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .content-text-left {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .image-custom {
+    height: 20rem;
+  }
+  .vertical-line {
+    height: auto;
+    width: 2px;
+    background: var(--primary-color);
+    margin: 1.5rem 0;
+  }
+}

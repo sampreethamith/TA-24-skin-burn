@@ -4,10 +4,57 @@ import { getSkinCancerInfo } from "../../services/InformationPages/getSkinCancer
 import "./css/SunScreenInformation.css";
 import sunscreen_image from "./images/sunscreen.svg";
 import { Container, Row, Col, Spinner } from "react-bootstrap";
-import sunscreen_5w from "./images/sunscreen_5w.png";
+import Carousel from "react-bootstrap/Carousel";
+import bcc_1 from "./images/bcc_1.png";
+import bcc_2 from "./images/bcc_2.png";
+import bcc_3 from "./images/bcc_3.png";
+import bcc_4 from "./images/bcc_4.png";
+import scc_1 from "./images/scc_1.png";
+import scc_2 from "./images/scc_2.png";
+import scc_3 from "./images/scc_3.png";
+import mel_1 from "./images/mel_1.png";
+import mel_2 from "./images/mel_2.png";
+import mel_3 from "./images/mel_3.png";
+import mel_4 from "./images/mel_4.png";
+import mel_5 from "./images/mel_5.png";
+import mel_6 from "./images/mel_6.png";
+import mcc_1 from "./images/mcc_1.jpg";
+import mcc_2 from "./images/mcc_2.jpg";
+import mcc_3 from "./images/mcc_3.jpg";
 
 const SkinCancerInformation = () => {
   const SkinCancerData = getSkinCancerInfo();
+  const bcc_images = [bcc_1, bcc_2, bcc_3, bcc_4];
+  const scc_images = [scc_1, scc_2, scc_3];
+  const mel_images = [mel_1, mel_2, mel_3, mel_4, mel_5, mel_6];
+  const mcc_images = [mcc_1, mcc_2, mcc_3];
+
+  function getImageArray(currentHeader) {
+    if (
+      currentHeader
+        .toLowerCase()
+        .includes("Basal cell carcinoma".toLocaleLowerCase())
+    )
+      return bcc_images;
+    else if (
+      currentHeader
+        .toLowerCase()
+        .includes("Squamous cell carcinoma".toLocaleLowerCase())
+    )
+      return scc_images;
+    else if (
+      currentHeader.toLowerCase().includes("Melanoma".toLocaleLowerCase())
+    )
+      return mel_images;
+    else if (
+      currentHeader
+        .toLowerCase()
+        .includes("Merkel cell carcinoma".toLocaleLowerCase())
+    )
+      return mcc_images;
+    else return [];
+  }
+
   return (
     <>
       <Container className="information-page white-text">
@@ -29,22 +76,55 @@ const SkinCancerInformation = () => {
             <Accordion.Item eventKey={index}>
               <Accordion.Header>{item.header}</Accordion.Header>
               <Accordion.Body>
-                {item.content.map((childItem, childIndex) => (
-                  <div className="information-child">
-                    <p className="information-child-title">{childItem.title}</p>
-                    {typeof childItem.text == "string" ? (
-                      <p className="information-child-text">{childItem.text}</p>
-                    ) : (
-                      <ul>
-                        {childItem.text.map(
-                          (childlistItem, childeListIndex) => (
-                            <li>{childlistItem}</li>
-                          )
-                        )}
-                      </ul>
-                    )}
+                <div className="information-child">
+                  <div className="information-child-div">
+                    <div>
+                      <p className="information-child-title">
+                        {item.content[0].title}
+                      </p>
+                      <p className="information-child-text">
+                        {item.content[0].text}
+                      </p>
+                      <p className="information-child-title">
+                        {item.content[1].title}
+                      </p>
+                      <p className="information-child-text">
+                        {item.content[1].text}
+                      </p>
+                    </div>
+                    <Carousel>
+                      {getImageArray(item.header).map((imageObj, imgIndex) => (
+                        <Carousel.Item>
+                          <img src={imageObj} alt="imgIndex" />
+                        </Carousel.Item>
+                      ))}
+                    </Carousel>
                   </div>
-                ))}
+                  {item.content.map((childItem, childIndex) =>
+                    childIndex > 1 ? (
+                      <div className="information-child">
+                        <p className="information-child-title">
+                          {childItem.title}
+                        </p>
+                        {typeof childItem.text == "string" ? (
+                          <p className="information-child-text">
+                            {childItem.text}
+                          </p>
+                        ) : (
+                          <ul>
+                            {childItem.text.map(
+                              (childlistItem, childeListIndex) => (
+                                <li>{childlistItem}</li>
+                              )
+                            )}
+                          </ul>
+                        )}
+                      </div>
+                    ) : (
+                      <></>
+                    )
+                  )}
+                </div>
               </Accordion.Body>
             </Accordion.Item>
           ))}

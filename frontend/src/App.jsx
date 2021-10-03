@@ -141,6 +141,11 @@ function App() {
           <Switch>
             <Route path="/home" component={Home} />
             <Route
+              path="/prevention/goingOut"
+              component={PreventionCheckList}
+            />
+            <Route path="/prevention/map" component={MapPage} />
+            <Route
               path="/skincancer/skincancer-symptom"
               component={SkinCancerSympotms}
             />
@@ -150,10 +155,6 @@ function App() {
             />
             <Route path="/skincancer" component={SkinCancer} />
             <Route
-              path="/prevention/skin-burn-calculator"
-              component={SunCalculator}
-            />
-            <Route
               path="/information/ultraviolet"
               component={UVIndexInformation}
             />
@@ -161,12 +162,7 @@ function App() {
               path="/information/sunscreen"
               component={SunScreenInformation}
             />
-            <Route path="/prevention" component={Prevention} />
-            <Route path="/information/ultraviolet" component={NotFound} />
-            <Route path="/information/sunscreen" component={NotFound} />
-            <Route path="/quiz" component={QuizPage} />
-            <Route path="/uv-assist" component={UVassist} />
-            <Route path="/map" component={MapPage} />
+            <Route path="/information/quiz" component={QuizPage} />
             <Route path="/test" component={UVIndexInformation} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />

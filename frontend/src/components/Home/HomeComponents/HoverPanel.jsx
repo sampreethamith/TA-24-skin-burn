@@ -24,6 +24,7 @@ const HoverPanel = () => {
           hoverText="Sun Screen"
           mainImageHeight="180rem"
           className="feature-card"
+          path="/information/sunscreen"
         />
       </div>
     </Container>

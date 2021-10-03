@@ -1,16 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import { getSunScreenInfo } from "../../services/InformationPages/getSunScreenInfo";
 import "./css/SunScreenInformation.css";
 import sunscreen_image from "./images/sunscreen.svg";
 import { Container } from "react-bootstrap";
 import sunscreen_5w from "./images/sunscreen_5w.png";
+import BreadCrumbComponent from "../Common/BreadCrumbComponent";
 
 const SunScreenInformation = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const navigation = [
+    {
+      href: "/home",
+      title: "Home",
+    },
+    {
+      href: "/information/sunscreen",
+      title: "Sunscreen Information",
+      active: "active",
+    },
+  ];
+
   const SunScreenData = getSunScreenInfo();
   return (
     <>
-      <Container className="information-page white-text">
+      <Container className="information-page white-text content-margin">
+        <BreadCrumbComponent navigation={navigation} />
         <p className="information-page-title">{SunScreenData.pageTitle}</p>
         <p className="information-page-quote">{SunScreenData.pageQuote}</p>
         <p className="information-page-introduction">

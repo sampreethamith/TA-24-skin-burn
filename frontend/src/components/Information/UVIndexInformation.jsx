@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./css/SunScreenInformation.css";
 import { Container, Button } from "react-bootstrap";
 import { getUVInfo } from "../../services/InformationPages/getUVinfo.js";
@@ -6,10 +7,12 @@ import idea from "../../images/home/quiz_icon.svg";
 import CardWithBorderPrimary from "../Common/CardWithBorderPrimary";
 import sunLightUVRays from "./images/sunLightUVRays.png";
 import UVInformation from "./images/UVInformation.png";
+import BreadCrumbComponent from "../Common/BreadCrumbComponent";
 
 const UVIndexInformation = () => {
   const [uvInfoType, setuvInfoType] = useState("");
   const SunScreenData = getUVInfo();
+  const history = useHistory();
 
   const data = [
     {
@@ -33,9 +36,22 @@ const UVIndexInformation = () => {
     setuvInfoType(title);
   };
 
+  const navigation = [
+    {
+      href: "/home",
+      title: "Home",
+    },
+    {
+      href: "/information/ultraviolet",
+      title: "UV Information",
+      active: "active",
+    },
+  ];
+
   return (
     <>
-      <Container className="information-page white-text">
+      <Container className="information-page white-text content-margin">
+        <BreadCrumbComponent navigation={navigation} />
         <p className="information-page-title">{SunScreenData.pageTitle}</p>
         <p className="information-page-quote">{SunScreenData.pageQuote}</p>
         <p className="information-page-introduction">
@@ -107,7 +123,10 @@ const UVIndexInformation = () => {
               </div>
             </div>
             <div className="text-center content-margin">
-              <Button variant="warning">
+              <Button
+                variant="warning"
+                onClick={() => history.push("/prevention/map")}
+              >
                 Check UV at your Current Location
               </Button>
             </div>
@@ -169,7 +188,10 @@ const UVIndexInformation = () => {
               </div>
             </div>
             <div className="text-center button-margin-bottom">
-              <Button variant="warning">
+              <Button
+                variant="warning"
+                onClick={() => history.push("/prevention/goingOut")}
+              >
                 Make a safe checks before you go out.
               </Button>
             </div>

@@ -21,22 +21,22 @@ const NavigationBar = () => {
               <LinkContainer to="/skincancer">
                 <NavDropdown.Item>Skin Cancer</NavDropdown.Item>
               </LinkContainer>
-              <LinkContainer to="/information/uvindex">
+              <LinkContainer to="/information/ultraviolet">
                 <NavDropdown.Item>UV Index</NavDropdown.Item>
               </LinkContainer>
               <LinkContainer to="/information/sunscreen">
                 <NavDropdown.Item>Sunscreen</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/information/quiz">
+                <NavDropdown.Item>Quiz</NavDropdown.Item>
               </LinkContainer>
             </NavDropdown>
             <NavDropdown title="Prevention" id="basic-nav-dropdown">
               <LinkContainer to="/prevention/goingOut">
                 <NavDropdown.Item>Going Out</NavDropdown.Item>
               </LinkContainer>
-              <LinkContainer to="/map">
+              <LinkContainer to="/prevention/map">
                 <NavDropdown.Item>Current UV Map</NavDropdown.Item>
-              </LinkContainer>
-              <LinkContainer to="/quiz">
-                <NavDropdown.Item>Quiz</NavDropdown.Item>
               </LinkContainer>
             </NavDropdown>
           </Nav>

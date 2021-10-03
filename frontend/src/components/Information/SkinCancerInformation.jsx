@@ -21,6 +21,7 @@ import mel_6 from "./images/mel_6.png";
 import mcc_1 from "./images/mcc_1.jpg";
 import mcc_2 from "./images/mcc_2.jpg";
 import mcc_3 from "./images/mcc_3.jpg";
+import BreadCrumbComponent from "../Common/BreadCrumbComponent";
 
 const SkinCancerInformation = () => {
   const SkinCancerData = getSkinCancerInfo();
@@ -55,9 +56,26 @@ const SkinCancerInformation = () => {
     else return [];
   }
 
+  const navigation = [
+    {
+      href: "/home",
+      title: "Home",
+    },
+    {
+      href: "/skincancer",
+      title: "Skin Cancer",
+    },
+    {
+      href: "/skincancer/skincancer-information",
+      title: "Skin Cancer Information",
+      active: "active",
+    },
+  ];
+
   return (
     <>
-      <Container className="information-page white-text">
+      <Container className="information-page white-text content-margin">
+        <BreadCrumbComponent navigation={navigation} />
         <p className="information-page-title">{SkinCancerData.pageTitle}</p>
         <p className="information-page-quote">{SkinCancerData.pageQuote}</p>
         <p className="information-page-introduction">
@@ -92,7 +110,7 @@ const SkinCancerInformation = () => {
                         {item.content[1].text}
                       </p>
                     </div>
-                    <Carousel pause='hover'>
+                    <Carousel pause="hover">
                       {getImageArray(item.header).map((imageObj, imgIndex) => (
                         <Carousel.Item>
                           <img src={imageObj} alt="imgIndex" />

@@ -12,21 +12,21 @@ const RouteCards = () => {
       information: "Find more about UV index, Sunscreen and Skin Cancer",
       image: quiz_icon,
       altName: "Buld with a idea representing quiz",
-      route: "/quiz",
+      route: "/information/quiz",
     },
     {
       title: "Find high UV areas",
       information: "Search for citties or states with current UV index",
       image: aus_icon,
       altName: "Australia Map",
-      route: "/map",
+      route: "/prevention/map",
     },
     {
       title: "Going Out Checklist",
       information: "Make sure you take enough precaution before going out",
       image: checklist_icon,
       altName: "Check list",
-      route: "/prevention/skin-burn-calculator",
+      route: "/prevention/goingOut",
     },
   ];
 

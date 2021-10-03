@@ -23,28 +23,19 @@ import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
 import QuizPage from "./components/Quiz/QuizPage";
 import ScrollTopButton from "./components/Common/ScrollTopButton";
-<<<<<<< HEAD
 import SunBurnInformation from "./components/Information/SunBurnInformation";
 import ModelPopup from "./components/Common/ModelPopup";
 import WelcomeText from "./components/Home/HomeComponents/WelcomeText";
 import CenterScreenSpinner from "./components/Common/CenterScreenSpinner";
-<<<<<<< HEAD
 import CardInfo from "./components/Map/MapScroll/CardInfo";
-=======
->>>>>>> iteration-3-redesign-1
 import UVGauge from "./components/Common/UVGauge";
 import LocationUVPanel from "./components/Prevention/PreventionComponents/LocationUVPanel";
-<<<<<<< HEAD
-
-=======
->>>>>>> iteration-3-redesign-1
 import MapScroll from "./components/Map/MapScroll/MapScroll";
-=======
-import LocationUVPanel from "./components/Prevention/PreventionComponents/LocationUVPanel";
+
 import RightInformationStep from "./components/Prevention/PreventionComponents/RightInformationStep";
 import LeftInformationStep from "./components/Prevention/PreventionComponents/LeftInformationStep";
 import PreventionCheckList from "./components/Prevention/PreventionCheckList";
->>>>>>> iteration-3-redesign-2
+
 
 AOS.init({
   // Global settings:

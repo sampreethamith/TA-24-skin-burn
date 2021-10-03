@@ -5,7 +5,7 @@ import walkingDude from "../Images/walkingDude.svg";
 
 const LeftInformationStep = () => {
   return (
-    <Container>
+    <>
       <section className="content-contianer">
         <h3>3rd Step: Play in the Shade</h3>
         <div className="content-text-left">
@@ -37,7 +37,7 @@ const LeftInformationStep = () => {
           </div>
         </div>
       </section>
-    </Container>
+    </>
   );
 };
 

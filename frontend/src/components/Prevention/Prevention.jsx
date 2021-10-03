@@ -42,7 +42,7 @@ This tool provides you with the UV levels and sun protection times for your loca
         <BreadCrumbComponent navigation={navigation} />
         <LeftInformationCard
           data={left_cardData}
-          learnmoreroute="/prevention/skin-burn-calculator"
+          learnmoreroute="/prevention/goingOut"
         />
       </div>
       <div className="block">

@@ -1,7 +1,8 @@
 import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import skinburn_logo from "./../../images/skinsafe_logo.png";
+import { LinkContainer } from "react-router-bootstrap";
 
 const NavigationBar = () => {
   return (
@@ -16,24 +17,28 @@ const NavigationBar = () => {
             <NavLink className="nav-link" to="/home">
               Home
             </NavLink>
-            <NavLink className="nav-link" to="/skincancer">
-              Skin Cancer
-            </NavLink>
-            <NavLink className="nav-link" to="/prevention">
-              Prevention
-            </NavLink>
-            <NavLink className="nav-link" to="/uv-assist">
-              UV Assist
-            </NavLink>
-            <NavLink className="nav-link" to="/map">
-              Map
-            </NavLink>
-            <NavLink className="nav-link" to="/quiz">
-              Quiz
-            </NavLink>
-            <NavLink className="nav-link" to="/test">
-              Test Controls
-            </NavLink>
+            <NavDropdown title="Information" id="basic-nav-dropdown">
+              <LinkContainer to="/skincancer">
+                <NavDropdown.Item>Skin Cancer</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/information/uvindex">
+                <NavDropdown.Item>UV Index</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/information/sunscreen">
+                <NavDropdown.Item>Sunscreen</NavDropdown.Item>
+              </LinkContainer>
+            </NavDropdown>
+            <NavDropdown title="Prevention" id="basic-nav-dropdown">
+              <LinkContainer to="/prevention/goingOut">
+                <NavDropdown.Item>Going Out</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/map">
+                <NavDropdown.Item>Current UV Map</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/quiz">
+                <NavDropdown.Item>Quiz</NavDropdown.Item>
+              </LinkContainer>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>

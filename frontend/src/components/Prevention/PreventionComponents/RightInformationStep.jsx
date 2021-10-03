@@ -3,9 +3,9 @@ import "../Css/LeftRightInformationStep.css";
 import { Container } from "react-bootstrap";
 import sunscreen from "../Images/sunscreen.svg";
 
-const RightInformationStep = () => {
+const RightInformationStep = ({ spf }) => {
   return (
-    <Container>
+    <>
       <section className="content-contianer">
         <h3>2nd Step: Choose right SunScreen</h3>
         <div className="content-text">
@@ -19,7 +19,7 @@ const RightInformationStep = () => {
           <div className="vertical-line"></div>
           <div>
             <h4 className="primary-text">
-              Look for, <strong>SPF Level 20</strong>
+              Look for, <strong>SPF Level {spf}</strong>
             </h4>
             <p className="white-text">
               SPF stands for sun protection factor, The number tells you how
@@ -54,7 +54,7 @@ const RightInformationStep = () => {
           </div>
         </div>
       </section>
-    </Container>
+    </>
   );
 };
 

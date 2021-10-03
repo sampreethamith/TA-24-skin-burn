@@ -26,7 +26,7 @@ import ScrollTopButton from "./components/Common/ScrollTopButton";
 import LocationUVPanel from "./components/Prevention/PreventionComponents/LocationUVPanel";
 import RightInformationStep from "./components/Prevention/PreventionComponents/RightInformationStep";
 import LeftInformationStep from "./components/Prevention/PreventionComponents/LeftInformationStep";
-import HandPanel from "./components/Prevention/PreventionComponents/HandPanel";
+import PreventionCheckList from "./components/Prevention/PreventionCheckList";
 
 AOS.init({
   // Global settings:
@@ -136,17 +136,21 @@ function App() {
               component={SkinCancerInformation}
             />
             <Route path="/skincancer" component={SkinCancer} />
-            <Route
+            {/* <Route
               path="/prevention/skin-burn-calculator"
               component={SunCalculator}
+            /> */}
+            <Route
+              path="/prevention/goingOut"
+              component={PreventionCheckList}
             />
+            <Route path="/prevention" component={Prevention} />
             <Route path="/information/ultraviolet" component={NotFound} />
             <Route path="/information/sunscreen" component={NotFound} />
-            <Route path="/prevention" component={Prevention} />
             <Route path="/quiz" component={QuizPage} />
             <Route path="/uv-assist" component={UVassist} />
             <Route path="/map" component={MapPage} />
-            <Route path="/test" component={HandPanel} />
+            {/* <Route path="/test" component={PreventionCheckList} /> */}
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />

@@ -18,7 +18,7 @@ import { locationUVName } from "../../../actions/locationAction";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
-const LocationUVPanel = () => {
+const LocationUVPanel = ({ uviChanged }) => {
   const dispatch = useDispatch();
   const location = useSelector((state) => state.location);
   const [value, setValue] = React.useState("");
@@ -36,6 +36,10 @@ const LocationUVPanel = () => {
       mode: "dark",
     },
   });
+
+  useEffect(() => {
+    uviChanged(uviChange);
+  }, [uviChange, uviChanged]);
 
   async function handleOnSubmit() {
     setLoading(true);
@@ -70,6 +74,10 @@ const LocationUVPanel = () => {
     };
     if (location.isLocationEnabled && !location.locationName)
       getLocationUVNameDetails(location.latitude, location.longitude);
+    else {
+      setLocationNameChange(location.locationName.toUpperCase());
+      setUviChange(location.uvi);
+    }
   }, []);
 
   const handleChange = (event, newAlignment) => {

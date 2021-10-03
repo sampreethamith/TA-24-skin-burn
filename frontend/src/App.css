@@ -505,6 +505,13 @@ select {
   padding: 1.5rem;
 }
 
+.card-selected {
+  background-color: var(--primary-color);
+  color: black;
+  z-index: 10;
+  transform: scale(1.1);
+}
+
 .card-with-border-primary:hover {
   background-color: var(--primary-color);
   color: black;
@@ -817,3 +824,14 @@ select {
 /* .breadcrumb-location {
   margin-top: 1rem;
 } */
+
+/* Dropdown Menu */
+.dropdown-menu {
+  background-color: var(--primary-color) !important;
+  border: 1px solid var(--secondary-color) !important;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: var(--secondary-color) !important;
+}

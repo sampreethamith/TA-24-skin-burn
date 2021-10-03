@@ -3,7 +3,7 @@ import Accordion from "react-bootstrap/Accordion";
 import { getSkinCancerInfo } from "../../services/InformationPages/getSkinCancerInfo";
 import "./css/SunScreenInformation.css";
 import sunscreen_image from "./images/sunscreen.svg";
-import { Container, Row, Col, Spinner } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import bcc_1 from "./images/bcc_1.png";
 import bcc_2 from "./images/bcc_2.png";
@@ -92,7 +92,7 @@ const SkinCancerInformation = () => {
                         {item.content[1].text}
                       </p>
                     </div>
-                    <Carousel>
+                    <Carousel pause='hover'>
                       {getImageArray(item.header).map((imageObj, imgIndex) => (
                         <Carousel.Item>
                           <img src={imageObj} alt="imgIndex" />

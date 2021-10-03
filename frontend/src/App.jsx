@@ -23,6 +23,7 @@ import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
 import QuizPage from "./components/Quiz/QuizPage";
 import ScrollTopButton from "./components/Common/ScrollTopButton";
+<<<<<<< HEAD
 import SunBurnInformation from "./components/Information/SunBurnInformation";
 import ModelPopup from "./components/Common/ModelPopup";
 import WelcomeText from "./components/Home/HomeComponents/WelcomeText";
@@ -38,6 +39,12 @@ import LocationUVPanel from "./components/Prevention/PreventionComponents/Locati
 =======
 >>>>>>> iteration-3-redesign-1
 import MapScroll from "./components/Map/MapScroll/MapScroll";
+=======
+import LocationUVPanel from "./components/Prevention/PreventionComponents/LocationUVPanel";
+import RightInformationStep from "./components/Prevention/PreventionComponents/RightInformationStep";
+import LeftInformationStep from "./components/Prevention/PreventionComponents/LeftInformationStep";
+import PreventionCheckList from "./components/Prevention/PreventionCheckList";
+>>>>>>> iteration-3-redesign-2
 
 AOS.init({
   // Global settings:
@@ -147,23 +154,21 @@ function App() {
               component={SkinCancerInformation}
             />
             <Route path="/skincancer" component={SkinCancer} />
-            <Route
+            {/* <Route
               path="/prevention/skin-burn-calculator"
               component={SunCalculator}
-            />
+            /> */}
             <Route
-              path="/information/ultraviolet"
-              component={NotFound}
-            />
-            <Route
-              path="/information/sunscreen"
-              component={NotFound}
+              path="/prevention/goingOut"
+              component={PreventionCheckList}
             />
             <Route path="/prevention" component={Prevention} />
+            <Route path="/information/ultraviolet" component={NotFound} />
+            <Route path="/information/sunscreen" component={NotFound} />
             <Route path="/quiz" component={QuizPage} />
             <Route path="/uv-assist" component={UVassist} />
             <Route path="/map" component={MapPage} />
-            <Route path="/test" component={LocationUVPanel} />
+            {/* <Route path="/test" component={PreventionCheckList} /> */}
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />

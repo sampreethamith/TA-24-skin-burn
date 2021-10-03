@@ -1,5 +1,7 @@
+import _ from "lodash";
+
 export function sunScreenQuizData() {
-  return [
+  const sunScreenQuizArray = [
     {
       questionTitle: "Who should use sunscreen?",
       questionSubtitle: "",
@@ -105,7 +107,8 @@ export function sunScreenQuizData() {
       ],
     },
     {
-      questionTitle: "What factors do you have to check before buying sunscreen?",
+      questionTitle:
+        "What factors do you have to check before buying sunscreen?",
       questionSubtitle: "",
       imagePath: "",
       imageAltName: "SunScreen",
@@ -131,17 +134,19 @@ export function sunScreenQuizData() {
       ],
     },
   ];
+
+  // return _.shuffle(sunScreenQuizArray);
+  return sunScreenQuizArray;
 }
 
 export function getSunScreenInfo() {
   return {
     title: "More On SunScreen",
-    descriptionOne:
+    descriptionText: [
       "Sun Protection Factor – is a measure of a sunscreen’s ability to prevent UVB from damaging the skin.",
-    descriptionTwo:
       "If it takes 20 minutes for your unprotected skin to start turning red, using an SPF 15 sunscreen theoretically prevents reddening 15 times longer – about five hours.",
-    descriptionThree:
       "In reality, sunscreen wears away and loses strength after a while in the sun, so you need to reapply at least every couple of hours and immediately after sweating or swimming.",
+    ],
     link: "/information/sunscreen",
   };
 }

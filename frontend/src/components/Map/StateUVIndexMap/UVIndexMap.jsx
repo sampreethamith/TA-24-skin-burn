@@ -14,6 +14,12 @@ import SearchBox from "./SearchBox";
 import getStateGeoJson from "../../../services/getStateGeoJson";
 import getCityGeoJson from "../../../services/getCityGeoJson";
 import "./UVIndexMap.css";
+import Fab from "@mui/material/Fab";
+import FloatIcon from "@mui/icons-material/LiveHelp";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import Popover from "@mui/material/Popover";
+import Typography from "@mui/material/Typography";
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
@@ -55,7 +61,6 @@ const UVIndexMap = () => {
       const {
         properties: { coord },
       } = data[0];
-      console.log(data);
       setViewport({
         ...viewport,
         latitude: coord["lat"],
@@ -65,10 +70,8 @@ const UVIndexMap = () => {
         transitionInterpolator: new FlyToInterpolator(),
         transitionEasing: easeCubic,
       });
-      console.log(viewport);
       data = { type: "FeatureCollection", features: data };
       setData(data);
-      console.log(data);
       setLoading(false);
     } catch (error) {}
   };
@@ -143,6 +146,27 @@ const UVIndexMap = () => {
   const SIZE = 20;
   const [popupInfo, setPopupInfo] = useState(null);
 
+  const [alignment, setAlignment] = React.useState("state");
+
+  const handleChange = (event, newAlignment) => {
+    if (newAlignment !== null) {
+      setAlignment(newAlignment);
+    }
+  };
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleHelpPopupClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleHelpPopupClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
+
   return (
     <section>
       <>
@@ -154,26 +178,45 @@ const UVIndexMap = () => {
           interactiveLayerIds={["data"]}
           onHover={onHover}
         >
-          <Source type="geojson" data={data}>
-            <Layer {...dataLayer} />
-          </Source>
-          {hoverInfo && (
+          {alignment == "state" && (
+            <Source type="geojson" data={data}>
+              <Layer {...dataLayer} />
+            </Source>
+          )}
+          {hoverInfo && alignment == "state" && (
             <div
               className="map-tooltip"
               style={{ left: hoverInfo.x, top: hoverInfo.y }}
             >
-              <div>State: {hoverInfo.feature.properties.name}</div>
+              <div>
+                State: {hoverInfo.feature.properties.name.toUpperCase()}
+              </div>
               <div>UV Index: {hoverInfo.feature.properties.uvi}</div>
             </div>
           )}
           <MapLegend />
-          <SearchBox
-            chips={chips}
-            onChange={onChipChange}
-            error={error}
-            errorOnclose={errorOnClose}
-            onClick={onCitySearchClick}
-          />
+          <div className="mapbox-mapover-controls ">
+            <p className="mapbox-title-text">Find out current ultraviolet <em>heat levels</em></p>
+            <ToggleButtonGroup
+              className="mapbox-toggle-search-button"
+              color="warning"
+              value={alignment}
+              exclusive
+              onChange={handleChange}
+            >
+              <ToggleButton value="state">States</ToggleButton>
+              <ToggleButton value="suburb">Suburbs</ToggleButton>
+            </ToggleButtonGroup>
+            {alignment == "suburb" && (
+              <SearchBox
+                chips={chips}
+                onChange={onChipChange}
+                error={error}
+                errorOnclose={errorOnClose}
+                onClick={onCitySearchClick}
+              />
+            )}
+          </div>
           {loading && (
             <Spinner
               animation="border"
@@ -191,30 +234,38 @@ const UVIndexMap = () => {
             ></Spinner>
           )}
           {data &&
+            alignment == "suburb" &&
             data.features.map((item, index) => (
-              <Marker
-                key={`marker-${index}`}
-                longitude={item.properties.coord.lon}
-                latitude={item.properties.coord.lat}
+              <div
+                onMouseEnter={() => {
+                  openPopup(item);
+                  setHoverInfo(null);
+                }}
+                onMouseLeave={() => setPopupInfo(false)}
               >
-                <svg
-                  height={SIZE}
-                  viewBox="0 0 24 24"
-                  style={{
-                    cursor: "pointer",
-                    fill: "#d00",
-                    stroke: "none",
-                    transform: `translate(${-SIZE / 2}px,${-SIZE}px)`,
-                  }}
-                  onClick={() => {
-                    openPopup(item);
-                    setHoverInfo(false);
-                  }}
-                  onMouseEnter={() => setHoverInfo(false)}
+                <Marker
+                  key={`marker-${index}`}
+                  longitude={item.properties.coord.lon}
+                  latitude={item.properties.coord.lat}
+                  onH
                 >
-                  <path d={ICON} />
-                </svg>
-              </Marker>
+                  <svg
+                    height={SIZE}
+                    viewBox="0 0 24 24"
+                    style={{
+                      cursor: "pointer",
+                      fill: "#d00",
+                      stroke: "none",
+                      transform: `translate(${-SIZE / 2}px,${-SIZE}px)`,
+                    }}
+                    onClick={() => {
+                      openPopup(item);
+                    }}
+                  >
+                    <path d={ICON} />
+                  </svg>
+                </Marker>
+              </div>
             ))}
           {popupInfo && (
             <Popup
@@ -234,6 +285,56 @@ const UVIndexMap = () => {
             </Popup>
           )}
         </ReactMapGL>
+        <Fab
+          aria-describedby={id}
+          onClick={handleHelpPopupClick}
+          className="mapbox-float-button"
+          color="secondary"
+          aria-label="add"
+        >
+          <FloatIcon />
+        </Fab>
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleHelpPopupClose}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+          transformOrigin={{
+            vertical: "bottom",
+            horizontal: "right",
+          }}
+        >
+          <Typography sx={{ p: 2 }}>
+            <ul>
+              <li>
+                Use Top left toggle button <strong>'STATES/SUBURB'</strong> to
+                switch between state and suburb areas.
+              </li>
+              <li>
+                The <strong>STATES button</strong> highlights the state's
+                current UV Index.
+              </li>
+              <li>
+                The <strong>SUBURBS button</strong> enables search bar and
+                searches through different cities of Australia to retrieve their
+                current UV index.
+              </li>
+              <li>
+                On the Bottom Left, use <strong> the legend</strong> to find the
+                intensity levels of UV rays.
+              </li>
+              <li>
+                Use the Right side switch <strong>'UV Map/UV Info'</strong> to
+                switch between Map functionality and information on the history
+                of UV and its effects.
+              </li>
+            </ul>
+          </Typography>
+        </Popover>
       </>
     </section>
   );

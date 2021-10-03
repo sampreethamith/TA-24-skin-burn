@@ -5,7 +5,7 @@ import * as am4maps from "@amcharts/amcharts4/maps";
 import am4geodata_australiaLow from "@amcharts/amcharts4-geodata/australiaHigh";
 import am4themes from "@amcharts/amcharts4/themes/material";
 import CardInfo from "./CardInfo";
-import "./mapscroll.css";
+import "./maps.css";
 
 am4core.useTheme(am4themes);
 let map = null;
@@ -237,6 +237,10 @@ const MapScroll = () => {
     <>
       <div className="amChart-map" id="chartdiv_map"></div>
       <Container>
+        <p className="maphistory-title-text text-center">
+          Learn more about the history of the <em>ULTRAVIOLET EFFECTS</em> in
+          Australia
+        </p>
         <div className="flex-card">
           <div className="self-align-start flex-card-individual">
             <CardInfo

@@ -1,5 +1,7 @@
+import _ from "lodash";
+
 export function UVQuizData() {
-  return [
+  const uvQuizArray = [
     {
       questionTitle: "How do UVA and UVB differ?",
       questionSubtitle: "",
@@ -109,17 +111,19 @@ export function UVQuizData() {
       ],
     },
   ];
+
+  // return _.shuffle(uvQuizArray);
+  return uvQuizArray;
 }
 
 export function getUVInfo() {
   return {
     title: "More On Ultraviolet Index",
-    descriptionOne:
+    descriptionText: [
       "When the UV Index is in a Moderate (5-6) range, most people can tolerate a maximum of 30 minutes of exposure to the sun without skin damage.",
-    descriptionTwo:
       "UV exposure leads to an altered immune response balance through cells and antibodies and may reduce the body's ability to defend itself against certain diseases.",
-    descriptionThree:
       "Dark colours are better at absorbing UV than light colours.",
+    ],
     link: "/information/ultraviolet",
   };
 }

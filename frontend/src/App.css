@@ -433,80 +433,6 @@ select {
   font-size: 1.3rem;
 }
 
-/* Map Styling */
-#map {
-  width: 100vw;
-  height: 100vh;
-}
-
-.map-position-relative {
-  /* position: relative; */
-}
-
-.map-tooltip {
-  position: absolute;
-  margin: 8px;
-  padding: 4px;
-  background: #000;
-  color: #fff;
-  max-width: 300px;
-  font-size: 10px;
-  z-index: 9;
-  pointer-events: none;
-}
-
-/* Map Legend */
-.legend {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  max-width: 320px;
-  background: var(--secondary-light);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  padding: 12px 10px;
-  margin: 20px;
-  line-height: 2;
-  color: var(--primary-color);
-  outline: none;
-  text-transform: uppercase;
-}
-
-.legend-color-pallet-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.legend-individual-color-pallet {
-  display: flex;
-  flex-direction: row;
-}
-
-.legend-individual-color-pallet p {
-  margin: 0 0 0 1rem;
-}
-
-.legend-individual-color-pallet div {
-  height: 15px;
-  width: 15px;
-  align-self: center;
-}
-
-.legend-individual-color-pallet-1 {
-  background-color: #b68449;
-}
-.legend-individual-color-pallet-2 {
-  background-color: #db9f24;
-}
-.legend-individual-color-pallet-3 {
-  background-color: #ffb900;
-}
-.legend-individual-color-pallet-4 {
-  background-color: #ff9f00;
-}
-.legend-individual-color-pallet-5 {
-  background-color: #ff8400;
-}
-
 /* Add Button */
 .add-button {
   background-color: var(--secondary-color) !important;
@@ -521,18 +447,25 @@ select {
 
 /* Search Box */
 .search-box {
-  position: absolute;
-  top: 0;
+  /* position: absolute; */
+  /* top: 0; */
   background-color: var(--secondary-light);
   opacity: 0.85;
   padding: 20px;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-  left: 0;
-  right: 0;
+  height: 6.5rem;
+  /* margin-top: 20px; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* width: 20%; */
+  /* left: 0; */
+  /* right: 0; */
   border-radius: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .search-box {
+    height: 4.5rem;
+  }
 }
 
 .search-box input {
@@ -570,6 +503,13 @@ select {
   margin: 1rem;
   cursor: pointer;
   padding: 1.5rem;
+}
+
+.card-selected {
+  background-color: var(--primary-color);
+  color: black;
+  z-index: 10;
+  transform: scale(1.1);
 }
 
 .card-with-border-primary:hover {
@@ -714,7 +654,6 @@ select {
 }
 
 .question-image img {
-  width: 100%;
   object-fit: contain;
 }
 
@@ -818,6 +757,7 @@ select {
   flex: row;
   justify-content: center;
   align-items: center;
+  padding: 2px !important;
 }
 
 .pagination:hover {
@@ -874,6 +814,24 @@ select {
   color: var(--primary-color) !important;
 }
 
+.mapbox-float-button {
+  position: fixed !important;
+  bottom: 8% !important;
+  right: 4% !important;
+  background-color: var(--primary-dark) !important;
+}
+
 /* .breadcrumb-location {
   margin-top: 1rem;
 } */
+
+/* Dropdown Menu */
+.dropdown-menu {
+  background-color: var(--primary-color) !important;
+  border: 1px solid var(--secondary-color) !important;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: var(--secondary-color) !important;
+}

@@ -99,3 +99,57 @@
   display: flex;
   flex-direction: column;
 }
+
+.content {
+  display: flex;
+  flex-direction: column;
+  font-size: 15pt;
+}
+
+.content-margin {
+  margin: 2rem 0;
+}
+
+.image-size {
+  width: 100%;
+}
+
+.horizontal-line {
+  width: auto;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.content-information {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .uv-information-card {
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+  }
+}
+.content-information ol li {
+  margin-top: 1.5rem;
+}
+
+.button-margin-bottom {
+  margin-bottom: 2rem;
+}
+
+.uv-row-content {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.uv-title {
+  align-self: center;
+}
+
+.uv-row-content ul li {
+  margin-top: 1rem;
+}

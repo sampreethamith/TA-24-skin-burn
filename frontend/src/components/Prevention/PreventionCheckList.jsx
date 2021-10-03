@@ -92,22 +92,22 @@ const PreventionCheckList = () => {
         <div data-aos="zoom-in-up" className="route-card">
           <CardWithBorderPrimary
             data={data[0]}
-            handTypeSelected={skinColorSelected}
+            typeSelected={skinColorSelected}
             selected={handSelected === "Pale White"}
           />
           <CardWithBorderPrimary
             data={data[1]}
-            handTypeSelected={skinColorSelected}
+            typeSelected={skinColorSelected}
             selected={handSelected === "White"}
           />
           <CardWithBorderPrimary
             data={data[2]}
-            handTypeSelected={skinColorSelected}
+            typeSelected={skinColorSelected}
             selected={handSelected === "Brown"}
           />
           <CardWithBorderPrimary
             data={data[3]}
-            handTypeSelected={skinColorSelected}
+            typeSelected={skinColorSelected}
             selected={handSelected === "Dark"}
           />
         </div>

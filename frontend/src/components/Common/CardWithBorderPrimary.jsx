@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-const CardWithBorderPrimary = ({ data, handTypeSelected, selected }) => {
+const CardWithBorderPrimary = ({ data, typeSelected, selected }) => {
   const history = useHistory();
 
   const cardSelected = selected
@@ -16,7 +16,7 @@ const CardWithBorderPrimary = ({ data, handTypeSelected, selected }) => {
           history.push(data.route);
           return;
         } else {
-          handTypeSelected(data.title);
+          typeSelected(data.title);
         }
       }}
     >

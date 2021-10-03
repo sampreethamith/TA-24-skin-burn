@@ -11,7 +11,7 @@ import Prevention from "./components/Prevention/Prevention";
 import { getLocation } from "./services/getLocation";
 import SunCalculator from "./components/Prevention/SunCalculator";
 import SkinCancerSympotms from "./components/SkinCancer/SkinCancerSympotms";
-import SkinCancerInformation from "./components/SkinCancer/SkinCancerInformation";
+import SkinCancerInformation1 from "./components/SkinCancer/SkinCancerInformation";
 import UVassist from "./components/UV-Assist/UVassist";
 import MapPage from "./components/Map/MapPage";
 import {
@@ -34,6 +34,7 @@ import MapScroll from "./components/Map/MapScroll/MapScroll";
 import QueAnsTemplate from "./components/Quiz/QuizComponents/QueAnsTemplate";
 import UVIndexInformation from "./components/Information/UVIndexInformation";
 import SunScreenInformation from "./components/Information/SunScreenInformation";
+import SkinCancerInformation from "./components/Information/SkinCancerInformation";
 
 AOS.init({
   // Global settings:

@@ -26,8 +26,8 @@ const SunScreenInformation = () => {
 
   const SunScreenData = getSunScreenInfo();
   return (
-    <>
-      <Container className="information-page white-text content-margin">
+    <Container className="information-page white-text">
+      <div className="content-margin">
         <BreadCrumbComponent navigation={navigation} />
         <p className="information-page-title">{SunScreenData.pageTitle}</p>
         <p className="information-page-quote">{SunScreenData.pageQuote}</p>
@@ -40,7 +40,7 @@ const SunScreenInformation = () => {
               <p>{paraText}</p>
             ))}
           </div>
-          <img src={sunscreen_image} />
+          <img src={sunscreen_image} data-aos="zoom-in" />
         </div>
         <Accordion defaultActiveKey="0" flush>
           {SunScreenData.tiles.map((item, index) => (
@@ -67,9 +67,9 @@ const SunScreenInformation = () => {
             </Accordion.Item>
           ))}
         </Accordion>
-        <img src={sunscreen_5w} />
-      </Container>
-    </>
+      </div>
+      <img src={sunscreen_5w} data-aos="zoom-in-up" />
+    </Container>
   );
 };
 

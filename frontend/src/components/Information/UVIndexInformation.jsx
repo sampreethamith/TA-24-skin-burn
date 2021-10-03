@@ -3,11 +3,13 @@ import { useHistory } from "react-router-dom";
 import "./css/SunScreenInformation.css";
 import { Container, Button } from "react-bootstrap";
 import { getUVInfo } from "../../services/InformationPages/getUVinfo.js";
-import idea from "../../images/home/quiz_icon.svg";
 import CardWithBorderPrimary from "../Common/CardWithBorderPrimary";
 import sunLightUVRays from "./images/sunLightUVRays.png";
 import UVInformation from "./images/UVInformation.png";
 import BreadCrumbComponent from "../Common/BreadCrumbComponent";
+import aboutUVIcon from "./images/aboutUvIcon.png";
+import uvauvb from "./images/uvauvbicon.png";
+import uvFunFact from "./images/uvFunFact.png";
 
 const UVIndexInformation = () => {
   const [uvInfoType, setuvInfoType] = useState("");
@@ -17,17 +19,17 @@ const UVIndexInformation = () => {
   const data = [
     {
       title: "About UV radiation",
-      image: idea,
+      image: aboutUVIcon,
       altName: "Buld with a idea representing quiz",
     },
     {
       title: "UV Facts",
-      image: idea,
+      image: uvFunFact,
       altName: "Buld with a idea representing quiz",
     },
     {
       title: "UVA and UVB risks",
-      image: idea,
+      image: uvauvb,
       altName: "Buld with a idea representing quiz",
     },
   ];
@@ -49,8 +51,8 @@ const UVIndexInformation = () => {
   ];
 
   return (
-    <>
-      <Container className="information-page white-text content-margin">
+    <Container className="information-page white-text ">
+      <div className="content-margin">
         <BreadCrumbComponent navigation={navigation} />
         <p className="information-page-title">{SunScreenData.pageTitle}</p>
         <p className="information-page-quote">{SunScreenData.pageQuote}</p>
@@ -64,7 +66,7 @@ const UVIndexInformation = () => {
             ))}
           </div>
         </div>
-        <div className="uv-information-card">
+        <div className="uv-information-card" data-aos="zoom-in-up">
           <CardWithBorderPrimary
             data={data[0]}
             typeSelected={typeOfUVSelected}
@@ -82,7 +84,7 @@ const UVIndexInformation = () => {
           />
         </div>
         {uvInfoType === "About UV radiation" && (
-          <div>
+          <div data-aos="zoom-in">
             <div className="content content-margin">
               <img
                 src={sunLightUVRays}
@@ -133,7 +135,7 @@ const UVIndexInformation = () => {
           </div>
         )}
         {uvInfoType === "UV Facts" && (
-          <div>
+          <div data-aos="zoom-in-up">
             <div className="content content-margin">
               <div className="horizontal-line"></div>
               <div className="content-information content-margin">
@@ -198,7 +200,7 @@ const UVIndexInformation = () => {
           </div>
         )}
         {uvInfoType === "UVA and UVB risks" && (
-          <div>
+          <div data-aos="zoom-in-up">
             <div className="content content-margin">
               <div className="horizontal-line"></div>
               <div className="uv-row-content content-margin">
@@ -295,8 +297,8 @@ const UVIndexInformation = () => {
             </div>
           </div>
         )}
-      </Container>
-    </>
+      </div>
+    </Container>
   );
 };
 

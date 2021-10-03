@@ -2,7 +2,7 @@ import React from "react";
 import Accordion from "react-bootstrap/Accordion";
 import { getSkinCancerInfo } from "../../services/InformationPages/getSkinCancerInfo";
 import "./css/SunScreenInformation.css";
-import sunscreen_image from "./images/sunscreen.svg";
+import sunscreen_image from "../Prevention/Images/skincancer_title.gif";
 import { Container } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import bcc_1 from "./images/bcc_1.png";
@@ -74,79 +74,83 @@ const SkinCancerInformation = () => {
 
   return (
     <>
-      <Container className="information-page white-text content-margin">
-        <BreadCrumbComponent navigation={navigation} />
-        <p className="information-page-title">{SkinCancerData.pageTitle}</p>
-        <p className="information-page-quote">{SkinCancerData.pageQuote}</p>
-        <p className="information-page-introduction">
-          {SkinCancerData.introductionText}
-        </p>
-        <div className="information-introduction-content">
-          <div>
-            {SkinCancerData.paraTexts.map((paraText, paraIndex) => (
-              <p>{paraText}</p>
-            ))}
+      <Container className="information-page white-text">
+        <div className="content-margin">
+          <BreadCrumbComponent navigation={navigation} />
+          <p className="information-page-title">{SkinCancerData.pageTitle}</p>
+          <p className="information-page-quote">{SkinCancerData.pageQuote}</p>
+          <p className="information-page-introduction">
+            {SkinCancerData.introductionText}
+          </p>
+          <div className="information-introduction-content">
+            <div>
+              {SkinCancerData.paraTexts.map((paraText, paraIndex) => (
+                <p>{paraText}</p>
+              ))}
+            </div>
+            <img src={sunscreen_image} />
           </div>
-          <img src={sunscreen_image} />
-        </div>
-        <Accordion defaultActiveKey="0" flush>
-          {SkinCancerData.tiles.map((item, index) => (
-            <Accordion.Item eventKey={index}>
-              <Accordion.Header>{item.header}</Accordion.Header>
-              <Accordion.Body>
-                <div className="information-child">
-                  <div className="information-child-div">
-                    <div>
-                      <p className="information-child-title">
-                        {item.content[0].title}
-                      </p>
-                      <p className="information-child-text">
-                        {item.content[0].text}
-                      </p>
-                      <p className="information-child-title">
-                        {item.content[1].title}
-                      </p>
-                      <p className="information-child-text">
-                        {item.content[1].text}
-                      </p>
-                    </div>
-                    <Carousel pause="hover">
-                      {getImageArray(item.header).map((imageObj, imgIndex) => (
-                        <Carousel.Item>
-                          <img src={imageObj} alt="imgIndex" />
-                        </Carousel.Item>
-                      ))}
-                    </Carousel>
-                  </div>
-                  {item.content.map((childItem, childIndex) =>
-                    childIndex > 1 ? (
-                      <div className="information-child">
+          <Accordion defaultActiveKey="0" flush>
+            {SkinCancerData.tiles.map((item, index) => (
+              <Accordion.Item eventKey={index}>
+                <Accordion.Header>{item.header}</Accordion.Header>
+                <Accordion.Body>
+                  <div className="information-child">
+                    <div className="information-child-div">
+                      <div>
                         <p className="information-child-title">
-                          {childItem.title}
+                          {item.content[0].title}
                         </p>
-                        {typeof childItem.text == "string" ? (
-                          <p className="information-child-text">
-                            {childItem.text}
-                          </p>
-                        ) : (
-                          <ul>
-                            {childItem.text.map(
-                              (childlistItem, childeListIndex) => (
-                                <li>{childlistItem}</li>
-                              )
-                            )}
-                          </ul>
-                        )}
+                        <p className="information-child-text">
+                          {item.content[0].text}
+                        </p>
+                        <p className="information-child-title">
+                          {item.content[1].title}
+                        </p>
+                        <p className="information-child-text">
+                          {item.content[1].text}
+                        </p>
                       </div>
-                    ) : (
-                      <></>
-                    )
-                  )}
-                </div>
-              </Accordion.Body>
-            </Accordion.Item>
-          ))}
-        </Accordion>
+                      <Carousel pause="hover">
+                        {getImageArray(item.header).map(
+                          (imageObj, imgIndex) => (
+                            <Carousel.Item>
+                              <img src={imageObj} alt="imgIndex" />
+                            </Carousel.Item>
+                          )
+                        )}
+                      </Carousel>
+                    </div>
+                    {item.content.map((childItem, childIndex) =>
+                      childIndex > 1 ? (
+                        <div className="information-child">
+                          <p className="information-child-title">
+                            {childItem.title}
+                          </p>
+                          {typeof childItem.text == "string" ? (
+                            <p className="information-child-text">
+                              {childItem.text}
+                            </p>
+                          ) : (
+                            <ul>
+                              {childItem.text.map(
+                                (childlistItem, childeListIndex) => (
+                                  <li>{childlistItem}</li>
+                                )
+                              )}
+                            </ul>
+                          )}
+                        </div>
+                      ) : (
+                        <></>
+                      )
+                    )}
+                  </div>
+                </Accordion.Body>
+              </Accordion.Item>
+            ))}
+          </Accordion>
+        </div>
       </Container>
     </>
   );

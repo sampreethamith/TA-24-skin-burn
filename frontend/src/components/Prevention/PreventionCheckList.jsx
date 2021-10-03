@@ -71,10 +71,6 @@ const PreventionCheckList = () => {
       title: "Home",
     },
     {
-      href: "/prevention",
-      title: "Prevention",
-    },
-    {
       href: "/prevention/goingOut",
       title: "Going Out",
       active: "active",
@@ -124,7 +120,7 @@ const PreventionCheckList = () => {
           </Button>
         )}
         {handSelectedNext && (
-          <div>
+          <div data-aos="zoom-in">
             <LocationUVPanel uviChanged={handleChangeUvi} />
             <Button
               variant="warning"
@@ -139,7 +135,7 @@ const PreventionCheckList = () => {
           </div>
         )}
         {uviGaugeSelectedNext && (
-          <>
+          <div data-aos="fade-right">
             <h3 className="top-bottom-margin">1st Step: Cover it Up</h3>
             <Row className="image-info-card-row ">
               <Col className="image-info-card-col" sm={4}>
@@ -170,10 +166,10 @@ const PreventionCheckList = () => {
             >
               Next
             </Button>
-          </>
+          </div>
         )}
         {stepOneNextSelected && (
-          <>
+          <div data-aos="fade-left">
             <RightInformationStep spf={spfLevel} />
             <Button
               variant="warning"
@@ -185,10 +181,10 @@ const PreventionCheckList = () => {
             >
               Next
             </Button>
-          </>
+          </div>
         )}
         {stepTwoNextSelected && (
-          <div className="top-bottom-margin">
+          <div className="top-bottom-margin" data-aos="fade-right">
             <LeftInformationStep />
           </div>
         )}

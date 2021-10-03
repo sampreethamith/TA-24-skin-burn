@@ -1,0 +1,168 @@
+@import "../../../App.css";
+
+.accordion {
+}
+
+.accordion-item {
+  background-color: black !important;
+  border: 1px solid #ffb800 !important;
+  color: white !important;
+}
+
+.accordion-button {
+  background-color: var(--primary-color) !important;
+  border-bottom: 1px solid black !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--primary-color) !important;
+  color: black !important;
+  font-weight: 600 !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-repeat: no-repeat !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+}
+
+.information-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.information-page p {
+  padding: 0;
+  margin: 0;
+}
+
+.information-page-title {
+  font-size: 40pt;
+  text-align: center;
+}
+
+.information-page-quote {
+  font-size: 20pt;
+  color: var(--primary-color);
+  text-transform: uppercase !important;
+  text-align: center;
+}
+
+.information-page-introduction {
+  font-size: 18pt;
+}
+
+.information-introduction-content {
+  display: flex;
+  flex-direction: column-reverse;
+  font-size: 15pt;
+}
+
+@media screen and (min-width: 768px) {
+  .information-introduction-content {
+    display: flex;
+    flex-direction: row;
+    font-size: 15pt;
+  }
+}
+
+.information-introduction-content img {
+  height: 20rem;
+}
+
+.information-introduction-content div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.information-introduction-content p:first-child {
+  color: var(--primary-color);
+}
+
+.information-introduction-content p:last-child {
+  color: var(--primary-color);
+  font-size: 18pt;
+  padding-top: 3rem;
+}
+
+.information-child-title {
+  font-size: 16pt;
+  color: var(--primary-color);
+}
+
+.information-child-text {
+  margin-bottom: 1rem !important;
+}
+
+.uv-information-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.information-child-div {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .information-child-div {
+    display: flex;
+    flex-direction: row;
+    font-size: 15pt;
+  }
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  font-size: 15pt;
+}
+
+.content-margin {
+  margin: 2rem 0;
+}
+
+.image-size {
+  width: 100%;
+}
+
+.horizontal-line {
+  width: auto;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.content-information {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .uv-information-card {
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+  }
+}
+.content-information ol li {
+  margin-top: 1.5rem;
+}
+
+.button-margin-bottom {
+  margin-bottom: 2rem;
+}
+
+.uv-row-content {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.uv-title {
+  align-self: center;
+}
+
+.uv-row-content ul li {
+  margin-top: 1rem;
+}

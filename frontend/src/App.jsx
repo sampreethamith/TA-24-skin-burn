@@ -32,6 +32,8 @@ import CardInfo from "./components/Map/MapScroll/CardInfo";
 import LocationUVPanel from "./components/Prevention/PreventionComponents/LocationUVPanel";
 import MapScroll from "./components/Map/MapScroll/MapScroll";
 import QueAnsTemplate from "./components/Quiz/QuizComponents/QueAnsTemplate";
+import UVIndexInformation from "./components/Information/UVIndexInformation";
+import SunScreenInformation from "./components/Information/SunScreenInformation";
 
 AOS.init({
   // Global settings:
@@ -147,17 +149,17 @@ function App() {
             />
             <Route
               path="/information/ultraviolet"
-              component={NotFound}
+              component={UVIndexInformation}
             />
             <Route
               path="/information/sunscreen"
-              component={NotFound}
+              component={SunScreenInformation}
             />
             <Route path="/prevention" component={Prevention} />
             <Route path="/quiz" component={QuizPage} />
             <Route path="/uv-assist" component={UVassist} />
             <Route path="/map" component={MapPage} />
-            <Route path="/test" component={QueAnsTemplate} />
+            <Route path="/test" component={UVIndexInformation} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />

@@ -94,3 +94,8 @@
 .information-child-text {
   margin-bottom: 1rem !important;
 }
+
+.uv-information-card {
+  display: flex;
+  flex-direction: column;
+}

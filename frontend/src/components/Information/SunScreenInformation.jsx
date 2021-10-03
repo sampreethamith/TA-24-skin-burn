@@ -3,8 +3,8 @@ import Accordion from "react-bootstrap/Accordion";
 import { getSunScreenInfo } from "../../services/InformationPages/getSunScreenInfo";
 import "./css/SunScreenInformation.css";
 import sunscreen_image from "./images/sunscreen.svg";
-import { Container, Row, Col, Spinner } from "react-bootstrap";
-import sunscreen_5w from './images/sunscreen_5w.png'
+import { Container } from "react-bootstrap";
+import sunscreen_5w from "./images/sunscreen_5w.png";
 
 const SunScreenInformation = () => {
   const SunScreenData = getSunScreenInfo();

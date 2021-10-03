@@ -35,12 +35,11 @@ import MapScroll from "./components/Map/MapScroll/MapScroll";
 import RightInformationStep from "./components/Prevention/PreventionComponents/RightInformationStep";
 import LeftInformationStep from "./components/Prevention/PreventionComponents/LeftInformationStep";
 import PreventionCheckList from "./components/Prevention/PreventionCheckList";
-import MapScroll from "./components/Map/MapScroll/MapScroll";
+// import MapScroll from "./components/Map/MapScroll/MapScroll";
 import QueAnsTemplate from "./components/Quiz/QuizComponents/QueAnsTemplate";
 import UVIndexInformation from "./components/Information/UVIndexInformation";
 import SunScreenInformation from "./components/Information/SunScreenInformation";
 import SkinCancerInformation from "./components/Information/SkinCancerInformation";
-
 
 AOS.init({
   // Global settings:

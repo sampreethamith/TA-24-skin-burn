@@ -11,7 +11,7 @@ import Prevention from "./components/Prevention/Prevention";
 import { getLocation } from "./services/getLocation";
 import SunCalculator from "./components/Prevention/SunCalculator";
 import SkinCancerSympotms from "./components/SkinCancer/SkinCancerSympotms";
-import SkinCancerInformation from "./components/SkinCancer/SkinCancerInformation";
+import SkinCancerInformation1 from "./components/SkinCancer/SkinCancerInformation";
 import UVassist from "./components/UV-Assist/UVassist";
 import MapPage from "./components/Map/MapPage";
 import {
@@ -32,6 +32,8 @@ import CardInfo from "./components/Map/MapScroll/CardInfo";
 import LocationUVPanel from "./components/Prevention/PreventionComponents/LocationUVPanel";
 import MapScroll from "./components/Map/MapScroll/MapScroll";
 import QueAnsTemplate from "./components/Quiz/QuizComponents/QueAnsTemplate";
+import SunScreenInformation from "./components/Information/SunScreenInformation";
+import SkinCancerInformation from "./components/Information/SkinCancerInformation";
 
 AOS.init({
   // Global settings:
@@ -157,7 +159,7 @@ function App() {
             <Route path="/quiz" component={QuizPage} />
             <Route path="/uv-assist" component={UVassist} />
             <Route path="/map" component={MapPage} />
-            <Route path="/test" component={QueAnsTemplate} />
+            <Route path="/test" component={SkinCancerInformation} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />

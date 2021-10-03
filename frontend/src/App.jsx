@@ -11,7 +11,7 @@ import Prevention from "./components/Prevention/Prevention";
 import { getLocation } from "./services/getLocation";
 import SunCalculator from "./components/Prevention/SunCalculator";
 import SkinCancerSympotms from "./components/SkinCancer/SkinCancerSympotms";
-import SkinCancerInformation from "./components/SkinCancer/SkinCancerInformation";
+import SkinCancerInformation1 from "./components/SkinCancer/SkinCancerInformation";
 import UVassist from "./components/UV-Assist/UVassist";
 import MapPage from "./components/Map/MapPage";
 import {
@@ -27,6 +27,11 @@ import LocationUVPanel from "./components/Prevention/PreventionComponents/Locati
 import RightInformationStep from "./components/Prevention/PreventionComponents/RightInformationStep";
 import LeftInformationStep from "./components/Prevention/PreventionComponents/LeftInformationStep";
 import PreventionCheckList from "./components/Prevention/PreventionCheckList";
+import MapScroll from "./components/Map/MapScroll/MapScroll";
+import QueAnsTemplate from "./components/Quiz/QuizComponents/QueAnsTemplate";
+import UVIndexInformation from "./components/Information/UVIndexInformation";
+import SunScreenInformation from "./components/Information/SunScreenInformation";
+import SkinCancerInformation from "./components/Information/SkinCancerInformation";
 
 AOS.init({
   // Global settings:
@@ -136,13 +141,17 @@ function App() {
               component={SkinCancerInformation}
             />
             <Route path="/skincancer" component={SkinCancer} />
-            {/* <Route
+            <Route
               path="/prevention/skin-burn-calculator"
               component={SunCalculator}
-            /> */}
+            />
             <Route
-              path="/prevention/goingOut"
-              component={PreventionCheckList}
+              path="/information/ultraviolet"
+              component={UVIndexInformation}
+            />
+            <Route
+              path="/information/sunscreen"
+              component={SunScreenInformation}
             />
             <Route path="/prevention" component={Prevention} />
             <Route path="/information/ultraviolet" component={NotFound} />
@@ -150,7 +159,7 @@ function App() {
             <Route path="/quiz" component={QuizPage} />
             <Route path="/uv-assist" component={UVassist} />
             <Route path="/map" component={MapPage} />
-            {/* <Route path="/test" component={PreventionCheckList} /> */}
+            <Route path="/test" component={UVIndexInformation} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />

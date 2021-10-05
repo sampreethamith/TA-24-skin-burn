@@ -37,16 +37,15 @@ export default function getSPFByUvi(skin_tone, uv_index) {
   try {
     const uvi = Math.ceil(uv_index);
     const index_uvi = calcMetaData.uvies.indexOf(uvi);
-    let spf_level = -1;
+    let spf_level = 0;
     calcMetaData.skins.forEach((item, index) => {
       if (item.tone.toLowerCase() === skin_tone.toLowerCase()) {
         spf_level = item.relation[index_uvi];
         return;
       }
     });
-    return spf_level;
+    return spf_level ? spf_level : 0;
   } catch (error) {
-    console.log(error);
-    return -1;
+    return 0;
   }
 }

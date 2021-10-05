@@ -66,7 +66,7 @@ const UVIndexInformation = () => {
             ))}
           </div>
         </div>
-        <div className="uv-information-card" data-aos="zoom-in-up">
+        <div className="uv-information-card content-margin" data-aos="zoom-in-up">
           <CardWithBorderPrimary
             data={data[0]}
             typeSelected={typeOfUVSelected}

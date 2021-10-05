@@ -142,18 +142,24 @@ const PreventionCheckList = () => {
                 <img src={ladySittingInBeach} alt="lady sitting in beach" />
               </Col>
               <Col sm={8} className="image-info-card">
-                <h3 className="secondary-text">Skin Cancer</h3>
-                <p>
-                  The two main causes of skin cancer are the sun’s harmful
-                  ultraviolet (UV) rays and the use of UV tanning beds.Four type
-                  of skin cancers directly caused by UV radiation with skin:
+                <h3 className="secondary-text">
+                  Look for, UPF Cloths Level 50
+                </h3>
+                <p className="step-one-content">
+                  UPF stands for ultraviolet protection factor.On labels for
+                  clothing, hats and fabrics. The number indicates what fraction
+                  of the sun’s UV rays can penetrate the fabric.
                 </p>
-                <ul>
-                  <li>Basal cell carcinoma (BCC)</li>
-                  <li>Squamous cell carcinoma</li>
-                  <li>Melanoma</li>
-                  <li>Merkel cell carcinoma</li>
-                </ul>
+                <p className="step-one-content">
+                  A shirt labeled UPF 50, for example, allows just 1/50th of the
+                  UV radiation to reach your skin.
+                </p>
+                <p className="step-one-pitfall">The pitfall:</p>
+                <p className="step-one-content">
+                  Any clothing leaves some skin exposed, so you need sunscreen,
+                  too. Don’t forget to apply it to your hands, especially after
+                  washing them.
+                </p>
               </Col>
             </Row>
             <Button

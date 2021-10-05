@@ -17,6 +17,9 @@ const CardWithBorderPrimary = ({ data, typeSelected, selected }) => {
           return;
         } else {
           typeSelected(data.title);
+          setTimeout(() => {
+            window.scrollTo(0, window.scrollY + 1000);
+          }, 100);
         }
       }}
     >

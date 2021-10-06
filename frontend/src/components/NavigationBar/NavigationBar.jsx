@@ -18,6 +18,9 @@ const NavigationBar = () => {
               Home
             </NavLink>
             <NavDropdown title="Information" id="basic-nav-dropdown">
+              <LinkContainer to="/information/quiz">
+                <NavDropdown.Item>Quiz</NavDropdown.Item>
+              </LinkContainer>
               <LinkContainer to="/skincancer">
                 <NavDropdown.Item>Skin Cancer</NavDropdown.Item>
               </LinkContainer>
@@ -27,16 +30,13 @@ const NavigationBar = () => {
               <LinkContainer to="/information/sunscreen">
                 <NavDropdown.Item>Sunscreen</NavDropdown.Item>
               </LinkContainer>
-              <LinkContainer to="/information/quiz">
-                <NavDropdown.Item>Quiz</NavDropdown.Item>
-              </LinkContainer>
             </NavDropdown>
             <NavDropdown title="Prevention" id="basic-nav-dropdown">
-              <LinkContainer to="/prevention/goingOut">
-                <NavDropdown.Item>Going Out</NavDropdown.Item>
-              </LinkContainer>
               <LinkContainer to="/prevention/map">
                 <NavDropdown.Item>Current UV Map</NavDropdown.Item>
+              </LinkContainer>
+              <LinkContainer to="/prevention/goingOut">
+                <NavDropdown.Item>Going Out</NavDropdown.Item>
               </LinkContainer>
             </NavDropdown>
           </Nav>

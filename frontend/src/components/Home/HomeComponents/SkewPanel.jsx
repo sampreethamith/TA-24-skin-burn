@@ -21,7 +21,7 @@ const SkewPanel = () => {
         setSurvivalRate(data.survival_rate);
         setDiagnosedCount(data.incidence_count);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
 

@@ -83,7 +83,7 @@ const MapScroll = () => {
         refVic.current.offsetTop >= window.scrollY &&
         window.scrollY <= refNsw.current.offsetTop
       ) {
-        console.log(refVic);
+        // console.log(refVic);
         map.zoomToGeoPoint({ longitude: 144.9646, latitude: -37.0201 }, 3, 1);
         highelightState("AU-VIC", mapHighlightColor);
       } else if (

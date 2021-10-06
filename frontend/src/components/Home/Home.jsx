@@ -28,16 +28,16 @@ const Home = () => {
     };
 
     const setLocationNameAndUVI = () => {
-      console.log(location.locationName);
+      // console.log(location.locationName);
       setLocationName(location.locationName);
       setUvi(location.uvi);
     };
 
     if (location.isLocationEnabled) {
-      console.log("calling inside location turned on...");
+      // console.log("calling inside location turned on...");
       getLocationUVNameDetails(location.latitude, location.longitude);
     } else if (!location.isLocationEnabled && location.latitude) {
-      console.log("calling inside location not turned on function");
+      // console.log("calling inside location not turned on function");
       setLocationNameAndUVI();
     }
   }, [

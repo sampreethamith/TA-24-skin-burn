@@ -1,7 +1,6 @@
 import http from "./httpService";
 
 const apiEndPoint = process.env.REACT_APP_WEATHER_END_POINT;
-console.log(apiEndPoint);
 
 export const getLocationUVName = (latitude, longitude) => {
   const params = {

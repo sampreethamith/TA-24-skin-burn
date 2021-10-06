@@ -57,7 +57,7 @@ const LocationUVPanel = ({ uviChanged }) => {
       setUviChange(properties.uvi);
       setLocationNameChange(properties.name);
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   }
 
@@ -81,20 +81,22 @@ const LocationUVPanel = ({ uviChanged }) => {
   }, []);
 
   const handleChange = (event, newAlignment) => {
-    if (newAlignment === "current") {
+    if (
+      newAlignment === "current" ||
+      (newAlignment === null && alignment === "current")
+    ) {
       if (location.isLocationEnabled) {
-        console.log(location);
-        setAlignment(newAlignment);
+        // console.log(location);
         setUviChange(location.uvi);
         setLocationNameChange(location.locationName);
       } else {
         toast.error("Location Not Turned on");
       }
     } else {
-      setAlignment(newAlignment);
       setUviChange(0);
       setLocationNameChange("");
     }
+    if (newAlignment !== null) setAlignment(newAlignment);
   };
 
   return (

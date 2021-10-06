@@ -25,6 +25,8 @@ const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
 const UVIndexMap = () => {
   const [data, setData] = useState(null);
+  const [state, setState] = useState(null);
+  const [suburb, setSuburb] = useState(null);
   const [hoverInfo, setHoverInfo] = useState(null);
   const [loading, setLoading] = useState(true);
   const [chips, setChips] = useState([]);
@@ -71,6 +73,7 @@ const UVIndexMap = () => {
         transitionEasing: easeCubic,
       });
       data = { type: "FeatureCollection", features: data };
+      setSuburb(data);
       setData(data);
       setLoading(false);
     } catch (error) {}
@@ -85,10 +88,11 @@ const UVIndexMap = () => {
       try {
         let { data } = await getStateGeoJson();
         data = { type: "FeatureCollection", features: data };
+        setState(data);
         setData(data);
         setLoading(false);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
 
@@ -101,12 +105,6 @@ const UVIndexMap = () => {
       window.removeEventListener("resize", onResize);
     };
   });
-
-  useEffect(() => {
-    // setTimeout(() => {
-    //   console.clear();
-    // }, 1000);
-  }, []);
 
   const onResize = () => {
     setViewport({
@@ -152,6 +150,8 @@ const UVIndexMap = () => {
     if (newAlignment !== null) {
       setAlignment(newAlignment);
     }
+    if (newAlignment === "state") setData(state);
+    else setData(suburb);
   };
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -178,11 +178,11 @@ const UVIndexMap = () => {
           interactiveLayerIds={["data"]}
           onHover={onHover}
         >
-          {alignment == "state" && (
+          {
             <Source type="geojson" data={data}>
               <Layer {...dataLayer} />
             </Source>
-          )}
+          }
           {hoverInfo && alignment == "state" && (
             <div
               className="map-tooltip"
@@ -196,7 +196,9 @@ const UVIndexMap = () => {
           )}
           <MapLegend />
           <div className="mapbox-mapover-controls ">
-            <p className="mapbox-title-text">Find out current ultraviolet <em>heat levels</em></p>
+            <p className="mapbox-title-text">
+              Find out current ultraviolet <em>heat levels</em>
+            </p>
             <ToggleButtonGroup
               className="mapbox-toggle-search-button"
               color="warning"

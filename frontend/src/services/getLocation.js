@@ -3,6 +3,6 @@ export const getLocation = (showPosition, showError) => {
     // console.log(navigator.geolocation);
     navigator.geolocation.getCurrentPosition(showPosition, showError);
   } else {
-    console.log("Location Not Enabled");
+    // console.log("Location Not Enabled");
   }
 };

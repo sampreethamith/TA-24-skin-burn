@@ -19,7 +19,7 @@ const MapPage = () => {
   return (
     <div>
       <div className="toggle-position">
-        <h4>{searchMap ? "UV Map" : "UV Info"}</h4>
+        <h4>{searchMap ? "UV Info" : "UV Map"}</h4>
         <Toggle
           defaultChecked={searchMap}
           icons={false}
@@ -27,8 +27,8 @@ const MapPage = () => {
           onChange={handleToggleChange}
         />
       </div>
-      {!searchMap && <MapScroll />}
-      {searchMap && (
+      {searchMap && <MapScroll />}
+      {!searchMap && (
         <div className="map-position">
           {/* <Container>
             <h1>Location Based UV Index</h1>

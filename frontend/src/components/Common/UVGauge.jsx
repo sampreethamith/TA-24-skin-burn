@@ -234,8 +234,8 @@ function setHandValue(val) {
 const UVGauge = ({ customClass, uvi, locationName }) => {
   // const location = useSelector((state) => state.location);
   // console.log(location);
-  console.log(uvi);
-  console.log(locationName);
+  // console.log(uvi);
+  // console.log(locationName);
   // console.log(uvi);
   useEffect(() => {
     buildGauge();

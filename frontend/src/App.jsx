@@ -88,7 +88,7 @@ function App() {
           handleLatLongNotAvailable();
           break;
         default:
-          console.log("No error");
+          // console.log("No error");
           break;
       }
     };

@@ -73,16 +73,16 @@
     <script>
       var Alert = ReactBootstrap.Alert;
     </script>
-    <script>
+    <!-- <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
           navigator.serviceWorker
             .register("./serviceworker.js")
-            .then((reg) => console.log("Success: ", reg.scope))
+            .then((reg) =>  reg.scope))
             .catch((err) => console.log("Failure: ", err));
         });
       }
-    </script>
+    </script> -->
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwibPP27S5_CRvpVRi4yodZ-26ubnoHdM&libraries=places"></script>
   </body>

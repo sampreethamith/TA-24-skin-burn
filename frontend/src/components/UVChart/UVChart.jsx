@@ -52,7 +52,7 @@ const UVChart = () => {
 
           chart.current = x;
         } catch (error) {
-          console.log(error);
+          // console.log(error);
         }
       };
       getLocationUVHistory(location.latitude, location.longitude);

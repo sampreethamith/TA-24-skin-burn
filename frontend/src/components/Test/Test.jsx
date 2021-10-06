@@ -9,7 +9,7 @@ const Test = () => {
     };
   }, []);
 
-  console.log(offset);
+  // console.log(offset);
   return <div style={{ height: "2000px" }}></div>;
 };
 

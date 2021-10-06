@@ -19,7 +19,7 @@ export function getSkinCancerInfo() {
               text: "Basal cell carcinomas (BCCs) are abnormal, uncontrolled growths that arise from the skin’s basal cells in the outermost layer of skin (epidermis).",
             },
             {
-              title: "Sunscreen ingredients",
+              title: "Where is it usually found?",
               text: "These cancers most often develop on skin areas typically exposed to the sun, especially the face, ears, neck, scalp, shoulders and back."
             },
             {
@@ -50,7 +50,7 @@ export function getSkinCancerInfo() {
                 text: "Squamous cell carcinoma (SCC) is an uncontrolled growth of abnormal cells arising from the squamous cells in the outmost layer of skin (epidermis).",
               },
               {
-                title: "Sunscreen ingredients",
+                title: "Where is it usually found?",
                 text: "SCCs are common on sun-exposed areas such as the ears, face, scalp, neck and hands, where the skin often reveals signs of sun damage, including wrinkles and age spots."
               },
               {
@@ -80,7 +80,7 @@ export function getSkinCancerInfo() {
                 text: "Melanoma is a cancer that develops from melanocytes, the skin cells that produce melanin pigment, which gives skin its color.",
               },
               {
-                title: "Sunscreen ingredients",
+                title: "Where is it usually found?",
                 text: "Melanomas often resemble moles and sometimes may arise from them. They can be found on any area of the body, even in areas that are not typically exposed to the sun."
               },
               {
@@ -113,7 +113,7 @@ export function getSkinCancerInfo() {
                 text: "Merkel cell carcinoma (MCC) is a rare, aggressive skin cancer.",
               },
               {
-                title: "Sunscreen ingredients",
+                title: "Where is it usually found?",
                 text: "These tumors usually appear as firm, painless lesions or nodules on a sun-exposed area (about half of the time on the head and neck, and frequently on the eyelids)."
               },
               {

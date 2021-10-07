@@ -38,6 +38,9 @@ const NavigationBar = () => {
               <LinkContainer to="/prevention/goingOut">
                 <NavDropdown.Item>Going Out</NavDropdown.Item>
               </LinkContainer>
+              <LinkContainer to="/prevention/selfExam">
+                <NavDropdown.Item>Self Exam</NavDropdown.Item>
+              </LinkContainer>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

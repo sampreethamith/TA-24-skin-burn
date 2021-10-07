@@ -1,0 +1,43 @@
+@import "../../App.css";
+
+.self-element {
+  display: flex;
+  flex-direction: column;
+}
+
+.self-element-image-size {
+  width: 4rem;
+  height: 4.5rem;
+}
+
+.self-element-margin {
+  margin: 1rem 0;
+}
+
+/* Grid */
+
+.self-exam-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.line {
+  width: auto;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+@media screen and (min-width: 768px) {
+  .self-element {
+    max-width: 18rem;
+    max-height: 20rem;
+  }
+  .self-exam-flex {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .line {
+    visibility: hidden;
+  }
+}

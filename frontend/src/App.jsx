@@ -40,6 +40,7 @@ import QueAnsTemplate from "./components/Quiz/QuizComponents/QueAnsTemplate";
 import UVIndexInformation from "./components/Information/UVIndexInformation";
 import SunScreenInformation from "./components/Information/SunScreenInformation";
 import SkinCancerInformation from "./components/Information/SkinCancerInformation";
+import SelfExam from "./components/SelfExam/SelfExam";
 
 AOS.init({
   // Global settings:
@@ -144,6 +145,7 @@ function App() {
               component={PreventionCheckList}
             />
             <Route path="/prevention/map" component={MapPage} />
+            <Route path="/prevention/selfExam" component={SelfExam} />
             <Route
               path="/skincancer/skincancer-symptom"
               component={SkinCancerSympotms}
@@ -162,7 +164,7 @@ function App() {
               component={SunScreenInformation}
             />
             <Route path="/information/quiz" component={QuizPage} />
-            <Route path="/test" component={UVIndexInformation} />
+            <Route path="/test" component={SelfExam} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />

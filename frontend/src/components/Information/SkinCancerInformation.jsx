@@ -3,7 +3,7 @@ import Accordion from "react-bootstrap/Accordion";
 import { getSkinCancerInfo } from "../../services/InformationPages/getSkinCancerInfo";
 import "./css/SunScreenInformation.css";
 import sunscreen_image from "../Prevention/Images/skincancer_title.gif";
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import bcc_1 from "./images/bcc_1.png";
 import bcc_2 from "./images/bcc_2.png";
@@ -22,8 +22,10 @@ import mcc_1 from "./images/mcc_1.jpg";
 import mcc_2 from "./images/mcc_2.jpg";
 import mcc_3 from "./images/mcc_3.jpg";
 import BreadCrumbComponent from "../Common/BreadCrumbComponent";
+import { useHistory } from "react-router-dom";
 
 const SkinCancerInformation = () => {
+  const history = useHistory();
   const SkinCancerData = getSkinCancerInfo();
   const bcc_images = [bcc_1, bcc_2, bcc_3, bcc_4];
   const scc_images = [scc_1, scc_2, scc_3];
@@ -88,7 +90,15 @@ const SkinCancerInformation = () => {
                 <p>{paraText}</p>
               ))}
             </div>
-            <img src={sunscreen_image} />
+            <div>
+              <img src={sunscreen_image} />
+              <Button
+                variant="outline-warning information-introduction-content-bottom-margin"
+                onClick={() => history.push("/prevention/selfExam")}
+              >
+                Take a Self Check
+              </Button>
+            </div>
           </div>
           <Accordion defaultActiveKey="0" flush>
             {SkinCancerData.tiles.map((item, index) => (

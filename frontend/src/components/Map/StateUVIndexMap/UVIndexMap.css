@@ -153,3 +153,10 @@
   /* background-color: var(--primary-light); */
   text-transform: uppercase;
 }
+
+/* Button Placement in map */
+.mapbox-float-button-going-out {
+  position: fixed !important;
+  top: 12% !important;
+  right: 1.5% !important;
+}

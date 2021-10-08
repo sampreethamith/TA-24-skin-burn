@@ -6,7 +6,7 @@ import ReactMapGL, {
   Marker,
   Popup,
 } from "react-map-gl";
-import { Container, Spinner } from "react-bootstrap";
+import { Container, Spinner, Button } from "react-bootstrap";
 import { dataLayer } from "./map-style.js";
 import { easeCubic } from "d3-ease";
 import MapLegend from "./MapLegend";
@@ -20,10 +20,12 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
+import { useHistory } from "react-router-dom";
 
 const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
 const UVIndexMap = () => {
+  const history = useHistory();
   const [data, setData] = useState(null);
   const [state, setState] = useState(null);
   const [suburb, setSuburb] = useState(null);
@@ -296,6 +298,13 @@ const UVIndexMap = () => {
         >
           <FloatIcon />
         </Fab>
+        <Button
+          variant="outline-warning"
+          className="mapbox-float-button-going-out"
+          onClick={() => history.push("/prevention/goingOut")}
+        >
+          Going out?
+        </Button>
         <Popover
           id={id}
           open={open}

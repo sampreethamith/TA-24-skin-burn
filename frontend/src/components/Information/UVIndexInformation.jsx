@@ -66,7 +66,10 @@ const UVIndexInformation = () => {
             ))}
           </div>
         </div>
-        <div className="uv-information-card content-margin" data-aos="zoom-in-up">
+        <div
+          className="uv-information-card content-margin"
+          data-aos="zoom-in-up"
+        >
           <CardWithBorderPrimary
             data={data[0]}
             typeSelected={typeOfUVSelected}
@@ -166,7 +169,7 @@ const UVIndexInformation = () => {
                       and the length of time your skin has been exposed without
                       protection. Location is also a factor. If you live where
                       the sun is strong year-round, your exposure level and risk
-                      increases.
+                      increase.
                     </p>
                   </li>
                   <li>

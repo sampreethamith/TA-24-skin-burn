@@ -20,8 +20,8 @@ const ImageInfoCard = () => {
           <h3 className="secondary-text">Skin Cancer</h3>
           <p>
             The two main causes of skin cancer are the sun’s harmful ultraviolet
-            (UV) rays and the use of UV tanning beds.Four type of skin cancers
-            directly caused by UV radiation with skin:
+            (UV) rays and the use of UV tanning beds. Four types of skin cancers
+            are directly caused by UV radiation with skin.
           </p>
           <ul>
             <li>Basal cell carcinoma (BCC)</li>

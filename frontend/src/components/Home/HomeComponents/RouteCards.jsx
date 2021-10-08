@@ -16,14 +16,14 @@ const RouteCards = () => {
     },
     {
       title: "Find high UV areas",
-      information: "Search for citties or states with current UV index",
+      information: "Search for cities or states with current UV index",
       image: aus_icon,
       altName: "Australia Map",
       route: "/prevention/map",
     },
     {
       title: "Going Out Checklist",
-      information: "Make sure you take enough precaution before going out",
+      information: "Make sure you take enough precautions before going out",
       image: checklist_icon,
       altName: "Check list",
       route: "/prevention/goingOut",

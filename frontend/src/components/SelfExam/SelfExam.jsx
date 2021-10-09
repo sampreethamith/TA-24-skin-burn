@@ -127,7 +127,7 @@ const SelfExam = () => {
           <div className="self-exam-flex">
             {data.map((item, index) => {
               return (
-                <div>
+                <div data-aos="fade-left">
                   <SelfExamElement
                     image={item.image}
                     title={item.title}

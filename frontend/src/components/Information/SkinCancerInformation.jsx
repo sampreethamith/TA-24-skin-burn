@@ -23,6 +23,7 @@ import mcc_2 from "./images/mcc_2.jpg";
 import mcc_3 from "./images/mcc_3.jpg";
 import BreadCrumbComponent from "../Common/BreadCrumbComponent";
 import { useHistory } from "react-router-dom";
+import scroll_down_gif from "../../images/scroll_down.gif";
 
 const SkinCancerInformation = () => {
   const history = useHistory();
@@ -100,6 +101,12 @@ const SkinCancerInformation = () => {
               </Button>
             </div>
           </div>
+          <div className="information-sub-title">
+            <p className="primary-text">
+              Learn more about Skin Cancer by following the below information on
+              skin cancer types:
+            </p>
+          </div>
           <Accordion defaultActiveKey="0" flush>
             {SkinCancerData.tiles.map((item, index) => (
               <Accordion.Item eventKey={index}>
@@ -161,6 +168,11 @@ const SkinCancerInformation = () => {
             ))}
           </Accordion>
         </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </Container>
     </>
   );

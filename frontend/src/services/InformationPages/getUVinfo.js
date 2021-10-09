@@ -3,7 +3,7 @@ export function getUVInfo() {
     pageTitle: "UV Radiation & Your Skin",
     pageQuote: "The Facts. The Risks. How They Affect You.",
     introductionText:
-      "Understanding the basics about UV radiation and how it damages your skin is an important first step in learning how to safeguard yourself against skin cancer.",
+      "Understanding the basics about UV (ultraviolet) radiation and how it damages your skin is an important first step in learning how to safeguard yourself against skin cancer.",
     paraTexts: [
       "The good news is that the danger posed by UV radiation can be greatly reduced by you!",
       "Yes, you can still enjoy outdoor activities while limiting your sun exposure risk by taking simple, smart protective measures.",

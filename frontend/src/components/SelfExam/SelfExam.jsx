@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./SelfExam.css";
 import SelfExamElement from "./SelfExamElement";
 import step1 from "./images/step1.png";
@@ -71,6 +71,10 @@ const SelfExam = () => {
     },
   ];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className="block">
       <Container className="information-page white-text">
@@ -81,12 +85,10 @@ const SelfExam = () => {
             Early Detection Starts With You
           </p>
           <p className="information-page-introduction">
-            When caught and treated early, skin cancers are highly curable. And
-            in the early stages of skin cancer development, you’re the one with
-            the best chance to see changes. That’s why we recommend that you
-            examine your skin head-to-toe every month. It’s a simple but
-            powerful way to look at yourself with a new focus that can save your
-            life.
+            When caught and treated early, skin cancers are highly curable.
+            That's why we recommend that you examine your skin head-to-toe every
+            month. It's a simple but powerful way to look at yourself with a new
+            focus that can save your life.
           </p>
           <div className="information-introduction-content">
             <div>

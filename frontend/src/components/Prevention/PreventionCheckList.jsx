@@ -116,7 +116,7 @@ const PreventionCheckList = () => {
               scrollDown();
             }}
           >
-            Next
+            Choose Location
           </Button>
         )}
         {handSelectedNext && (
@@ -130,7 +130,7 @@ const PreventionCheckList = () => {
                 scrollDown();
               }}
             >
-              Next
+              Show Checklist 1
             </Button>
           </div>
         )}
@@ -170,7 +170,7 @@ const PreventionCheckList = () => {
                 scrollDown();
               }}
             >
-              Next
+              Show Checklist 2
             </Button>
           </div>
         )}
@@ -185,7 +185,7 @@ const PreventionCheckList = () => {
                 scrollDown();
               }}
             >
-              Next
+              Show Checklist 3
             </Button>
           </div>
         )}

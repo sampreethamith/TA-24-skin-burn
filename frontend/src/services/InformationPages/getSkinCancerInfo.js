@@ -7,7 +7,7 @@ export function getSkinCancerInfo() {
     paraTexts: [
       "The two main causes of skin cancer are the sun’s harmful ultraviolet (UV) rays and the use of UV tanning beds.",
       "The good news is that if skin cancer is caught early, your dermatologist can treat it with little or no scarring and high odds of eliminating it entirely. Often, the doctor may even detect the growth at a precancerous stage, before it has become a full-blown skin cancer or penetrated below the surface of the skin.",
-      "Learn more about Skin Cancer by following the below information on skin cancer types:",
+      "",
     ],
     introductionImagePath: "",
     tiles: [

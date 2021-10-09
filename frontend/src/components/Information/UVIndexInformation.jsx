@@ -132,7 +132,7 @@ const UVIndexInformation = () => {
                 variant="warning"
                 onClick={() => history.push("/prevention/map")}
               >
-                Check UV at your Current Location
+                Check UV at your current location
               </Button>
             </div>
           </div>
@@ -183,8 +183,8 @@ const UVIndexInformation = () => {
               </div>
               <div className="horizontal-line"></div>
               <div className="content-information content-margin">
-                <h3 className="primary-text text-center">UV Index Map</h3>
-                <p>Quick check what to do when UV Index is high.</p>
+                <h3 className="primary-text text-center">UV Index Chart</h3>
+                <p>Quick check what to do when UV Index is high:</p>
                 <img
                   src={UVInformation}
                   alt="UV level information"
@@ -197,7 +197,7 @@ const UVIndexInformation = () => {
                 variant="warning"
                 onClick={() => history.push("/prevention/goingOut")}
               >
-                Make a safe checks before you go out.
+                Do a skin safety check before you leave
               </Button>
             </div>
           </div>

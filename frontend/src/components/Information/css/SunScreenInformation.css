@@ -1,6 +1,7 @@
 @import "../../../App.css";
 
 .accordion {
+  margin-top: 1rem !important;
 }
 
 .accordion-item {
@@ -50,7 +51,8 @@
 }
 
 .information-page-introduction {
-  font-size: 18pt;
+  font-size: 15pt;
+  margin-bottom: 1rem !important;
 }
 
 .information-introduction-content {
@@ -72,13 +74,18 @@
 }
 
 .information-introduction-content img {
-  height: 20rem;
+  height: 18rem;
 }
 
 .information-introduction-content div {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0rem;
+}
+
+.custome-img-style {
+  background-color: #ffb800;
+  padding: 2rem;
 }
 
 .information-introduction-content p:first-child {
@@ -87,7 +94,7 @@
 
 .information-introduction-content p:last-child {
   color: var(--primary-color);
-  font-size: 18pt;
+  font-size: 15pt;
   padding-top: 3rem;
 }
 
@@ -170,4 +177,11 @@
 
 .uv-row-content ul li {
   margin-top: 1rem;
+}
+
+.information-sub-title {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  font-size: 15pt;
 }

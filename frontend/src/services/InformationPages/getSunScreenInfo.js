@@ -8,7 +8,7 @@ export function getSunScreenInfo() {
       "When used as directed, sunscreen is proven to:",
       "Decrease your risk of skin cancers and skin precancers. Regular daily use of SPF 15 sunscreen can reduce your risk of developing squamous cell carcinoma (SCC) by about 40 percent, and lower your melanoma risk by 50 percent.",
       "Help prevent premature skin aging caused by the sun, including wrinkles, sagging and age spots.",
-      "Learn more about SunScreen by following the below question-answers:",
+      "Know the 5 W’S (& H) of SunScreen",
     ],
     introductionImagePath: "",
     tiles: [

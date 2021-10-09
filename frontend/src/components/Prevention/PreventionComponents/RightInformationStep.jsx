@@ -19,7 +19,21 @@ const RightInformationStep = ({ spf }) => {
           <div className="vertical-line"></div>
           <div>
             <h4 className="primary-text">
-              {spf !== 0 ? <>Look for, <strong>SPF Level {spf}</strong></> : <>Look for, <strong>Minimum SPF level</strong></>}
+              {spf !== 0 ? (
+                spf <= 88 ? (
+                  <>
+                    Look for, <strong>SPF Level {spf}</strong>
+                  </>
+                ) : (
+                  <>
+                    Look for, <strong>Maximum SPF Level (more than 88)</strong>
+                  </>
+                )
+              ) : (
+                <>
+                  Look for, <strong>Minimum SPF level</strong>
+                </>
+              )}
             </h4>
             <p className="white-text">
               SPF stands for sun protection factor, The number tells you how

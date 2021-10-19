@@ -1,0 +1,72 @@
+@import "../../../App.css";
+
+.custom-card {
+  width: 80%;
+  height: 20%;
+  opacity: 0.9;
+  color: var(--color-black);
+  border-radius: 0.2rem;
+}
+
+.card-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.card-white {
+  background-color: var(--color-white) !important;
+  height: 35%;
+}
+
+@media screen and (min-width: 768px) {
+  .card-white {
+    height: 25%;
+  }
+}
+
+/* Flex Card  */
+.flex-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-card-individual {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+.self-align-start-top {
+  justify-content: flex-start;
+}
+
+.self-align-start {
+  align-self: flex-start;
+}
+
+/* Map */
+.amChart-map {
+  width: 100%;
+  height: 120vh;
+  position: fixed;
+}
+
+.maphistory-title-text {
+  color: white;
+  font-size: 20pt;
+  letter-spacing: 0.1em;
+  position: absolute;
+  top: 12%;
+}
+
+.maphistory-title-text em {
+  font-style: normal;
+  letter-spacing: 0.2em;
+  color: black;
+  font-weight: 700;
+  background-color: var(--primary-dark);
+  text-transform: uppercase;
+}

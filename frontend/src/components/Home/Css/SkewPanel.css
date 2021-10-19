@@ -1,0 +1,51 @@
+.skew-panel-back {
+  background-color: #ffb800;
+  height: 1000px;
+  clip-path: polygon(0 30%, 100% 0%, 100% 70%, 0 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.skew-panel-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 160px;
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.skew-panel-info p {
+  text-align: center;
+}
+
+.skew-panel-info img {
+  height: 60px;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+.skew-vertical-line {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .skew-panel-back {
+    flex-direction: row;
+    height: 450px;
+    justify-content: space-evenly;
+  }
+
+  .skew-panel-info {
+    margin-bottom: 0;
+  }
+
+  .skew-vertical-line {
+    display: inline-block;
+    border-left: 1px solid black;
+    height: 200px;
+  }
+}

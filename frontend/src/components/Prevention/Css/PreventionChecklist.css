@@ -1,0 +1,15 @@
+@import url(../../../App.css);
+
+.top-bottom-margin {
+  margin: 2rem 0;
+}
+
+.step-one-content {
+  font-size: 14pt;
+}
+
+.step-one-pitfall {
+  margin-top: 2rem;
+  font-weight: 600;
+  font-size: 14pt;
+}

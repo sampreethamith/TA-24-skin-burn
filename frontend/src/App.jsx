@@ -11,18 +11,63 @@ import Prevention from "./components/Prevention/Prevention";
 import { getLocation } from "./services/getLocation";
 import SunCalculator from "./components/Prevention/SunCalculator";
 import SkinCancerSympotms from "./components/SkinCancer/SkinCancerSympotms";
-import SkinCancerInformation from "./components/SkinCancer/SkinCancerInformation";
+import SkinCancerInformation1 from "./components/SkinCancer/SkinCancerInformation";
+import UVassist from "./components/UV-Assist/UVassist";
+import MapPage from "./components/Map/MapPage";
 import {
   latlongAvailable,
   latlongNotAvailable,
 } from "./actions/locationAction";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AOS from "aos";
+import QuizPage from "./components/Quiz/QuizPage";
+import ScrollTopButton from "./components/Common/ScrollTopButton";
+import SunBurnInformation from "./components/Information/SunBurnInformation";
+import ModelPopup from "./components/Common/ModelPopup";
+import WelcomeText from "./components/Home/HomeComponents/WelcomeText";
+import CenterScreenSpinner from "./components/Common/CenterScreenSpinner";
+import CardInfo from "./components/Map/MapScroll/CardInfo";
+import UVGauge from "./components/Common/UVGauge";
+import LocationUVPanel from "./components/Prevention/PreventionComponents/LocationUVPanel";
+import MapScroll from "./components/Map/MapScroll/MapScroll";
+
+import RightInformationStep from "./components/Prevention/PreventionComponents/RightInformationStep";
+import LeftInformationStep from "./components/Prevention/PreventionComponents/LeftInformationStep";
+import PreventionCheckList from "./components/Prevention/PreventionCheckList";
+// import MapScroll from "./components/Map/MapScroll/MapScroll";
+import QueAnsTemplate from "./components/Quiz/QuizComponents/QueAnsTemplate";
+import UVIndexInformation from "./components/Information/UVIndexInformation";
+import SunScreenInformation from "./components/Information/SunScreenInformation";
+import SkinCancerInformation from "./components/Information/SkinCancerInformation";
+import SelfExam from "./components/SelfExam/SelfExam";
+
+AOS.init({
+  // Global settings:
+  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+  startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
+  initClassName: "aos-init", // class applied after initialization
+  animatedClassName: "aos-animate", // class applied on animation
+  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+  disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+  debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+  throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+  offset: 120, // offset (in px) from the original trigger point
+  delay: 0, // values from 0 to 3000, with step 50ms
+  duration: 400, // values from 0 to 3000, with step 50ms
+  easing: "ease", // default easing for AOS animations
+  once: false, // whether animation should happen only once - while scrolling down
+  mirror: false, // whether elements should animate out while scrolling past them
+  anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+});
 
 function App() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
-  // const [modalShow, setModalShow] = useState(true);
+  const [locationNotAvailable, setLocationNotAvailable] = useState(false);
 
   useEffect(() => {
     const showPosition = (position) => {
@@ -44,12 +89,14 @@ function App() {
           handleLatLongNotAvailable();
           break;
         default:
-          console.log("No error");
+          // console.log("No error");
           break;
       }
     };
 
     const handleLatLongNotAvailable = () => {
+      setLocationNotAvailable(true);
+      toast.error("Location Not Turned on");
       dispatch(latlongNotAvailable());
     };
 
@@ -68,29 +115,37 @@ function App() {
     }, 1500);
   }, []);
 
-  // useEffect(() => {
-  //   const getLocationUVNameDetails = async (latitude, longitude) => {
-  //     const { data } = await getLocationUVName(latitude, longitude);
-  //     dispatch(locationUVName(data.uvi, data.loc_name));
-  //   };
-  //   getLocationUVNameDetails(latitude, longitude);
-  // }, [latitude, longitude]);
-
   return (
     <React.Fragment>
-      {/* <VerticallyCenteredModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      /> */}
       {loading ? (
         <Loader />
       ) : (
-        <div>
+        <>
           <header>
             <NavigationBar />
           </header>
+          {locationNotAvailable && (
+            <ToastContainer
+              position="top-center"
+              autoClose={10000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
+            />
+          )}
           <Switch>
             <Route path="/home" component={Home} />
+            <Route
+              path="/prevention/goingOut"
+              component={PreventionCheckList}
+            />
+            <Route path="/prevention/map" component={MapPage} />
+            <Route path="/prevention/selfExam" component={SelfExam} />
             <Route
               path="/skincancer/skincancer-symptom"
               component={SkinCancerSympotms}
@@ -101,15 +156,21 @@ function App() {
             />
             <Route path="/skincancer" component={SkinCancer} />
             <Route
-              path="/prevention/skin-burn-calculator"
-              component={SunCalculator}
+              path="/information/ultraviolet"
+              component={UVIndexInformation}
             />
-            <Route path="/prevention" component={Prevention} />
+            <Route
+              path="/information/sunscreen"
+              component={SunScreenInformation}
+            />
+            <Route path="/information/quiz" component={QuizPage} />
+            <Route path="/test" component={SelfExam} />
             <Route path="/not-found" component={NotFound} />
             <Redirect from="/" exact to="/home" />
             <Redirect to="not-found" />
           </Switch>
-        </div>
+          <ScrollTopButton />
+        </>
       )}
     </React.Fragment>
   );

@@ -3,7 +3,8 @@ import { Container } from "react-bootstrap";
 import LeftInformationCard from "../Common/LeftInformationCard";
 import RightInformationCard from "../Common/RightInformationCard";
 import sunscreen_level from "./../../images/sunscreen_level.png";
-import cloths_to_Wear from "./../../images/cloths_to_wear.png";
+import uvAssist from "./../../images/uvAssistImage.jpg";
+import BreadCrumbComponent from "../Common/BreadCrumbComponent";
 
 const Prevention = () => {
   const left_cardData = {
@@ -13,10 +14,23 @@ const Prevention = () => {
     imgP: sunscreen_level,
   };
   const right_cardData = {
-    header: `Types of cloths to wear`,
-    description: `Clothing absorbs or blocks harmful UV radiation and is one of the simplest ways to protect your skin. However, choosing the right clothing for maximum protection is important.`,
-    imgP: cloths_to_Wear,
+    header: `Use Assistance Tool`,
+    description: `Get hourly information on UV index to pre-plan your trip.
+This tool provides you with the UV levels and sun protection times for your location.To avoid maximum UV radiation on any day.It also gives information about sun laps.`,
+    imgP: uvAssist,
   };
+
+  const navigation = [
+    {
+      href: "/home",
+      title: "Home",
+    },
+    {
+      href: "/prevention",
+      title: "Prevention",
+      active: "active",
+    },
+  ];
   // const sunCalcData = {
   //   header: `Going out?`,
   //   QueOne: `Which Sunscreen you should apply?`,
@@ -25,15 +39,16 @@ const Prevention = () => {
   return (
     <Container>
       <div className="block">
+        <BreadCrumbComponent navigation={navigation} />
         <LeftInformationCard
           data={left_cardData}
-          learnmoreroute="/prevention/skin-burn-calculator"
+          learnmoreroute="/prevention/goingOut"
         />
       </div>
       <div className="block">
         <RightInformationCard
           data={right_cardData}
-          learnmoreroute="/prevention/skin-burn-calculator"
+          learnmoreroute="/uv-assist"
         />
       </div>
     </Container>

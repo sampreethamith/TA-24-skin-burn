@@ -1,0 +1,24 @@
+@import "../../../App.css";
+
+.welcome-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.welcome-text-letter-space {
+  letter-spacing: 1.5em;
+}
+
+.welcome-text-letter-space em {
+  color: var(--primary-color);
+  font-style: normal;
+}
+
+.welcome-text-first-line {
+    letter-spacing: 2pt;
+    font-size: 20pt;
+    display: inline;
+}

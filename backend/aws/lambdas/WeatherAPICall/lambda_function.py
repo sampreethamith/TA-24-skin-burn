@@ -1,54 +1,37 @@
-import os
-import sys
-import json
-import requests
-import time
-# import pandas as pd
-from datetime import datetime, date, timedelta, timezone
+import pyowm
 
+# sam key: af0cfc6611defe4fe50200aec8c78d50
+openweather_appid_sam = 'af0cfc6611defe4fe50200aec8c78d50'
+openweather_appid_vivek = 'af0cfc6611defe4fe50200aec8c78d50'
+CURRENT_DATA = 'current'
+MINUTE_DATA = 'minutely'
+HOUR_DATA = 'hourly'
+DAILY_DATA = 'daily'
+ALERT_DATA = 'alerts'
+UNIT = 'metric'
 
-openweather_appid = '947c6e809cdbe01fcf3f6d54451666b3'
-openweather_uv_url = 'https://api.openweathermap.org/data/2.5/onecall'
-openweather_loc_url = 'http://api.openweathermap.org/geo/1.0/reverse'
-openweather_unit = 'metric'
+def get_owm():
+    return pyowm.OWM(openweather_appid_vivek)
 
+def get_city_by_loc(lat, lon):
+    data = get_owm().geocoding_manager().reverse_geocode(lat, lon, limit=1)
+    if len(data) > 0:
+        return data[0].name
+    return ''
 
-def build_uv_call(lati, longi, timestamp=None, excludes=None):
-    if timestamp is None:
-        timestamp = round(time.time())
-    if excludes is None:
-        excludes = 'daily,hourly,minutely'
-    return {
-        'lat': lati,
-        'lon': longi,
-        'units': openweather_unit,
-        'exclude': excludes,
-        'dt': timestamp,
-        'appid': openweather_appid
-    }
+def get_uvi_by_loc(lat, lon):
+    data = one_call(lat, lon, {CURRENT_DATA}).current
+    if data != None:
+        return data.uvi
+    else:
+        return -1
 
-
-def build_location_call(lati, longi):
-    return {
-        'lat': lati,
-        'lon': longi,
-        'appid': openweather_appid
-    }
-
-
-def get_weather_params(response_obj):
-    # make a weather call
-    uv_result = requests.get(url=openweather_uv_url, params=build_uv_call(
-        '-37.8934029959345', '145.04192503470648')).json()
-    loc_result = requests.get(url=openweather_loc_url, params=build_location_call(
-        '-37.8934029959345', '145.04192503470648')).json()
-    del uv_result['minutely']
-    del uv_result['hourly']
-    del uv_result['daily']
-    response_obj['body'] = {
-        'uvi': uv_result['current']['uvi'],
-        'loc_name': loc_result[0]['name']
-    }
+def one_call(lat, lon, includes: set):
+    owm = pyowm.OWM(openweather_appid_vivek)
+    mgr = owm.weather_manager()
+    excludes = {CURRENT_DATA, MINUTE_DATA, HOUR_DATA, DAILY_DATA, ALERT_DATA} - includes
+    one_call = mgr.one_call(lat, lon, exclude=','.join(excludes), units=UNIT)
+    return one_call
 
 
 def set_error_msg(response_obj, message):
@@ -62,26 +45,12 @@ def set_error_msg(response_obj, message):
 
 
 def lambda_handler(event, context):
-    response_obj = {
-        'isBase64Encoded': True,
-        'statusCode': 200,
-        'headers': {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Headers': 'Content-Type',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
-        },
-        'body': {}
-    }
-
-    if "queryStringParameters" in event and "lat" in event["queryStringParameters"] and "lon" in event["queryStringParameters"]:
-        response_obj = get_weather_params(response_obj)
+    print(event)
+    if 'loc' in event:
+        return {'name': get_city_by_loc(event['loc']['lat'], event['loc']['lon'])}
+    elif 'lat' in event and 'lon' in event:
+        return {'uvi': get_uvi_by_loc(event['lat'], event['lon'])}
     else:
-        response_obj = set_error_msg(
-            response_obj, "query parameters are invalid.")
-    response_obj['body'] = json.dumps(response_obj['body'])
-    print(response_obj)
-    return response_obj
+        return {}
 
-
-lambda_handler(None, None)
+# print(get_uvi_by_loc(-37.866669, 144.666672))

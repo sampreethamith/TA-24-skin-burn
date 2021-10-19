@@ -11,7 +11,8 @@ lambda_client = boto3.client('lambda')
 s3_bucket_name = 'skinburn-data-bucket'
 invoke_lambda_fn_name = "arn:aws:lambda:us-east-2:102281328318:function:WeatherAPICall"
 response_obj = {}
-req_backlog_hours = 1
+req_backlog_hours = 0
+req_backlog_mins = 15
 
 
 def set_error_msg(response_obj, message):
@@ -63,9 +64,11 @@ def retrive_weather_data(file_name, val_list):
     # updatedtime <= request - 1hr  -> call
     request_time = datetime.today()
     global req_backlog_hours
+    global req_backlog_mins
     backlog_timestamp = (
-        request_time - timedelta(hours=req_backlog_hours, minutes=0)).timestamp()
+        request_time - timedelta(hours=req_backlog_hours, minutes=req_backlog_mins)).timestamp()
     for item in filter_items:
+        print(f"updatedtime: {item['properties']['updatedtime']} <= backlog_timestamp: {backlog_timestamp}")
         if item['properties']['updatedtime'] <= backlog_timestamp:
             print('weather call has been made')
             response_from_child = invoke_lambda(
@@ -85,7 +88,7 @@ def get_geo_weather_data(q, v, response_obj):
     v = v.lower()
     val_list = v.split(",") if "," in v else [v]
     if 'all' in val_list and len(val_list) > 1:
-        return set_error_msg(response_obj, "only one values accepted for query parameter's value if it is set as 'all' flag")
+        return set_error_msg(response_obj, "only one values accepted for query parameter's value if it has 'all' flag")
     if q == 'state':
         response_obj['body'] = retrive_weather_data(
             'state_with_geo.json', val_list)
@@ -97,11 +100,14 @@ def get_geo_weather_data(q, v, response_obj):
             'city_with_geo.json', val_list)
         return response_obj
     elif q == 'loc':
+        if len(val_list) != 2:
+            return set_error_msg(response_obj, "query parameter's value(s) are invalid.")
         city_data = invoke_lambda({
-            'loc': {'lat': val_list[0], 'lon': val_list[1]}
+            'loc': {'lat': float(val_list[0]), 'lon': float(val_list[1])}
         })
         response_obj['body'] = retrive_weather_data(
-            'city_with_geo.json', [city_data['name']])
+            'city_with_geo.json', [city_data['name'].lower()])
+        return response_obj
     else:
         return set_error_msg(response_obj, "query parameter's value(s) are invalid.")
 
@@ -118,13 +124,14 @@ def lambda_handler(event, context):
         },
         'body': {}
     }
-    print(event)
+    # print(event)
     if "queryStringParameters" in event and "q" in event["queryStringParameters"] and "v" in event["queryStringParameters"]:
         response_obj = get_geo_weather_data(
             event["queryStringParameters"]['q'], event["queryStringParameters"]['v'], response_obj)
     else:
         response_obj = set_error_msg(
             response_obj, "query parameters are invalid.")
+    # print(response_obj)
     response_obj['body'] = json.dumps(
         response_obj['body']) if response_obj['body'] is not None else ""
     # print(response_obj)
